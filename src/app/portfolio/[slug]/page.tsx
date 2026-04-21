@@ -113,6 +113,49 @@ export default async function ProjectPage({
         </section>
       )}
 
+      {/* ============ GALERIE ============ */}
+      {project.gallery && project.gallery.length > 0 && (
+        <section className="bg-paper py-24 md:py-32">
+          <div className="mx-auto max-w-[1200px] px-6 md:px-10">
+            <div className="max-w-3xl mb-12 md:mb-16">
+              <Eyebrow>Aperçus du site</Eyebrow>
+              <h2 className="mt-4 font-display text-4xl md:text-5xl leading-[1.05] tracking-tight text-ink">
+                Vu en un{" "}
+                <em className="italic font-normal text-coral">coup d'œil.</em>
+              </h2>
+            </div>
+            <ul className="grid gap-8 md:gap-10">
+              {project.gallery.map((shot, i) => (
+                <li
+                  key={shot.src}
+                  className="group overflow-hidden rounded-3xl border border-line bg-ocean-deep"
+                >
+                  <div className="relative aspect-[16/10] overflow-hidden">
+                    <img
+                      src={shot.src}
+                      alt={shot.alt}
+                      loading="lazy"
+                      className="absolute inset-0 h-full w-full object-cover object-top transition-transform duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.03]"
+                    />
+                  </div>
+                  {shot.caption && (
+                    <div className="bg-ocean-deep text-paper px-6 py-4 md:px-8 md:py-5 flex items-baseline gap-3">
+                      <span className="font-mono text-[11px] uppercase tracking-[0.22em] text-sand-warm">
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                      <span className="text-paper/30">·</span>
+                      <span className="text-paper/85 text-sm md:text-base">
+                        {shot.caption}
+                      </span>
+                    </div>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      )}
+
       {/* ============ PROBLÈME + SOLUTION ============ */}
       <section className="bg-paper py-24 md:py-32">
         <div className="mx-auto max-w-[1200px] px-6 md:px-10 space-y-20 md:space-y-28">

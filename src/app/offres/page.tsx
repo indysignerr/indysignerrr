@@ -233,7 +233,7 @@ export default function OffresPage() {
         </div>
       </section>
 
-      <SectionFade from="sand-light" to="ocean-deep" height="lg" />
+      <SectionFade from="sand-light" to="ocean-deep" height="xl" />
 
       {/* ============ COMPARATIF ============ */}
       <section id="comparatif" className="relative bg-ocean-deep text-paper py-40 md:py-56 overflow-hidden">
@@ -290,7 +290,7 @@ export default function OffresPage() {
         </div>
       </section>
 
-      <SectionFade from="ocean-deep" to="paper" height="lg" />
+      <SectionFade from="ocean-deep" to="paper" height="xl" />
 
       {/* ============ FAQ (6 qui tuent) ============ */}
       <section id="faq" className="bg-paper py-40 md:py-56">

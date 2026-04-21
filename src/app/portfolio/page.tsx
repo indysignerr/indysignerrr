@@ -45,11 +45,11 @@ export default function PortfolioPage() {
         </div>
       </section>
 
-      <SectionFade from="paper" to="ocean-deep" height="lg" />
+      <SectionFade from="paper" to="ocean-deep" height="xl" />
 
       <ZoomShowcase />
 
-      <SectionFade from="ocean-deep" to="sand-light" height="lg" />
+      <SectionFade from="ocean-deep" to="sand-light" height="xl" />
 
       <section className="bg-sand-light py-24 md:py-32">
         <div className="mx-auto max-w-[1200px] px-6 md:px-10 space-y-24 md:space-y-32">

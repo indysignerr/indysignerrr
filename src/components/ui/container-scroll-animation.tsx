@@ -92,9 +92,20 @@ function ShowcaseCard({
         boxShadow:
           "0 0 #0000004d, 0 12px 24px rgba(10,31,58,0.3), 0 42px 48px rgba(10,31,58,0.28), 0 96px 60px rgba(10,31,58,0.15), 0 149px 60px rgba(10,31,58,0.06)",
       }}
-      className="max-w-5xl -mt-8 mx-auto h-[28rem] md:h-[40rem] w-full border border-ocean-deep/10 p-2 md:p-5 bg-ocean-deep rounded-[28px]"
+      className="relative max-w-5xl -mt-8 mx-auto h-[28rem] md:h-[40rem] w-full p-2 md:p-5 rounded-[28px]"
     >
-      <div className="h-full w-full overflow-hidden rounded-2xl bg-ink">
+      {/* Space Gray frame */}
+      <div
+        aria-hidden
+        className="absolute inset-0 rounded-[28px]"
+        style={{
+          background:
+            "linear-gradient(145deg, #3a3a3d 0%, #2a2a2d 45%, #1f1f22 100%)",
+          boxShadow:
+            "inset 0 1px 0 rgba(255,255,255,0.08), inset 0 -1px 0 rgba(0,0,0,0.35)",
+        }}
+      />
+      <div className="relative h-full w-full overflow-hidden rounded-2xl bg-[#0f0f10] ring-1 ring-white/5">
         {children}
       </div>
     </motion.div>

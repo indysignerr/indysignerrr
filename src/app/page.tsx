@@ -11,13 +11,13 @@ export default function Home() {
     <>
       <Hero />
       <Showcase />
-      <SectionFade from="paper" to="ocean-deep" height="lg" />
+      <SectionFade from="paper" to="ocean-deep" height="xl" />
       <Manifesto />
-      <SectionFade from="ocean-deep" to="sand-light" height="lg" />
+      <SectionFade from="ocean-deep" to="sand-light" height="xl" />
       <PortfolioGrid limit={3} />
-      <SectionFade from="sand-light" to="sky-mist" />
+      <SectionFade from="sand-light" to="sky-mist" height="md" />
       <Testimonials />
-      <SectionFade from="sky-mist" to="paper" />
+      <SectionFade from="sky-mist" to="paper" height="md" />
       <FinalCTA />
     </>
   );

@@ -13,6 +13,7 @@ export interface Project {
   solution: string;
   results: string[];
   testimonial: { quote: string; author?: string };
+  gallery?: { src: string; alt: string; caption?: string }[];
 }
 
 export const projects: Project[] = [
@@ -41,6 +42,28 @@ export const projects: Project[] = [
         "Le site ressemble exactement à ce qu'on est. Les gens arrivent au salon et nous disent que le site leur avait déjà donné envie de venir. Indy a capté notre univers dès le premier échange.",
       author: "Gaoson, fondateur",
     },
+    gallery: [
+      {
+        src: "/projects/gaosons/gaoson1.png",
+        alt: "Hero — L'art de la coupe. L'univers du style.",
+        caption: "Hero · Barbershop & sneakers, Biot",
+      },
+      {
+        src: "/projects/gaosons/gaoson2.png",
+        alt: "Prestations — Coupe 20€ / Coupe & Barbe 25€",
+        caption: "Prestations · Tarifs épurés, CTA Booksy",
+      },
+      {
+        src: "/projects/gaosons/gaoson3.png",
+        alt: "Pas que la coupe — Univers sneakers",
+        caption: "Univers · Dépôt-vente sneakers sélectionnées",
+      },
+      {
+        src: "/projects/gaosons/gaoson4.png",
+        alt: "Un salon pensé pour toi — Intérieur du salon",
+        caption: "L'espace · Fauteuils premium, ambiance maîtrisée",
+      },
+    ],
   },
   {
     slug: "krnl-studio",
@@ -86,6 +109,28 @@ export const projects: Project[] = [
         "La landing page explique tout en 30 secondes et les gens téléchargent.",
       author: "CEO WakeApp",
     },
+    gallery: [
+      {
+        src: "/projects/wakeapp/wakeapp1.png",
+        alt: "WakeApp — Une seule application. Contrôlez tout.",
+        caption: "Hero · iPhone mockup avec Control Center",
+      },
+      {
+        src: "/projects/wakeapp/wakeapp2.png",
+        alt: "WakeApp — Chaque module. Un seul système.",
+        caption: "Modules · To-Do, Calendrier, Notes",
+      },
+      {
+        src: "/projects/wakeapp/wakeapp3.png",
+        alt: "WakeApp — Conçu pour la vraie vie. CEO Mode.",
+        caption: "CEO Mode · Focus délibéré et friction intégrée",
+      },
+      {
+        src: "/projects/wakeapp/wakeapp4.png",
+        alt: "WakeApp — Commencez à prendre le contrôle.",
+        caption: "Conversion · Double CTA App Store + waitlist",
+      },
+    ],
   },
   {
     slug: "cote-et-saveurs",
