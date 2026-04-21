@@ -4,7 +4,6 @@ import "./globals.css";
 import { LenisProvider } from "@/components/providers/lenis-provider";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
-import { MobileGradientNav } from "@/components/layout/mobile-gradient-nav";
 import { GlassFilter } from "@/components/ui/liquid-glass";
 
 const geistSans = Geist({
@@ -84,7 +83,6 @@ export default function RootLayout({
             {children}
           </main>
           <SiteFooter />
-          <MobileGradientNav />
         </LenisProvider>
       </body>
     </html>

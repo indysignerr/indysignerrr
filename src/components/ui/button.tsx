@@ -4,14 +4,14 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full text-sm font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ocean-blue focus-visible:ring-offset-2 focus-visible:ring-offset-paper disabled:pointer-events-none disabled:opacity-50 group",
+  "relative inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full text-sm font-medium transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ocean-blue focus-visible:ring-offset-2 focus-visible:ring-offset-paper disabled:pointer-events-none disabled:opacity-50 group [&_svg]:transition-transform [&_svg]:duration-300 hover:[&_svg]:translate-x-0.5 overflow-hidden",
   {
     variants: {
       variant: {
         primary:
-          "bg-ocean-deep text-paper hover:bg-ocean-blue shadow-[0_8px_24px_-8px_rgba(10,31,58,0.4)] hover:shadow-[0_12px_32px_-8px_rgba(10,31,58,0.55)]",
+          "bg-ocean-deep text-paper hover:bg-ocean-blue shadow-[0_8px_24px_-8px_rgba(10,31,58,0.4)] hover:shadow-[0_16px_40px_-10px_rgba(10,31,58,0.55)] hover:-translate-y-0.5",
         secondary:
-          "bg-sand-warm text-ocean-deep hover:bg-sand-light border border-line",
+          "bg-sand-warm text-ocean-deep hover:bg-sand-light border border-line hover:-translate-y-0.5",
         ghost:
           "bg-transparent text-ocean-deep hover:bg-sky-mist",
         outline:

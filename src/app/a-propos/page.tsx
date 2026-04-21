@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { FinalCTA } from "@/components/home/cta";
-import { values, valuesPullQuote, stats, brand } from "@/lib/content";
+import { values, valuesPullQuote, stats } from "@/lib/content";
 import { Button } from "@/components/ui/button";
 
 export const metadata: Metadata = {
@@ -86,14 +86,24 @@ export default function AProposPage() {
                 <p>
                   Tu parles directement à la personne qui conçoit ton site, qui
                   code tes pages et qui met tout en ligne. Un seul
-                  interlocuteur, un seul standard de qualité, une responsabilité
-                  directe de A à Z.
+                  interlocuteur, un seul standard de qualité, une
+                  responsabilité directe de A à Z.
                 </p>
                 <p>
                   Je livre en 7 jours ce que d'autres facturent sur 3 mois. Pas
-                  parce que je fais moins bien, mais parce que je travaille avec
-                  les bons outils et que je n'ai pas de couches d'intermédiaires
-                  à payer.
+                  parce que je fais moins bien, mais parce que je travaille
+                  avec les bons outils et que je n'ai pas de couches
+                  d'intermédiaires à payer.
+                </p>
+                <p>
+                  Après des discussions avec des commerçants, des artisans et
+                  des chefs d'entreprise, j'ai tiré une conclusion simple :{" "}
+                  <em className="not-italic font-medium text-ink">
+                    une offre à 329€ sans abonnement qui traîne, c'est le
+                    compromis parfait.
+                  </em>{" "}
+                  Le prix est juste, le site est à toi, et personne ne te tient
+                  en otage.
                 </p>
               </div>
 
@@ -172,40 +182,6 @@ export default function AProposPage() {
               </div>
             ))}
           </dl>
-        </div>
-      </section>
-
-      {/* ============ CONTACT DIRECT ============ */}
-      <section className="bg-sand-light py-24 md:py-32">
-        <div className="mx-auto max-w-[1200px] px-6 md:px-10">
-          <div className="grid gap-10 md:grid-cols-12 md:gap-16 md:items-center">
-            <div className="md:col-span-7">
-              <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted">
-                Contact direct
-              </p>
-              <h2 className="mt-4 font-display text-3xl md:text-5xl leading-[1.05] tracking-tight text-ink">
-                Un numéro. Une adresse.{" "}
-                <em className="italic font-normal text-ocean-blue">Pas de répondeur.</em>
-              </h2>
-            </div>
-            <div className="md:col-span-5 space-y-5 text-lg">
-              <a
-                href={`tel:${brand.phone.replace(/\s/g, "")}`}
-                className="block font-display text-2xl md:text-3xl text-ink transition-colors hover:text-ocean-blue"
-              >
-                {brand.phone}
-              </a>
-              <a
-                href={`mailto:${brand.email}`}
-                className="block font-display text-2xl md:text-3xl text-ink transition-colors hover:text-ocean-blue"
-              >
-                {brand.email}
-              </a>
-              <p className="text-sm text-ink-soft">
-                Réponse sous 24h en semaine. Devis gratuit, sans engagement.
-              </p>
-            </div>
-          </div>
         </div>
       </section>
 

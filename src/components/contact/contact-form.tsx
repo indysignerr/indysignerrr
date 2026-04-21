@@ -51,8 +51,7 @@ export function ContactForm() {
       <div className="rounded-2xl border border-ocean-blue/20 bg-sky-mist p-8">
         <p className="font-display text-2xl text-ink">Message reçu.</p>
         <p className="mt-3 text-ink-soft">
-          Je réponds sous 24h en semaine. On va pouvoir cadrer ton projet
-          ensemble et te livrer une maquette rapidement.
+          Réponse sous 24h. Maquette gratuite dans les 48h. Zéro engagement.
         </p>
         <Button
           onClick={() => setStatus("idle")}

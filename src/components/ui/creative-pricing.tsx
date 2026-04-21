@@ -3,17 +3,21 @@ import { Button } from "@/components/ui/button";
 import { Check } from "lucide-react";
 import { cn } from "@/lib/utils";
 
+export type FeatureGroup = { heading: string; items: string[] };
+
 export interface PricingTier {
   name: string;
   icon: ReactNode;
   price: number | string;
   priceSuffix?: string;
   description: string;
-  features: string[];
+  features?: string[];
+  featureGroups?: FeatureGroup[];
   popular?: boolean;
   color: "sand" | "ocean" | "sky";
   ctaLabel?: string;
   ctaHref?: string;
+  popularLabel?: string;
 }
 
 interface CreativePricingProps {
@@ -44,10 +48,16 @@ export function CreativePricing({
         <div className="relative">
           <h2 className="font-display italic text-4xl md:text-6xl font-normal text-ink rotate-[-1deg] leading-[1.02]">
             {title}
-            <span className="absolute -right-10 top-0 text-sand-warm rotate-12" aria-hidden>
+            <span
+              className="absolute -right-10 top-0 text-sand-warm rotate-12"
+              aria-hidden
+            >
               ✨
             </span>
-            <span className="absolute -left-6 -bottom-2 text-ocean-blue -rotate-12" aria-hidden>
+            <span
+              className="absolute -left-6 -bottom-2 text-ocean-blue -rotate-12"
+              aria-hidden
+            >
               ⭐️
             </span>
           </h2>
@@ -84,10 +94,8 @@ export function CreativePricing({
 
             <div className="relative p-8 md:p-10">
               {tier.popular && (
-                <div
-                  className="absolute -top-3 -right-3 bg-sand-warm text-ocean-deep font-display italic px-4 py-1.5 rounded-full rotate-12 text-sm border-2 border-ocean-deep"
-                >
-                  Le plus vendu
+                <div className="absolute -top-3 -right-3 bg-sand-warm text-ocean-deep font-display italic px-4 py-1.5 rounded-full rotate-12 text-sm border-2 border-ocean-deep">
+                  {tier.popularLabel ?? "Le plus vendu"}
                 </div>
               )}
 
@@ -109,7 +117,7 @@ export function CreativePricing({
                 </p>
               </div>
 
-              <div className="mb-6 font-display">
+              <div className="mb-8 font-display">
                 <span className="text-5xl font-semibold text-ink tracking-tight">
                   {typeof tier.price === "number" ? `${tier.price}€` : tier.price}
                 </span>
@@ -120,18 +128,44 @@ export function CreativePricing({
                 )}
               </div>
 
-              <ul className="space-y-3 mb-8">
-                {tier.features.map((feature) => (
-                  <li key={feature} className="flex items-center gap-3">
-                    <span className="flex h-5 w-5 items-center justify-center rounded-full border-2 border-ocean-deep bg-paper">
-                      <Check className="h-3 w-3 text-ocean-deep" aria-hidden />
-                    </span>
-                    <span className="font-display italic text-lg text-ink">
-                      {feature}
-                    </span>
-                  </li>
-                ))}
-              </ul>
+              {tier.featureGroups ? (
+                <div className="mb-8 space-y-6">
+                  {tier.featureGroups.map((group) => (
+                    <div key={group.heading}>
+                      <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-ocean-blue">
+                        {group.heading}
+                      </p>
+                      <ul className="mt-3 space-y-2.5">
+                        {group.items.map((item) => (
+                          <li
+                            key={item}
+                            className="flex items-start gap-3 text-[15px] leading-relaxed text-ink"
+                          >
+                            <Check
+                              className="mt-1 h-3.5 w-3.5 shrink-0 text-ocean-deep"
+                              strokeWidth={2.5}
+                            />
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <ul className="space-y-3 mb-8">
+                  {(tier.features ?? []).map((feature) => (
+                    <li key={feature} className="flex items-center gap-3">
+                      <span className="flex h-5 w-5 items-center justify-center rounded-full border-2 border-ocean-deep bg-paper">
+                        <Check className="h-3 w-3 text-ocean-deep" aria-hidden />
+                      </span>
+                      <span className="font-display italic text-lg text-ink">
+                        {feature}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              )}
 
               <Button
                 asChild
@@ -156,9 +190,16 @@ export function CreativePricing({
         ))}
       </div>
 
-      <div className="absolute -z-10 inset-0 overflow-hidden pointer-events-none" aria-hidden>
-        <div className="absolute top-40 left-20 text-5xl rotate-12 text-sand-warm/40">✎</div>
-        <div className="absolute bottom-40 right-20 text-5xl -rotate-12 text-ocean-blue/30">✏️</div>
+      <div
+        className="absolute -z-10 inset-0 overflow-hidden pointer-events-none"
+        aria-hidden
+      >
+        <div className="absolute top-40 left-20 text-5xl rotate-12 text-sand-warm/40">
+          ✎
+        </div>
+        <div className="absolute bottom-40 right-20 text-5xl -rotate-12 text-ocean-blue/30">
+          ✏️
+        </div>
       </div>
     </div>
   );

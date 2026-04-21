@@ -37,17 +37,17 @@ export function PortfolioGrid({ limit, showHeader = true }: PortfolioGridProps) 
           </div>
         )}
 
-        <ul className="grid gap-6 md:grid-cols-2 md:gap-8 lg:gap-10">
+        <ul className="grid gap-8 md:gap-10 lg:gap-12">
           {items.map((project, i) => (
             <motion.li
               key={project.slug}
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.55, delay: (i % 2) * 0.1 }}
+              transition={{ duration: 0.55, delay: i * 0.08 }}
             >
               <Link href={`/portfolio/${project.slug}`} className="group block">
-                <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-ocean-deep">
+                <div className="relative aspect-[16/9] md:aspect-[21/9] overflow-hidden rounded-2xl bg-ocean-deep">
                   <div aria-hidden className="mesh-ocean-deep absolute inset-0" />
                   <div className="absolute inset-0 flex items-end p-8 md:p-10">
                     <div>

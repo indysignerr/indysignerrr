@@ -21,7 +21,7 @@ const defaultItems: GradientMenuItem[] = [
     gradientTo: "#3a6f95",
   },
   {
-    title: "Offres",
+    title: "L'Offre",
     href: "/offres",
     icon: <Tag className="h-5 w-5" />,
     gradientFrom: "#3a6f95",

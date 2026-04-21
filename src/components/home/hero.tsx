@@ -119,13 +119,13 @@ export function Hero() {
           className="pointer-events-auto"
         >
           <GlassPill>
-            <span className="flex items-center gap-2">
+            <span className="flex items-center gap-3">
               <span className="relative flex size-2">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
                 <span className="relative inline-flex size-2 rounded-full bg-emerald-500" />
               </span>
               <span className="font-mono text-[11px] uppercase tracking-[0.22em]">
-                Freelance Biot — Côte d'Azur
+                Disponible · 329€ tout compris
               </span>
             </span>
           </GlassPill>

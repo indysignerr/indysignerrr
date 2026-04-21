@@ -2,12 +2,13 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import {
   ArrowRight,
-  Check,
   Flag,
   Lock,
   Phone,
   Zap,
   Sparkles,
+  Wrench,
+  CircleDot,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { GlassPill } from "@/components/ui/liquid-glass";
@@ -18,25 +19,115 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import {
-  mainOffer,
-  pricingOption,
-  pricingTagline,
+  CreativePricing,
+  type PricingTier,
+} from "@/components/ui/creative-pricing";
+import {
   comparison,
   comparisonTitle,
   comparisonSubtitle,
   pricingFaq,
-  processSteps,
   reassurance,
 } from "@/lib/content";
 import { FinalCTA } from "@/components/home/cta";
 
 export const metadata: Metadata = {
-  title: "329€ — Un site à toi, pour toujours",
+  title: "L'Offre — 329€",
   description:
     "Une offre. Un prix. Tout compris. 329€ one-shot, livré en 7 jours, propriété totale garantie. Aucun abonnement, aucun SAV.",
 };
 
 const reassuranceIcons = { flag: Flag, bolt: Zap, lock: Lock };
+
+const tiers: PricingTier[] = [
+  {
+    name: "Site vitrine",
+    description: "L'offre complète. Livrée, transférée, à toi.",
+    price: 329,
+    priceSuffix: "une fois",
+    color: "ocean",
+    icon: <Sparkles className="h-6 w-6" />,
+    popular: true,
+    popularLabel: "Le plus vendu",
+    ctaLabel: "Démarrer mon projet",
+    ctaHref: "/contact",
+    featureGroups: [
+      {
+        heading: "Création",
+        items: [
+          "Design premium sur-mesure",
+          "Animations au scroll",
+          "Rédaction FR + SEO local",
+          "Photos fournies ou sourcées",
+        ],
+      },
+      {
+        heading: "Tech",
+        items: [
+          "Next.js + Tailwind",
+          "Mobile optimisé",
+          "Interface admin simple",
+        ],
+      },
+      {
+        heading: "Livraison & garantie",
+        items: [
+          "Formation 1h + manuel PDF",
+          "Garantie bug 30 jours",
+          "Hébergement gratuit à vie",
+        ],
+      },
+    ],
+  },
+  {
+    name: "+ Pack Modifications",
+    description: "Même offre + marge de sécurité la 1ère année.",
+    price: 419,
+    priceSuffix: "une fois",
+    color: "sand",
+    icon: <Wrench className="h-6 w-6" />,
+    popular: false,
+    ctaLabel: "Avec le Pack",
+    ctaHref: "/contact",
+    featureGroups: [
+      {
+        heading: "Tout le Site vitrine",
+        items: ["Inclus identiquement : 13 features, transfert total, garantie 30j"],
+      },
+      {
+        heading: "En plus (+90€)",
+        items: [
+          "2 interventions majeures dans les 12 mois",
+          "Ajout page, refonte section, widget, structure",
+          "À utiliser quand tu veux dans l'année",
+        ],
+      },
+    ],
+  },
+];
+
+const timelineDays = [
+  { day: "01", label: "Brief", accent: "Jour 1" },
+  { day: "02", label: "Design", accent: "Jour 2" },
+  { day: "03", label: "Code", accent: "Jour 3" },
+  { day: "04", label: "Rédaction", accent: "Jour 4" },
+  { day: "05", label: "Mobile", accent: "Jour 5" },
+  { day: "06", label: "Ajustements", accent: "Jour 6" },
+  { day: "07", label: "Livraison", accent: "Jour 7" },
+];
+
+// 6 FAQs qui tuent les objections principales
+const faqToKill = [
+  "Est-ce que je peux vraiment tout modifier moi-même ?",
+  "Et si je casse mon site ou que je n'arrive plus à modifier quelque chose ?",
+  "Pourquoi c'est moins cher que les autres ?",
+  "Qu'est-ce qui se passe si Cloudflare ou GitHub change ses prix ?",
+  "Vous faites des e-commerces ou des systèmes de réservation ?",
+  "Je paye comment ?",
+];
+const essentialFaq = pricingFaq.filter((item) =>
+  faqToKill.includes(item.question)
+);
 
 export default function OffresPage() {
   return (
@@ -65,128 +156,81 @@ export default function OffresPage() {
             </em>
           </h1>
           <p className="mt-10 max-w-2xl text-lg md:text-xl text-ink-soft">
-            {pricingTagline} Aucun abonnement, aucun frais caché, aucun retour.
+            Après des dizaines de discussions avec des commerçants, des artisans
+            et des chefs d'entreprise, j'ai tiré une conclusion simple :{" "}
+            <em className="not-italic font-medium text-ink">
+              une offre à 329€ sans abonnement qui traîne, c'est le compromis
+              parfait.
+            </em>
           </p>
         </div>
       </section>
 
-      {/* ============ FORMULE UNIQUE ============ */}
-      <section className="bg-paper py-32 md:py-40">
-        <div className="mx-auto max-w-[1200px] px-6 md:px-10">
-          <div className="relative overflow-hidden rounded-3xl bg-ocean-deep text-paper">
-            <div aria-hidden className="mesh-ocean-deep absolute inset-0 opacity-55" />
-            <div className="relative grid gap-10 p-8 md:grid-cols-12 md:gap-16 md:p-14 lg:p-20">
-              {/* Left — price + pitch */}
-              <div className="md:col-span-5 flex flex-col">
-                <span className="inline-flex w-fit items-center rounded-full bg-sand-warm text-ocean-deep px-3 py-1 font-mono text-[10px] uppercase tracking-[0.22em]">
-                  {mainOffer.badge}
-                </span>
-                <p className="mt-8 font-display text-[clamp(4.5rem,12vw,8rem)] leading-[0.9] tracking-tight text-paper">
-                  {mainOffer.price}
-                </p>
-                <p className="mt-2 text-base text-paper/70">
-                  {mainOffer.priceSuffix}
-                </p>
-                <p className="mt-5 font-display italic text-xl md:text-2xl text-sand-warm">
-                  {mainOffer.contextLine}
-                </p>
-
-                <p className="mt-10 max-w-sm text-sm leading-relaxed text-paper/75">
-                  {mainOffer.closingNote}
-                </p>
-
-                <div className="mt-auto pt-10">
-                  <Button
-                    asChild
-                    size="lg"
-                    variant="secondary"
-                    className="w-full sm:w-fit"
-                  >
-                    <Link href="/contact">
-                      {mainOffer.cta}
-                      <ArrowRight className="h-4 w-4" />
-                    </Link>
-                  </Button>
-                  <p className="mt-3 text-xs text-paper/55">
-                    {mainOffer.ctaMicro}
-                  </p>
-                </div>
-              </div>
-
-              {/* Right — features grid */}
-              <div className="md:col-span-7 md:border-l md:border-paper/10 md:pl-16">
-                <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-sand-warm">
-                  Inclus dans les 329€
-                </p>
-                <ul className="mt-6 grid gap-3 sm:grid-cols-2">
-                  {mainOffer.features.map((feature) => (
-                    <li
-                      key={feature}
-                      className="flex items-start gap-3 text-sm leading-relaxed text-paper/90"
-                    >
-                      <Check
-                        className="mt-0.5 h-4 w-4 shrink-0 text-sand-warm"
-                        strokeWidth={2.2}
-                      />
-                      <span>{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
+      {/* ============ CREATIVE PRICING (21st.dev) ============ */}
+      <section className="relative overflow-hidden bg-paper py-24 md:py-32">
+        <CreativePricing
+          tag="Tarifs transparents"
+          title="Choisis ton approche."
+          description="Tu payes une fois. Tu reçois un site pro. Tu le gères. Je disparais."
+          tiers={tiers}
+        />
       </section>
 
-      {/* ============ OPTION PACK MODIFICATIONS ============ */}
-      <section className="bg-sand-light py-24 md:py-32">
+      {/* ============ TIMELINE 7 JOURS ============ */}
+      <section className="bg-sand-light py-32 md:py-40">
         <div className="mx-auto max-w-[1200px] px-6 md:px-10">
-          <div className="rounded-3xl border border-line bg-paper p-8 md:p-14">
-            <div className="grid gap-10 md:grid-cols-12 md:gap-14 md:items-center">
-              <div className="md:col-span-5">
-                <span className="inline-flex w-fit items-center rounded-full border border-ocean-deep/15 bg-sky-mist text-ocean-deep px-3 py-1 font-mono text-[10px] uppercase tracking-[0.22em]">
-                  {pricingOption.badge}
-                </span>
-                <h2 className="mt-6 font-display text-4xl md:text-5xl leading-[1.05] tracking-tight text-ink">
-                  {pricingOption.name}
-                </h2>
-                <p className="mt-4 text-lg text-ink-soft">
-                  {pricingOption.subtitle}
-                </p>
-                <div className="mt-8 flex items-baseline gap-2">
-                  <span className="font-display text-5xl md:text-6xl text-ink">
-                    {pricingOption.price}
-                  </span>
-                  <span className="text-sm text-ink-soft">
-                    {pricingOption.priceSuffix}
-                  </span>
-                </div>
-              </div>
-
-              <div className="md:col-span-7 md:border-l md:border-line md:pl-14">
-                <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted">
-                  Ce qui est inclus
-                </p>
-                <ul className="mt-6 space-y-4">
-                  {pricingOption.features.map((feature) => (
-                    <li
-                      key={feature}
-                      className="flex items-start gap-3 text-base leading-relaxed text-ink"
-                    >
-                      <Check
-                        className="mt-1 h-4 w-4 shrink-0 text-ocean-blue"
-                        strokeWidth={2.2}
-                      />
-                      <span>{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-                <p className="mt-8 border-t border-line pt-6 text-xs leading-relaxed text-muted">
-                  {pricingOption.smallText}
-                </p>
-              </div>
-            </div>
+          <div className="max-w-3xl">
+            <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted">
+              Process
+            </p>
+            <h2 className="mt-4 font-display text-4xl md:text-5xl lg:text-6xl leading-[1.05] tracking-tight text-ink">
+              7 jours entre ton paiement et{" "}
+              <em className="italic font-normal text-ocean-blue">
+                la livraison de ton site.
+              </em>
+            </h2>
           </div>
+
+          <div className="relative mt-16 md:mt-20">
+            <div
+              aria-hidden
+              className="absolute top-6 left-0 right-0 h-px bg-ocean-deep/20"
+            />
+            <ol className="relative grid grid-cols-2 gap-y-10 md:grid-cols-7 md:gap-y-0">
+              {timelineDays.map((step, i) => (
+                <li
+                  key={step.day}
+                  className="relative flex flex-col items-center text-center"
+                >
+                  <span
+                    className={
+                      "relative flex h-12 w-12 items-center justify-center rounded-full border-2 transition-colors " +
+                      (i === 6
+                        ? "border-ocean-deep bg-ocean-deep text-paper"
+                        : "border-ocean-deep/30 bg-paper text-ocean-deep")
+                    }
+                  >
+                    {i === 6 ? (
+                      <Sparkles className="h-5 w-5" />
+                    ) : (
+                      <CircleDot className="h-5 w-5" />
+                    )}
+                  </span>
+                  <p className="mt-4 font-mono text-[10px] uppercase tracking-[0.22em] text-ocean-blue">
+                    {step.accent}
+                  </p>
+                  <p className="mt-1 font-display text-xl text-ink">
+                    {step.label}
+                  </p>
+                </li>
+              ))}
+            </ol>
+          </div>
+
+          <p className="mt-14 max-w-xl font-display italic text-xl text-ink-soft">
+            Du brief initial à la remise des accès sur tes propres comptes
+            GitHub et Cloudflare.
+          </p>
         </div>
       </section>
 
@@ -245,53 +289,22 @@ export default function OffresPage() {
         </div>
       </section>
 
-      {/* ============ PROCESS 4 JOURS ============ */}
+      {/* ============ FAQ (6 qui tuent) ============ */}
       <section className="bg-paper py-32 md:py-40">
-        <div className="mx-auto max-w-[1200px] px-6 md:px-10">
-          <div className="max-w-3xl">
-            <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted">
-              Process
-            </p>
-            <h2 className="mt-4 font-display text-4xl md:text-5xl lg:text-6xl leading-[1.05] tracking-tight text-ink">
-              7 jours entre ton paiement et la livraison de{" "}
-              <em className="italic font-normal text-ocean-blue">ton site.</em>
-            </h2>
-          </div>
-
-          <ol className="mt-16 grid gap-px bg-line md:mt-20 md:grid-cols-2 lg:grid-cols-4">
-            {processSteps.map((step) => (
-              <li key={step.number} className="bg-paper p-8 md:p-10">
-                <span className="font-mono text-[11px] uppercase tracking-[0.22em] text-ocean-blue">
-                  {step.number}
-                </span>
-                <h3 className="mt-6 font-display text-xl md:text-2xl leading-tight text-ink">
-                  {step.title}
-                </h3>
-                <p className="mt-4 text-sm leading-relaxed text-ink-soft">
-                  {step.description}
-                </p>
-              </li>
-            ))}
-          </ol>
-        </div>
-      </section>
-
-      {/* ============ FAQ ============ */}
-      <section className="bg-sand-light py-32 md:py-40">
         <div className="mx-auto max-w-[920px] px-6 md:px-10">
           <div className="max-w-2xl">
             <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted">
               Questions fréquentes
             </p>
             <h2 className="mt-4 font-display text-4xl md:text-5xl lg:text-6xl leading-[1.05] tracking-tight text-ink">
-              Dix réponses avant de{" "}
+              Six réponses avant de{" "}
               <em className="italic font-normal">nous parler.</em>
             </h2>
           </div>
 
           <div className="mt-14">
             <Accordion type="single" collapsible className="border-t border-line">
-              {pricingFaq.map((item, i) => (
+              {essentialFaq.map((item, i) => (
                 <AccordionItem key={i} value={`item-${i}`}>
                   <AccordionTrigger>{item.question}</AccordionTrigger>
                   <AccordionContent>{item.answer}</AccordionContent>
@@ -303,7 +316,7 @@ export default function OffresPage() {
       </section>
 
       {/* ============ RÉASSURANCE ============ */}
-      <section className="bg-paper py-24 md:py-32">
+      <section className="bg-sand-light py-24 md:py-32">
         <div className="mx-auto max-w-[1200px] px-6 md:px-10">
           <ul className="grid gap-px bg-line md:grid-cols-3">
             {reassurance.map((block) => {
@@ -342,6 +355,22 @@ export default function OffresPage() {
       </section>
 
       <FinalCTA />
+
+      {/* ============ STICKY MOBILE CTA ============ */}
+      <div className="md:hidden fixed bottom-5 left-4 right-4 z-40">
+        <Link
+          href="/contact"
+          className="flex items-center justify-between gap-3 rounded-full bg-ocean-deep text-paper px-6 py-4 shadow-[0_16px_40px_-10px_rgba(10,31,58,0.5)]"
+        >
+          <span className="flex items-center gap-3">
+            <span className="font-display text-xl">329€</span>
+            <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-paper/70">
+              Démarrer
+            </span>
+          </span>
+          <ArrowRight className="h-4 w-4" />
+        </Link>
+      </div>
     </>
   );
 }
