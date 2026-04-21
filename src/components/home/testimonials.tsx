@@ -1,53 +1,75 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Quote } from "lucide-react";
+import {
+  TestimonialsColumn,
+  type ColumnTestimonial,
+} from "@/components/ui/testimonials-columns-1";
 import { projects } from "@/lib/projects";
-import { Eyebrow } from "@/components/ui/container";
+
+function buildTestimonials(): ColumnTestimonial[] {
+  return projects.map((p) => {
+    const author = p.testimonial.author ?? p.name;
+    const role = p.testimonial.author ? p.name : p.category;
+    const initials = author
+      .split(/[\s,]+/)
+      .filter(Boolean)
+      .slice(0, 2)
+      .map((w) => w[0]?.toUpperCase() ?? "")
+      .join("");
+
+    return {
+      text: p.testimonial.quote,
+      name: author,
+      role,
+      initials,
+    };
+  });
+}
 
 export function Testimonials() {
-  const items = projects.map((p) => ({
-    quote: p.testimonial.quote,
-    author: p.testimonial.author,
-    project: p.name,
-    category: p.category,
-  }));
+  const items = buildTestimonials();
+  const repeated: ColumnTestimonial[] = [...items, ...items];
+  const firstColumn = repeated.slice(0, 4);
+  const secondColumn = repeated.slice(4, 8);
+  const thirdColumn = repeated.slice(2, 6);
 
   return (
-    <section className="relative bg-sky-mist py-24 md:py-32 lg:py-40">
-      <div className="mx-auto max-w-[1440px] px-6 md:px-10">
-        <div className="max-w-3xl">
-          <Eyebrow>Ce qu'ils en disent</Eyebrow>
-          <h2 className="mt-4 font-display text-4xl md:text-5xl leading-[1.05] tracking-tight text-ink">
+    <section className="relative bg-sky-mist py-24 md:py-32 lg:py-40 overflow-hidden">
+      <div className="mx-auto max-w-[1400px] px-6 md:px-10 relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+          viewport={{ once: true }}
+          className="flex flex-col items-center justify-center max-w-[640px] mx-auto text-center"
+        >
+          <div className="inline-flex rounded-full border border-ocean-deep/15 bg-paper/70 px-4 py-1.5 backdrop-blur">
+            <span className="font-mono text-[11px] uppercase tracking-[0.22em] text-ocean-deep">
+              Ce qu'ils en disent
+            </span>
+          </div>
+          <h2 className="mt-6 font-display text-4xl md:text-5xl lg:text-6xl leading-[1.02] tracking-tight text-ink">
             <em className="italic font-normal">Six clients.</em> Un seul constat.
           </h2>
-        </div>
+          <p className="mt-5 text-lg text-ink-soft max-w-md">
+            Les retours des projets passés — directs, non modifiés, signés.
+          </p>
+        </motion.div>
 
-        <ul className="mt-16 grid gap-8 md:mt-20 md:grid-cols-2 md:gap-10 lg:grid-cols-3">
-          {items.map((item, i) => (
-            <motion.li
-              key={`${item.project}-${i}`}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.5, delay: (i % 3) * 0.1 }}
-              className="group relative rounded-2xl border border-line bg-paper p-8 md:p-10"
-            >
-              <Quote className="h-6 w-6 text-ocean-blue/50" aria-hidden />
-              <blockquote className="mt-5 font-display text-lg md:text-xl leading-snug text-ink">
-                « {item.quote} »
-              </blockquote>
-              <footer className="mt-6 border-t border-line pt-4">
-                <p className="font-medium text-sm text-ink">
-                  {item.author ?? item.project}
-                </p>
-                <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted">
-                  {item.project} · {item.category}
-                </p>
-              </footer>
-            </motion.li>
-          ))}
-        </ul>
+        <div className="flex justify-center gap-6 mt-14 [mask-image:linear-gradient(to_bottom,transparent,black_18%,black_82%,transparent)] max-h-[740px] overflow-hidden">
+          <TestimonialsColumn testimonials={firstColumn} duration={26} />
+          <TestimonialsColumn
+            testimonials={secondColumn}
+            className="hidden md:block"
+            duration={32}
+          />
+          <TestimonialsColumn
+            testimonials={thirdColumn}
+            className="hidden lg:block"
+            duration={22}
+          />
+        </div>
       </div>
     </section>
   );

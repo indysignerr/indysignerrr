@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Check, Flag, Lock, Phone, Zap } from "lucide-react";
+import { Flag, Lock, Phone, Zap, Wrench, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Eyebrow } from "@/components/ui/container";
 import {
@@ -9,6 +9,10 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import {
+  CreativePricing,
+  type PricingTier,
+} from "@/components/ui/creative-pricing";
 import {
   pricing,
   pricingFormulas,
@@ -29,36 +33,46 @@ export const metadata: Metadata = {
 
 const reassuranceIcons = { flag: Flag, bolt: Zap, lock: Lock };
 
+const tiers: PricingTier[] = [
+  {
+    name: pricing.autonomie.name,
+    description: pricing.autonomie.tagline,
+    price: 490,
+    priceSuffix: "une fois · à vie",
+    color: "ocean",
+    icon: <Sparkles className="h-6 w-6" />,
+    features: pricing.autonomie.features.slice(0, 7),
+    popular: true,
+    ctaLabel: pricing.autonomie.cta,
+    ctaHref: "/contact",
+  },
+  {
+    name: pricing.serenite.name,
+    description: pricing.serenite.tagline,
+    price: "250€ + 20€/mo",
+    priceSuffix: "ou 200€/an",
+    color: "sand",
+    icon: <Wrench className="h-6 w-6" />,
+    features: pricing.serenite.features.slice(0, 7),
+    popular: false,
+    ctaLabel: pricing.serenite.cta,
+    ctaHref: "/contact",
+  },
+];
+
 export default function TarifsPage() {
   return (
     <>
-      {/* ============ HEADER ============ */}
+      {/* ============ CREATIVE PRICING ============ */}
       <section className="relative overflow-hidden">
         <div aria-hidden className="mesh-ocean absolute inset-0 -z-10" />
-        <div className="mx-auto max-w-[1200px] px-6 md:px-10 pt-20 md:pt-28 pb-16 md:pb-24 text-center">
-          <Eyebrow className="mx-auto">Tarifs transparents</Eyebrow>
-          <h1 className="mt-6 font-display text-5xl md:text-7xl lg:text-8xl leading-[0.95] tracking-tight text-ink">
-            Deux formules.
-            <br />
-            Un site qui <em className="italic font-normal text-ocean-blue">t'appartient.</em>
-            <br />
-            Zéro surprise.
-          </h1>
-          <p className="mx-auto mt-8 max-w-2xl text-base md:text-lg leading-relaxed text-ink-soft">
-            Choisis selon que tu préfères tout maîtriser toi-même, ou qu'Indysigner s'occupe de tout pour toi. Pas de piège, pas de clauses cachées, pas d'abonnement qui te retient.
-          </p>
-        </div>
-      </section>
-
-      {/* ============ 2 FORMULES ============ */}
-      <section className="bg-paper pb-24 md:pb-32">
-        <div className="mx-auto max-w-[1200px] px-6 md:px-10">
-          <div className="grid gap-8 md:grid-cols-2 md:gap-10">
-            {/* Autonomie */}
-            <PricingCard plan={pricing.autonomie} featured />
-            {/* Sérénité */}
-            <PricingCard plan={pricing.serenite} />
-          </div>
+        <div className="pt-20 md:pt-28 pb-24 md:pb-36">
+          <CreativePricing
+            tag="Tarifs transparents"
+            title="Deux formules. Zéro surprise."
+            description="Tu payes une fois et c'est à toi. Ou tu me laisses m'occuper de tout."
+            tiers={tiers}
+          />
         </div>
       </section>
 
@@ -66,9 +80,10 @@ export default function TarifsPage() {
       <section className="bg-sand-light py-24 md:py-32">
         <div className="mx-auto max-w-[1200px] px-6 md:px-10">
           <div className="max-w-3xl">
-            <Eyebrow>Grille tarifaire</Eyebrow>
+            <Eyebrow>Grille tarifaire complète</Eyebrow>
             <h2 className="mt-4 font-display text-4xl md:text-5xl leading-[1.05] tracking-tight text-ink">
-              Chaque ligne, un prix. <em className="italic font-normal">Rien de caché.</em>
+              Chaque ligne, un prix.{" "}
+              <em className="italic font-normal">Rien de caché.</em>
             </h2>
           </div>
 
@@ -83,17 +98,15 @@ export default function TarifsPage() {
               note="Valables 12 mois, non remboursables."
               rows={packs}
             />
-            <PricingTable
-              title="Prestations complémentaires"
-              rows={extras}
-            />
+            <PricingTable title="Prestations complémentaires" rows={extras} />
           </div>
         </div>
       </section>
 
       {/* ============ COMPARATIF ============ */}
-      <section className="bg-ocean-deep text-paper py-24 md:py-32 overflow-hidden">
-        <div className="mx-auto max-w-[1200px] px-6 md:px-10">
+      <section className="bg-ocean-deep text-paper py-24 md:py-32 overflow-hidden relative">
+        <div aria-hidden className="mesh-ocean-deep absolute inset-0 opacity-60" />
+        <div className="relative mx-auto max-w-[1200px] px-6 md:px-10">
           <h2 className="max-w-3xl font-display text-4xl md:text-5xl lg:text-6xl leading-[1.05] tracking-tight">
             {comparisonTitle.split("Chez")[0]}
             <em className="italic font-normal text-sand-warm">
@@ -147,7 +160,8 @@ export default function TarifsPage() {
           <div className="text-center">
             <Eyebrow className="mx-auto">Questions fréquentes</Eyebrow>
             <h2 className="mt-4 font-display text-4xl md:text-5xl leading-[1.05] tracking-tight text-ink">
-              Dix réponses avant de <em className="italic font-normal">nous parler.</em>
+              Dix réponses avant de{" "}
+              <em className="italic font-normal">nous parler.</em>
             </h2>
           </div>
 
@@ -199,7 +213,9 @@ export default function TarifsPage() {
         <div className="relative mx-auto max-w-3xl px-6 text-center">
           <h2 className="font-display text-4xl md:text-6xl leading-[0.98] tracking-tight text-ink">
             On commence par une{" "}
-            <em className="italic font-normal text-ocean-blue">maquette gratuite ?</em>
+            <em className="italic font-normal text-ocean-blue">
+              maquette gratuite ?
+            </em>
           </h2>
           <p className="mx-auto mt-6 max-w-xl text-lg text-ink-soft">
             Tu remplis le brief en 3 minutes, je te livre une maquette dans les 48h. Tu décides après.
@@ -218,138 +234,6 @@ export default function TarifsPage() {
         </div>
       </section>
     </>
-  );
-}
-
-/* ============ Sub-components ============ */
-
-function PricingCard({
-  plan,
-  featured = false,
-}: {
-  plan: typeof pricing.autonomie | typeof pricing.serenite;
-  featured?: boolean;
-}) {
-  return (
-    <article
-      className={
-        featured
-          ? "relative rounded-3xl bg-ocean-deep p-8 md:p-10 text-paper overflow-hidden"
-          : "relative rounded-3xl border border-line bg-paper p-8 md:p-10 text-ink"
-      }
-    >
-      {featured && (
-        <div aria-hidden className="mesh-ocean-deep absolute inset-0 opacity-60" />
-      )}
-      <div className="relative">
-        <span
-          className={
-            "inline-flex items-center rounded-full px-3 py-1 font-mono text-[10px] uppercase tracking-[0.22em] " +
-            (featured
-              ? "bg-sand-warm text-ocean-deep"
-              : "border border-line bg-sky-mist text-ocean-deep")
-          }
-        >
-          {plan.badge}
-        </span>
-        <h2
-          className={
-            "mt-6 font-display text-4xl md:text-5xl leading-[1.05] tracking-tight " +
-            (featured ? "text-paper" : "text-ink")
-          }
-        >
-          {plan.name}
-        </h2>
-        <p
-          className={
-            "mt-3 font-display italic text-lg md:text-xl " +
-            (featured ? "text-paper/85" : "text-ink-soft")
-          }
-        >
-          {plan.tagline}
-        </p>
-
-        <div className="mt-8 flex items-baseline gap-2">
-          <span
-            className={
-              "font-display text-5xl md:text-6xl " +
-              (featured ? "text-paper" : "text-ink")
-            }
-          >
-            {plan.price}
-          </span>
-        </div>
-        <p
-          className={
-            "mt-1 text-sm " + (featured ? "text-paper/70" : "text-ink-soft")
-          }
-        >
-          {plan.priceSuffix}
-        </p>
-        <p
-          className={
-            "mt-2 text-sm font-medium " +
-            (featured ? "text-sand-warm" : "text-ocean-blue")
-          }
-        >
-          {plan.contextLine}
-        </p>
-
-        <ul className="mt-8 space-y-3">
-          {plan.features.map((feature) => (
-            <li
-              key={feature}
-              className={
-                "flex items-start gap-3 text-sm " +
-                (featured ? "text-paper/90" : "text-ink-soft")
-              }
-            >
-              <Check
-                className={
-                  "mt-0.5 h-4 w-4 shrink-0 " +
-                  (featured ? "text-sand-warm" : "text-ocean-blue")
-                }
-              />
-              <span>{feature}</span>
-            </li>
-          ))}
-        </ul>
-
-        {plan.extraNote && (
-          <p
-            className={
-              "mt-6 border-t pt-4 text-xs leading-relaxed " +
-              (featured
-                ? "border-paper/10 text-paper/60"
-                : "border-line text-muted")
-            }
-          >
-            {plan.extraNote}
-          </p>
-        )}
-
-        <div className="mt-8">
-          <Button
-            asChild
-            size="lg"
-            variant={featured ? "secondary" : "primary"}
-            className="w-full"
-          >
-            <Link href="/contact">{plan.cta}</Link>
-          </Button>
-          {plan.ctaMicro && (
-            <p
-              className={
-                "mt-3 text-center text-xs " +
-                (featured ? "text-paper/55" : "text-muted")
-              }
-            >
-              {plan.ctaMicro}
-            </p>
-          )}
-        </div>
-      </div>
-    </article>
   );
 }
 

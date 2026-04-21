@@ -1,73 +1,175 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { LayoutGroup, motion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
+import { TextRotate } from "@/components/ui/text-rotate";
+import Floating, { FloatingElement } from "@/components/ui/parallax-floating";
 import { Button } from "@/components/ui/button";
-import { brand, stats } from "@/lib/content";
+import { stats } from "@/lib/content";
 
-const words = ["marquent", "captivent", "convertissent", "durent"];
+const heroImages = [
+  {
+    url: "https://images.unsplash.com/photo-1562016600-ece13e8ba570?q=80&w=1200&auto=format&fit=crop",
+    alt: "Eau cristalline",
+  },
+  {
+    url: "https://images.unsplash.com/photo-1721968317938-cf8c60fccd1a?q=80&w=1200&auto=format&fit=crop",
+    alt: "Fleurs blanches floues",
+  },
+  {
+    url: "https://images.unsplash.com/photo-1640680608781-2e4199dd1579?q=80&w=1200&auto=format&fit=crop",
+    alt: "Feuille de palmier néon",
+  },
+  {
+    url: "https://images.unsplash.com/photo-1624344965199-ed40391d20f2?q=80&w=1200&auto=format&fit=crop",
+    alt: "Homme en chemise noire ciel bleu",
+  },
+  {
+    url: "https://images.unsplash.com/photo-1727341554370-80e0fe9ad082?q=80&w=1200&auto=format&fit=crop",
+    alt: "Portrait éditorial noir et blanc",
+  },
+];
 
 export function Hero() {
   return (
-    <section className="relative isolate overflow-hidden">
-      <div aria-hidden className="mesh-ocean absolute inset-0 -z-10" />
+    <section className="relative w-full min-h-[92vh] overflow-hidden flex flex-col items-center justify-center isolate">
+      <div aria-hidden className="mesh-ocean absolute inset-0 -z-20" />
       <div aria-hidden className="grain absolute inset-0 -z-10" />
 
-      <div className="relative mx-auto max-w-[1440px] px-6 md:px-10 pt-20 md:pt-28 pb-24 md:pb-32">
-        <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="inline-flex items-center gap-2 rounded-full border border-ocean-deep/15 bg-paper/60 px-4 py-1.5 backdrop-blur"
+      <Floating sensitivity={-0.5} className="h-full">
+        <FloatingElement
+          depth={0.5}
+          className="top-[15%] left-[2%] md:top-[22%] md:left-[5%]"
         >
-          <Sparkles className="h-3.5 w-3.5 text-ocean-blue" aria-hidden />
-          <span className="font-mono text-[11px] uppercase tracking-[0.22em] text-ocean-deep">
-            Freelance · Biot — Côte d'Azur
-          </span>
-        </motion.div>
+          <motion.img
+            src={heroImages[0].url}
+            alt={heroImages[0].alt}
+            loading="eager"
+            className="w-16 h-12 sm:w-24 sm:h-16 md:w-28 md:h-20 lg:w-32 lg:h-24 object-cover hover:scale-105 duration-200 cursor-pointer transition-transform -rotate-[3deg] shadow-2xl rounded-xl"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.5 }}
+          />
+        </FloatingElement>
 
-        <h1 className="mt-8 max-w-[1100px] font-display text-[clamp(2.75rem,8vw,7.5rem)] leading-[0.95] tracking-tight text-ink">
-          <motion.span
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.05 }}
-            className="block"
-          >
-            On conçoit
-          </motion.span>
-          <motion.span
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.12 }}
-            className="block"
-          >
-            des sites qui <em className="font-display italic font-normal text-ocean-blue">{words[0]}</em>
-          </motion.span>
-          <motion.span
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.18 }}
-            className="block"
-          >
-            les esprits.
-          </motion.span>
-        </h1>
+        <FloatingElement
+          depth={1}
+          className="top-[2%] left-[8%] md:top-[6%] md:left-[11%]"
+        >
+          <motion.img
+            src={heroImages[1].url}
+            alt={heroImages[1].alt}
+            className="w-36 h-24 sm:w-44 sm:h-32 md:w-52 md:h-40 lg:w-56 lg:h-44 object-cover hover:scale-105 duration-200 cursor-pointer transition-transform -rotate-12 shadow-2xl rounded-xl"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.7 }}
+          />
+        </FloatingElement>
+
+        <FloatingElement
+          depth={4}
+          className="top-[78%] left-[4%] md:top-[74%] md:left-[8%]"
+        >
+          <motion.img
+            src={heroImages[2].url}
+            alt={heroImages[2].alt}
+            className="w-36 h-36 sm:w-44 sm:h-44 md:w-56 md:h-56 lg:w-60 lg:h-60 object-cover -rotate-[4deg] hover:scale-105 duration-200 cursor-pointer transition-transform shadow-2xl rounded-xl"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.9 }}
+          />
+        </FloatingElement>
+
+        <FloatingElement
+          depth={2}
+          className="top-[2%] left-[85%] md:top-[6%] md:left-[80%]"
+        >
+          <motion.img
+            src={heroImages[3].url}
+            alt={heroImages[3].alt}
+            className="w-36 h-32 sm:w-44 sm:h-40 md:w-52 md:h-48 lg:w-60 lg:h-52 object-cover hover:scale-105 duration-200 cursor-pointer transition-transform shadow-2xl rotate-[6deg] rounded-xl"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1.1 }}
+          />
+        </FloatingElement>
+
+        <FloatingElement
+          depth={1}
+          className="top-[70%] left-[78%] md:top-[62%] md:left-[80%]"
+        >
+          <motion.img
+            src={heroImages[4].url}
+            alt={heroImages[4].alt}
+            className="w-40 h-40 sm:w-56 sm:h-56 md:w-64 md:h-64 lg:w-72 lg:h-72 object-cover hover:scale-105 duration-200 cursor-pointer transition-transform shadow-2xl rotate-[14deg] rounded-xl"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1.3 }}
+          />
+        </FloatingElement>
+      </Floating>
+
+      <div className="flex flex-col justify-center items-center w-[88%] sm:w-[500px] md:w-[700px] lg:w-[860px] z-30 pointer-events-none">
+        <motion.span
+          initial={{ opacity: 0, y: 8 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, delay: 0.15 }}
+          className="font-mono text-[11px] uppercase tracking-[0.22em] text-ocean-deep/75"
+        >
+          Indysigner · Freelance Biot — Côte d'Azur
+        </motion.span>
+
+        <motion.h1
+          className="mt-6 text-center w-full font-display tracking-tight flex-col flex whitespace-pre leading-[0.98] text-[2.75rem] sm:text-6xl md:text-7xl lg:text-[7.5rem]"
+          animate={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 18 }}
+          transition={{ duration: 0.5, ease: "easeOut", delay: 0.25 }}
+        >
+          <span className="text-ink">On conçoit des sites </span>
+          <LayoutGroup>
+            <motion.span layout className="flex justify-center whitespace-pre">
+              <motion.span
+                layout
+                className="text-ink"
+                transition={{ type: "spring", damping: 30, stiffness: 400 }}
+              >
+                qui{" "}
+              </motion.span>
+              <TextRotate
+                texts={[
+                  "marquent",
+                  "captivent",
+                  "convertissent",
+                  "durent",
+                  "respirent",
+                  "rayonnent",
+                ]}
+                mainClassName="overflow-hidden pr-3 py-0 pb-2 md:pb-4 italic text-ocean-blue"
+                staggerDuration={0.03}
+                staggerFrom="last"
+                rotationInterval={2600}
+                transition={{ type: "spring", damping: 30, stiffness: 400 }}
+              />
+            </motion.span>
+          </LayoutGroup>
+        </motion.h1>
 
         <motion.p
-          initial={{ opacity: 0, y: 10 }}
+          className="pointer-events-auto text-center text-base sm:text-lg md:text-xl text-ink-soft pt-6 sm:pt-10 md:pt-12 max-w-xl leading-relaxed"
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.28 }}
-          className="mt-10 max-w-2xl text-lg md:text-xl leading-relaxed text-ink-soft"
+          initial={{ opacity: 0, y: 14 }}
+          transition={{ duration: 0.4, ease: "easeOut", delay: 0.45 }}
         >
-          {brand.tagline} Design unique. Livraison express. Prix juste. Tu restes propriétaire de ton site — pour toujours.
+          Design unique. Livraison en 7 jours. Tu restes propriétaire de ton
+          site — pour toujours.
         </motion.p>
 
         <motion.div
-          initial={{ opacity: 0, y: 10 }}
+          className="pointer-events-auto flex flex-wrap justify-center gap-3 mt-10"
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-10 flex flex-wrap items-center gap-3"
+          initial={{ opacity: 0, y: 14 }}
+          transition={{ duration: 0.4, delay: 0.6 }}
         >
           <Button asChild size="lg" variant="primary">
             <Link href="/contact">
@@ -79,25 +181,25 @@ export function Hero() {
             <Link href="/portfolio">Voir les projets</Link>
           </Button>
         </motion.div>
-
-        <motion.dl
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="mt-20 grid grid-cols-2 gap-10 border-t border-ocean-deep/10 pt-10 md:grid-cols-4"
-        >
-          {stats.map((stat) => (
-            <div key={stat.label}>
-              <dt className="font-mono text-[11px] uppercase tracking-[0.2em] text-muted">
-                {stat.label}
-              </dt>
-              <dd className="mt-2 font-display text-3xl md:text-4xl text-ink">
-                {stat.value}
-              </dd>
-            </div>
-          ))}
-        </motion.dl>
       </div>
+
+      <motion.dl
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8, delay: 1.4 }}
+        className="pointer-events-auto absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex w-[92%] max-w-3xl items-start justify-between gap-4 rounded-2xl border border-ocean-deep/10 bg-paper/70 px-6 py-4 backdrop-blur-xl"
+      >
+        {stats.map((stat) => (
+          <div key={stat.label} className="min-w-0">
+            <dt className="font-mono text-[9px] uppercase tracking-[0.2em] text-muted truncate">
+              {stat.label}
+            </dt>
+            <dd className="mt-1 font-display text-xl md:text-2xl text-ink">
+              {stat.value}
+            </dd>
+          </div>
+        ))}
+      </motion.dl>
     </section>
   );
 }
