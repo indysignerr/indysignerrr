@@ -31,10 +31,18 @@ export default function ContactPage() {
           <div className="max-w-3xl">
             <Eyebrow>Ou remplis le brief</Eyebrow>
             <h2 className="mt-4 font-display text-4xl md:text-5xl leading-[1.05] tracking-tight text-ink">
-              Trois minutes. <em className="italic font-normal">Maquette dans les 48h.</em>
+              Trois minutes.{" "}
+              <em className="italic font-normal">Maquette dans les 48h.</em>
             </h2>
             <p className="mt-6 max-w-xl text-lg text-ink-soft">
-              Plus tu es précis, plus la réponse sera qualitative. Devis gratuit, sans engagement.
+              Choisis ton offre (Autonomie ou Sérénité), décris ton projet, je
+              te réponds sous 24h avec un devis précis. Gratuit, sans engagement.{" "}
+              <Link
+                href="/offres"
+                className="text-ocean-blue underline-offset-2 hover:underline"
+              >
+                Voir les offres →
+              </Link>
             </p>
           </div>
 

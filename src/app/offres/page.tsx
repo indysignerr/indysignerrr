@@ -2,34 +2,26 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import {
   ArrowRight,
-  Sparkles,
-  Plus,
-  Zap,
-  HeartPulse,
-  Pencil,
-  Wrench,
-  Rocket,
+  Check,
   Flag,
   Lock,
   Phone,
+  Zap,
+  Pencil,
+  Wrench,
+  Rocket,
+  Sparkles,
+  LayoutGrid,
+  LineChart,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Eyebrow } from "@/components/ui/container";
-import { BentoGridShowcase, BentoCard } from "@/components/ui/bento-grid";
+import { GlassPill } from "@/components/ui/liquid-glass";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import {
-  CreativePricing,
-  type PricingTier,
-} from "@/components/ui/creative-pricing";
-import { TextMarquee } from "@/components/ui/text-marquee";
-import { TextParallaxContent } from "@/components/ui/scroll-sticky-sections";
-import { GlassCard, GlassPill } from "@/components/ui/liquid-glass";
-import { FinalCTA } from "@/components/home/cta";
 import {
   pricing,
   pricingFormulas,
@@ -40,8 +32,8 @@ import {
   comparisonTitle,
   pricingFaq,
   reassurance,
-  processSteps,
 } from "@/lib/content";
+import { FinalCTA } from "@/components/home/cta";
 
 export const metadata: Metadata = {
   title: "Offres",
@@ -51,180 +43,58 @@ export const metadata: Metadata = {
 
 const reassuranceIcons = { flag: Flag, bolt: Zap, lock: Lock };
 
-/* ================ BENTO CARDS ================ */
-
-function IntegrationsCard() {
-  return (
-    <BentoCard className="p-8 flex flex-col justify-between">
-      <div>
-        <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted">
-          Stack
-        </p>
-        <h3 className="mt-3 font-display text-xl md:text-2xl text-ink">
-          Next.js · Tailwind · shadcn/ui
-        </h3>
-        <p className="mt-2 text-sm text-ink-soft">
-          L'outillage qui fait les sites premium de 2026.
-        </p>
-      </div>
-      <div className="mt-6 flex flex-wrap items-center gap-2">
-        {["Next", "Tailwind", "Radix", "Motion"].map((name) => (
-          <span
-            key={name}
-            className="rounded-full border border-line bg-sky-mist px-3 py-1 font-mono text-[10px] uppercase tracking-[0.18em] text-ocean-deep"
-          >
-            {name}
-          </span>
-        ))}
-      </div>
-    </BentoCard>
-  );
-}
-
-function MainFeatureCard() {
-  return (
-    <BentoCard className="relative overflow-hidden bg-ocean-deep text-paper">
-      <div aria-hidden className="mesh-ocean-deep absolute inset-0 opacity-70" />
-      <img
-        src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?q=80&w=1200&auto=format&fit=crop"
-        alt="Workspace éditorial"
-        loading="lazy"
-        className="absolute inset-0 h-full w-full object-cover mix-blend-multiply opacity-55"
-      />
-      <div className="relative z-10 flex h-full flex-col justify-between p-8">
-        <div className="inline-flex w-fit items-center gap-2 rounded-full bg-paper/10 border border-paper/15 px-3 py-1 backdrop-blur">
-          <Sparkles className="h-3.5 w-3.5 text-sand-warm" />
-          <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-paper/85">
-            Design éditorial
-          </span>
-        </div>
-        <div>
-          <p className="font-display italic text-3xl md:text-4xl lg:text-5xl leading-[1.02] text-paper">
-            Un site qui <em className="not-italic">te ressemble.</em> Pas un template recyclé.
-          </p>
-          <p className="mt-6 text-sm text-paper/70 max-w-sm">
-            Direction artistique sur-mesure, palette propre, typographie pensée, identité qui dure.
-          </p>
-        </div>
-      </div>
-    </BentoCard>
-  );
-}
-
-function FeatureTagsCard() {
-  const tags = [
-    { label: "Direction artistique", icon: <Pencil className="h-3 w-3" /> },
-    { label: "Motion & interactions", icon: <Zap className="h-3 w-3" /> },
-    { label: "SEO local", icon: <Rocket className="h-3 w-3" /> },
-    { label: "Maintenance", icon: <Wrench className="h-3 w-3" /> },
-  ];
-  return (
-    <BentoCard className="p-8 flex flex-col justify-center gap-3 bg-sand-light">
-      {tags.map((tag) => (
-        <span
-          key={tag.label}
-          className="inline-flex w-fit items-center gap-2 rounded-full border border-ocean-deep/15 bg-paper px-3 py-1.5"
-        >
-          <span className="text-ocean-blue">{tag.icon}</span>
-          <span className="font-display italic text-sm text-ink">{tag.label}</span>
-          <Plus className="h-3 w-3 text-muted" />
-        </span>
-      ))}
-    </BentoCard>
-  );
-}
-
-function SecondaryFeatureCard() {
-  return (
-    <BentoCard className="relative overflow-hidden">
-      <img
-        src="https://images.unsplash.com/photo-1522199755839-a2bacb67c546?q=80&w=1200&auto=format&fit=crop"
-        alt="Détails photo éditoriale"
-        loading="lazy"
-        className="h-full w-full object-cover"
-      />
-      <div className="absolute inset-0 bg-gradient-to-t from-ocean-deep/95 via-ocean-deep/30 to-transparent" />
-      <p className="absolute bottom-6 left-6 right-6 z-10 font-display italic text-lg md:text-xl text-paper leading-snug">
-        Petits détails. Gros impact.
-      </p>
-    </BentoCard>
-  );
-}
-
-function StatisticCard() {
-  return (
-    <BentoCard className="flex h-full flex-col justify-between bg-sand-warm p-8">
-      <HeartPulse className="h-8 w-8 text-ocean-deep" />
-      <div>
-        <p className="font-display text-6xl md:text-7xl text-ocean-deep leading-none">
-          98/100
-        </p>
-        <p className="mt-3 text-sm text-ocean-deep/80 max-w-[200px]">
-          Score Lighthouse moyen — performance, accessibilité, SEO.
-        </p>
-      </div>
-    </BentoCard>
-  );
-}
-
-function JourneyCard() {
-  return (
-    <BentoCard className="relative overflow-hidden p-8 bg-sky-mist">
-      <p className="font-display italic text-xl md:text-2xl text-ink">
-        7 jours, 4 étapes, 1 site en ligne.
-      </p>
-      <p className="mt-2 text-sm text-ink-soft">
-        Du brief à la livraison sans zones d'ombre.
-      </p>
-      <div className="mt-6 flex items-center gap-2">
-        {processSteps.map((s, i) => (
-          <span
-            key={s.number}
-            className="relative flex h-8 w-8 items-center justify-center rounded-full border border-ocean-deep bg-paper font-display text-xs text-ocean-deep"
-            style={{ transform: `rotate(${(i - 1.5) * 4}deg)` }}
-          >
-            {i + 1}
-          </span>
-        ))}
-      </div>
-    </BentoCard>
-  );
-}
-
-const tiers: PricingTier[] = [
+const serviceLines = [
   {
-    name: pricing.autonomie.name,
-    description: pricing.autonomie.tagline,
-    price: 490,
-    priceSuffix: "une fois · à vie",
-    color: "ocean",
-    icon: <Sparkles className="h-6 w-6" />,
-    features: pricing.autonomie.features.slice(0, 7),
-    popular: true,
-    ctaLabel: pricing.autonomie.cta,
-    ctaHref: "/contact",
+    number: "01",
+    title: "Direction artistique",
+    description:
+      "Palette, typographie, rythme, motifs. Une identité visuelle qui te distingue et tient dans le temps.",
+    icon: Pencil,
   },
   {
-    name: pricing.serenite.name,
-    description: pricing.serenite.tagline,
-    price: "250€ + 20€/mo",
-    priceSuffix: "ou 200€/an",
-    color: "sand",
-    icon: <Wrench className="h-6 w-6" />,
-    features: pricing.serenite.features.slice(0, 7),
-    popular: false,
-    ctaLabel: pricing.serenite.cta,
-    ctaHref: "/contact",
+    number: "02",
+    title: "Développement Next.js",
+    description:
+      "Sites statiques rapides, typés TypeScript, déployés sur Vercel. Zéro CMS propriétaire, zéro lock-in.",
+    icon: LayoutGrid,
+  },
+  {
+    number: "03",
+    title: "Motion & interactions",
+    description:
+      "Scroll narratif, micro-interactions, transitions cinématiques. Chaque détail transforme la visite en expérience.",
+    icon: Zap,
+  },
+  {
+    number: "04",
+    title: "SEO local & structure",
+    description:
+      "JSON-LD, balises Open Graph, sitemap, Core Web Vitals. Référencement local optimisé dès le jour de livraison.",
+    icon: Rocket,
+  },
+  {
+    number: "05",
+    title: "Maintenance & suivi",
+    description:
+      "Modifications illimitées, ajouts de pages, mises à jour techniques. Tu ne touches à rien, ton site vit.",
+    icon: Wrench,
+  },
+  {
+    number: "06",
+    title: "Analytics & conseil",
+    description:
+      "Installation suivi, reporting mensuel simple. Tu comprends d'où viennent tes visiteurs et ce qui convertit.",
+    icon: LineChart,
   },
 ];
 
 export default function OffresPage() {
   return (
     <>
-      {/* ================ HERO ================ */}
+      {/* ============ HERO ============ */}
       <section className="relative overflow-hidden">
         <div aria-hidden className="mesh-ocean absolute inset-0 -z-10" />
-        <div className="mx-auto max-w-[1200px] px-6 md:px-10 pt-20 md:pt-28 pb-16 md:pb-24">
+        <div className="mx-auto max-w-[1200px] px-6 md:px-10 pt-20 md:pt-28 pb-20 md:pb-28">
           <GlassPill className="w-fit">
             <span className="flex items-center gap-2">
               <span className="relative flex size-2">
@@ -232,7 +102,7 @@ export default function OffresPage() {
                 <span className="relative inline-flex size-2 rounded-full bg-emerald-500" />
               </span>
               <span className="font-mono text-[11px] uppercase tracking-[0.22em]">
-                Offres · Services + Tarifs
+                Services + Tarifs · disponible
               </span>
             </span>
           </GlassPill>
@@ -243,66 +113,85 @@ export default function OffresPage() {
             <em className="italic font-normal text-ocean-blue">Combien ça coûte.</em>
           </h1>
           <p className="mt-8 max-w-2xl text-lg text-ink-soft">
-            Cinq savoir-faire et deux formules transparentes. Tu choisis l'approche qui te va — je livre en 7 jours, tu restes propriétaire à vie.
+            Six savoir-faire, deux formules. Tu choisis l'approche — je livre en
+            7 jours, tu restes propriétaire à vie.
           </p>
         </div>
       </section>
 
-      {/* ================ BENTO SERVICES ================ */}
-      <section className="bg-paper pb-24 md:pb-32">
+      {/* ============ SERVICES — CLEAN 6-CARD GRID ============ */}
+      <section className="bg-paper py-32 md:py-40">
         <div className="mx-auto max-w-[1200px] px-6 md:px-10">
-          <div className="mb-12 md:mb-16 max-w-3xl">
-            <Eyebrow>Services</Eyebrow>
-            <h2 className="mt-4 font-display text-4xl md:text-5xl leading-[1.05] tracking-tight text-ink">
-              Cinq savoir-faire. <em className="italic font-normal">Un seul site.</em>
+          <div className="max-w-3xl">
+            <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted">
+              Services
+            </p>
+            <h2 className="mt-4 font-display text-4xl md:text-5xl lg:text-6xl leading-[1.05] tracking-tight text-ink">
+              Six savoir-faire.{" "}
+              <em className="italic font-normal text-ocean-blue">Un seul site.</em>
             </h2>
+            <p className="mt-6 max-w-xl text-lg text-ink-soft">
+              Chaque projet mobilise l'ensemble. Pas de sous-traitance, pas de juniors — tu travailles directement avec Indy.
+            </p>
           </div>
 
-          <BentoGridShowcase
-            integrations={<IntegrationsCard />}
-            mainFeature={<MainFeatureCard />}
-            featureTags={<FeatureTagsCard />}
-            secondaryFeature={<SecondaryFeatureCard />}
-            statistic={<StatisticCard />}
-            journey={<JourneyCard />}
-          />
+          <ul className="mt-16 grid gap-px bg-line md:grid-cols-2 lg:grid-cols-3 md:mt-20">
+            {serviceLines.map((service) => {
+              const Icon = service.icon;
+              return (
+                <li key={service.number} className="bg-paper p-8 md:p-10">
+                  <div className="flex items-center gap-3">
+                    <span className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-ocean-deep/15 bg-sky-mist text-ocean-deep">
+                      <Icon className="h-4 w-4" />
+                    </span>
+                    <span className="font-mono text-[11px] uppercase tracking-[0.22em] text-ocean-blue">
+                      {service.number}
+                    </span>
+                  </div>
+                  <h3 className="mt-6 font-display text-2xl md:text-[26px] leading-tight text-ink">
+                    {service.title}
+                  </h3>
+                  <p className="mt-4 text-sm md:text-base leading-relaxed text-ink-soft">
+                    {service.description}
+                  </p>
+                </li>
+              );
+            })}
+          </ul>
         </div>
       </section>
 
-      {/* ================ MARQUEE TRANSITION ================ */}
-      <section className="bg-paper py-8 md:py-12 overflow-hidden">
-        <TextMarquee
-          baseVelocity={-2.2}
-          className="font-display italic font-normal tracking-[-0.04em] text-ink-soft/40"
-        >
-          Design sans intermédiaire · Livré en 7 jours · Propriété à vie ·&nbsp;
-        </TextMarquee>
-      </section>
-
-      {/* ================ SCROLL TRANSITION → PRICING ================ */}
-      <TextParallaxContent
-        imgUrl="https://images.unsplash.com/photo-1562016600-ece13e8ba570?q=80&w=2400&auto=format&fit=crop"
-        subheading="Tarifs"
-        heading="Deux formules. Zéro surprise."
-      />
-
-      {/* ================ CREATIVE PRICING ================ */}
-      <section className="relative overflow-hidden bg-paper pt-16 pb-24 md:pb-36">
-        <div aria-hidden className="mesh-ocean absolute inset-0 -z-10 opacity-70" />
-        <CreativePricing
-          tag="Tarifs transparents"
-          title="Choisis ton approche."
-          description="Tu payes une fois et c'est à toi. Ou tu me laisses m'occuper de tout."
-          tiers={tiers}
-        />
-      </section>
-
-      {/* ================ GRILLE TARIFAIRE ================ */}
-      <section className="bg-sand-light py-24 md:py-32">
+      {/* ============ PRICING — CLEAN 2-CARD GRID ============ */}
+      <section className="bg-sand-light py-32 md:py-40">
         <div className="mx-auto max-w-[1200px] px-6 md:px-10">
           <div className="max-w-3xl">
-            <Eyebrow>Grille tarifaire complète</Eyebrow>
-            <h2 className="mt-4 font-display text-4xl md:text-5xl leading-[1.05] tracking-tight text-ink">
+            <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted">
+              Tarifs
+            </p>
+            <h2 className="mt-4 font-display text-4xl md:text-5xl lg:text-6xl leading-[1.05] tracking-tight text-ink">
+              Deux formules.{" "}
+              <em className="italic font-normal text-ocean-blue">Zéro surprise.</em>
+            </h2>
+            <p className="mt-6 max-w-xl text-lg text-ink-soft">
+              Tu payes une fois et c'est à toi. Ou tu me laisses m'occuper de tout.
+            </p>
+          </div>
+
+          <div className="mt-16 grid gap-6 md:mt-20 md:grid-cols-2 md:gap-8">
+            <PricingCard plan={pricing.autonomie} featured />
+            <PricingCard plan={pricing.serenite} />
+          </div>
+        </div>
+      </section>
+
+      {/* ============ GRILLE TARIFAIRE ============ */}
+      <section className="bg-paper py-32 md:py-40">
+        <div className="mx-auto max-w-[1200px] px-6 md:px-10">
+          <div className="max-w-3xl">
+            <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted">
+              Grille tarifaire complète
+            </p>
+            <h2 className="mt-4 font-display text-4xl md:text-5xl lg:text-6xl leading-[1.05] tracking-tight text-ink">
               Chaque ligne, un prix.{" "}
               <em className="italic font-normal">Rien de caché.</em>
             </h2>
@@ -324,26 +213,21 @@ export default function OffresPage() {
         </div>
       </section>
 
-      {/* ================ MARQUEE 2 ================ */}
-      <section className="bg-ocean-deep py-6 md:py-10 overflow-hidden">
-        <TextMarquee
-          baseVelocity={2}
-          className="font-display italic font-normal tracking-[-0.04em] text-paper/25"
-        >
-          Indysigner · Indysigner · Indysigner ·&nbsp;
-        </TextMarquee>
-      </section>
-
-      {/* ================ COMPARATIF ================ */}
-      <section className="bg-ocean-deep text-paper py-24 md:py-32 overflow-hidden relative">
+      {/* ============ COMPARATIF ============ */}
+      <section className="relative bg-ocean-deep text-paper py-32 md:py-40 overflow-hidden">
         <div aria-hidden className="mesh-ocean-deep absolute inset-0 opacity-60" />
         <div className="relative mx-auto max-w-[1200px] px-6 md:px-10">
-          <h2 className="max-w-3xl font-display text-4xl md:text-5xl lg:text-6xl leading-[1.05] tracking-tight">
-            {comparisonTitle.split("Chez")[0]}
-            <em className="italic font-normal text-sand-warm">
-              Chez{comparisonTitle.split("Chez")[1]}
-            </em>
-          </h2>
+          <div className="max-w-3xl">
+            <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-sand-warm">
+              Comparatif
+            </p>
+            <h2 className="mt-4 font-display text-4xl md:text-5xl lg:text-6xl leading-[1.05] tracking-tight">
+              {comparisonTitle.split("Chez")[0]}
+              <em className="italic font-normal text-sand-warm">
+                Chez{comparisonTitle.split("Chez")[1]}
+              </em>
+            </h2>
+          </div>
 
           <div className="mt-14 overflow-x-auto rounded-2xl border border-paper/10">
             <table className="w-full min-w-[680px] text-left text-sm">
@@ -385,12 +269,14 @@ export default function OffresPage() {
         </div>
       </section>
 
-      {/* ================ FAQ ================ */}
-      <section className="bg-paper py-24 md:py-32">
-        <div className="mx-auto max-w-[880px] px-6 md:px-10">
-          <div className="text-center">
-            <Eyebrow className="mx-auto">Questions fréquentes</Eyebrow>
-            <h2 className="mt-4 font-display text-4xl md:text-5xl leading-[1.05] tracking-tight text-ink">
+      {/* ============ FAQ ============ */}
+      <section className="bg-paper py-32 md:py-40">
+        <div className="mx-auto max-w-[920px] px-6 md:px-10">
+          <div className="max-w-2xl">
+            <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted">
+              Questions fréquentes
+            </p>
+            <h2 className="mt-4 font-display text-4xl md:text-5xl lg:text-6xl leading-[1.05] tracking-tight text-ink">
               Dix réponses avant de{" "}
               <em className="italic font-normal">nous parler.</em>
             </h2>
@@ -409,30 +295,21 @@ export default function OffresPage() {
         </div>
       </section>
 
-      {/* ================ RÉASSURANCE LIQUID GLASS ================ */}
-      <section className="relative bg-sky-mist py-20 md:py-28 overflow-hidden">
-        <div aria-hidden className="mesh-ocean absolute inset-0 opacity-60" />
-        <div className="relative mx-auto max-w-[1200px] px-6 md:px-10">
-          <ul className="grid gap-6 md:grid-cols-3 md:gap-8">
+      {/* ============ RÉASSURANCE — CLEAN ============ */}
+      <section className="bg-sand-light py-24 md:py-32">
+        <div className="mx-auto max-w-[1200px] px-6 md:px-10">
+          <ul className="grid gap-px bg-line md:grid-cols-3">
             {reassurance.map((block) => {
               const Icon = reassuranceIcons[block.icon];
               return (
-                <li key={block.title}>
-                  <GlassCard className="h-full">
-                    <div className="flex items-start gap-4">
-                      <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-ocean-deep text-paper">
-                        <Icon className="h-5 w-5" />
-                      </span>
-                      <div>
-                        <p className="font-display text-lg text-ink">
-                          {block.title}
-                        </p>
-                        <p className="mt-1 text-sm text-ink-soft">
-                          {block.description}
-                        </p>
-                      </div>
-                    </div>
-                  </GlassCard>
+                <li key={block.title} className="bg-paper p-8 md:p-10">
+                  <span className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-ocean-deep text-paper">
+                    <Icon className="h-5 w-5" />
+                  </span>
+                  <p className="mt-5 font-display text-xl text-ink">
+                    {block.title}
+                  </p>
+                  <p className="mt-2 text-sm text-ink-soft">{block.description}</p>
                 </li>
               );
             })}
@@ -457,6 +334,147 @@ export default function OffresPage() {
 
       <FinalCTA />
     </>
+  );
+}
+
+/* ============ Sub-components ============ */
+
+type Plan = typeof pricing.autonomie | typeof pricing.serenite;
+
+function PricingCard({ plan, featured = false }: { plan: Plan; featured?: boolean }) {
+  return (
+    <article
+      className={
+        featured
+          ? "relative flex flex-col rounded-2xl bg-ocean-deep p-8 md:p-10 text-paper overflow-hidden"
+          : "relative flex flex-col rounded-2xl border border-line bg-paper p-8 md:p-10 text-ink"
+      }
+    >
+      {featured && (
+        <div aria-hidden className="mesh-ocean-deep absolute inset-0 opacity-55" />
+      )}
+      <div className="relative flex flex-1 flex-col">
+        <div className="flex items-center gap-3">
+          <span
+            className={
+              "inline-flex items-center rounded-full px-3 py-1 font-mono text-[10px] uppercase tracking-[0.22em] " +
+              (featured
+                ? "bg-sand-warm text-ocean-deep"
+                : "border border-line bg-sky-mist text-ocean-deep")
+            }
+          >
+            {plan.badge}
+          </span>
+          {featured && (
+            <Sparkles
+              className="h-4 w-4 text-sand-warm"
+              aria-hidden
+              strokeWidth={1.5}
+            />
+          )}
+        </div>
+
+        <h3
+          className={
+            "mt-6 font-display text-4xl md:text-5xl leading-[1.02] tracking-tight " +
+            (featured ? "text-paper" : "text-ink")
+          }
+        >
+          {plan.name}
+        </h3>
+        <p
+          className={
+            "mt-3 max-w-sm text-base " +
+            (featured ? "text-paper/80" : "text-ink-soft")
+          }
+        >
+          {plan.tagline}
+        </p>
+
+        <div className="mt-8">
+          <span
+            className={
+              "font-display text-5xl md:text-6xl " +
+              (featured ? "text-paper" : "text-ink")
+            }
+          >
+            {plan.price}
+          </span>
+          <p
+            className={
+              "mt-1 text-sm " + (featured ? "text-paper/65" : "text-ink-soft")
+            }
+          >
+            {plan.priceSuffix}
+          </p>
+          <p
+            className={
+              "mt-2 text-sm font-medium " +
+              (featured ? "text-sand-warm" : "text-ocean-blue")
+            }
+          >
+            {plan.contextLine}
+          </p>
+        </div>
+
+        <ul
+          className={
+            "mt-8 space-y-3 border-t pt-6 " +
+            (featured ? "border-paper/10" : "border-line")
+          }
+        >
+          {plan.features.map((feature) => (
+            <li
+              key={feature}
+              className={
+                "flex items-start gap-3 text-sm " +
+                (featured ? "text-paper/90" : "text-ink-soft")
+              }
+            >
+              <Check
+                className={
+                  "mt-0.5 h-4 w-4 shrink-0 " +
+                  (featured ? "text-sand-warm" : "text-ocean-blue")
+                }
+              />
+              <span>{feature}</span>
+            </li>
+          ))}
+        </ul>
+
+        {plan.extraNote && (
+          <p
+            className={
+              "mt-6 text-xs leading-relaxed " +
+              (featured ? "text-paper/55" : "text-muted")
+            }
+          >
+            {plan.extraNote}
+          </p>
+        )}
+
+        <div className="mt-8">
+          <Button
+            asChild
+            size="lg"
+            variant={featured ? "secondary" : "primary"}
+            className="w-full"
+          >
+            <Link href="/contact">{plan.cta}</Link>
+          </Button>
+          {plan.ctaMicro && (
+            <p
+              className={
+                "mt-3 text-center text-xs " +
+                (featured ? "text-paper/55" : "text-muted")
+              }
+            >
+              {plan.ctaMicro}
+            </p>
+          )}
+        </div>
+      </div>
+    </article>
   );
 }
 

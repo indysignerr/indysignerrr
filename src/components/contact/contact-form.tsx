@@ -92,23 +92,26 @@ export function ContactForm() {
       </Field>
 
       <div className="grid gap-6 md:grid-cols-2">
-        <Field label="Type de projet" htmlFor="type" required>
+        <Field label="Offre visée" htmlFor="type" required>
           <select id="type" name="type" required defaultValue="" className={fieldClass}>
             <option value="" disabled>
-              Choisir
+              Choisir une offre
             </option>
-            <option value="Site Vitrine">Site Vitrine</option>
-            <option value="Site Sur-Mesure">Site Sur-Mesure</option>
-            <option value="Maintenance">Maintenance</option>
-            <option value="Autre">Autre</option>
+            <option value="Autonomie (490€)">Autonomie · 490€ one-shot</option>
+            <option value="Sérénité (250€ + 200€/an)">
+              Sérénité · 250€ + 200€/an
+            </option>
+            <option value="Je ne sais pas encore">Je ne sais pas encore</option>
+            <option value="Autre">Autre demande</option>
           </select>
         </Field>
-        <Field label="Budget estimé" htmlFor="budget">
+        <Field label="Budget total" htmlFor="budget">
           <select id="budget" name="budget" defaultValue="" className={fieldClass}>
             <option value="">À discuter</option>
             <option value="< 500€">&lt; 500€</option>
-            <option value="500-1000€">500 – 1000€</option>
-            <option value="> 1000€">&gt; 1000€</option>
+            <option value="500€ – 1 000€">500€ – 1 000€</option>
+            <option value="1 000€ – 2 500€">1 000€ – 2 500€</option>
+            <option value="> 2 500€">&gt; 2 500€</option>
           </select>
         </Field>
       </div>
