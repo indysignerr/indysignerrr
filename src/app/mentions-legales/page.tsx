@@ -49,7 +49,17 @@ export default function MentionsLegales() {
         consommateurs au sens du Code de la consommation.
       </P>
 
-      <H2>3. Hébergeur du site</H2>
+      <H2>3. Nature de la prestation</H2>
+      <P>
+        Indysigner propose une prestation unique de création de site web
+        vitrine livré clé en main. À la livraison, le Client reçoit la
+        propriété exclusive et complète du site (code, domaine, hébergement,
+        interface d'administration). Aucune prestation de maintenance, de
+        suivi ou de support n'est proposée après la période de garantie
+        contractuelle.
+      </P>
+
+      <H2>4. Hébergeur du site</H2>
       <ul className="space-y-2">
         <li><strong>Raison sociale</strong> : Cloudflare, Inc.</li>
         <li><strong>Adresse</strong> : 101 Townsend Street, San Francisco, CA 94107, États-Unis</li>
@@ -61,18 +71,17 @@ export default function MentionsLegales() {
         </li>
       </ul>
 
-      <H2>4. Propriété intellectuelle</H2>
+      <H2>5. Propriété intellectuelle</H2>
       <P>
         L'ensemble des éléments présents sur le site indysigner.fr (textes,
         images, graphismes, logo, icônes, sons, logiciels, code source) sont,
-        sauf mention contraire, la propriété exclusive d'Indysigner ou font
-        l'objet d'une autorisation d'utilisation.
+        sauf mention contraire, la propriété exclusive d'Indysigner.
       </P>
       <P>
         Toute reproduction, représentation, modification, publication,
-        adaptation totale ou partielle des éléments du site, quel que soit le
-        moyen ou le procédé utilisé, est interdite sans l'autorisation écrite
-        préalable d'Indysigner.
+        adaptation totale ou partielle, quel que soit le moyen ou le procédé
+        utilisé, est interdite sans l'autorisation écrite préalable
+        d'Indysigner.
       </P>
       <P>
         Toute exploitation non autorisée sera considérée comme constitutive
@@ -80,30 +89,30 @@ export default function MentionsLegales() {
         suivants du Code de la propriété intellectuelle.
       </P>
 
-      <H2>5. Liens hypertextes</H2>
+      <H2>6. Liens hypertextes</H2>
       <P>
         Le site peut contenir des liens vers d'autres sites. Indysigner se
         réserve le droit de demander la suppression d'un lien qu'il estime non
         conforme à l'objet du site.
       </P>
 
-      <H2>6. Limitation de responsabilité</H2>
+      <H2>7. Limitation de responsabilité</H2>
       <P>
         Indysigner s'efforce de fournir des informations aussi précises que
         possible. Toutefois, il ne pourra être tenu responsable des omissions,
         inexactitudes ou carences dans la mise à jour. Les informations sont
-        données à titre indicatif et susceptibles d'évoluer.
+        données à titre indicatif.
       </P>
 
-      <H2>7. Droit applicable et juridiction compétente</H2>
+      <H2>8. Droit applicable et juridiction compétente</H2>
       <P>
-        Tout litige en relation avec l'utilisation du site est soumis au droit
-        français. Les relations commerciales d'Indysigner s'inscrivant
-        exclusivement dans un cadre professionnel, les tribunaux compétents du
-        ressort du siège social d'Indysigner sont seuls compétents.
+        Tout litige est soumis au droit français. Les relations d'Indysigner
+        s'inscrivant exclusivement dans un cadre professionnel (B2B), les
+        tribunaux du ressort du siège social d'Indysigner sont seuls
+        compétents.
       </P>
 
-      <H2>8. Contact</H2>
+      <H2>9. Contact</H2>
       <ul className="space-y-2">
         <li><strong>Email</strong> : contact@indysigner.fr</li>
         <li><strong>Téléphone</strong> : 07 69 76 20 76</li>

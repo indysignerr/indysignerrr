@@ -17,11 +17,11 @@ export type Brand = {
 
 export const brand: Brand = {
   name: "Indysigner",
-  tagline: "Votre site en 10 jours chrono.",
+  tagline: "329€. Un site pro. À toi. Pour toujours.",
   manifesto:
-    "On conçoit des sites qui marquent les esprits. Design unique. Livraison express. Prix juste.",
+    "Tu payes une fois. Tu reçois un site pro, complet, optimisé, à ton nom. Tu le gères toi-même. Je ne te recontacte jamais.",
   metaDescription:
-    "Agence web indépendante française. Sites vitrines premium, livrés en 7 jours. Propriété totale du client sur son site.",
+    "Agence web indépendante française. 329€, un site vitrine premium livré en 7 jours, à ton nom pour toujours. Aucun abonnement.",
   email: "contact@indysigner.fr",
   phone: "07 69 76 20 76",
   address: "222 chemin de la Brague, 06410 Biot, France",
@@ -34,6 +34,10 @@ export const brand: Brand = {
   },
 };
 
+/* ============================================
+   SERVICES (homepage + offres)
+   ============================================ */
+
 export type Service = {
   number: string;
   title: string;
@@ -45,7 +49,7 @@ export const services: Service[] = [
     number: "01",
     title: "Site Vitrine Sur-Mesure",
     description:
-      "Design premium sur-mesure, rédaction SEO locale, intégration complète, livré en 7 jours.",
+      "Design premium sur-mesure, rédaction SEO locale, intégration complète, livré en 7 jours. Une seule offre : 329€.",
   },
   {
     number: "02",
@@ -55,11 +59,15 @@ export const services: Service[] = [
   },
   {
     number: "03",
-    title: "Maintenance & Évolution",
+    title: "Propriété totale à vie",
     description:
-      "Modifications illimitées, corrections, optimisations continues. Tu ne touches à rien, ton site vit.",
+      "Comptes GitHub et Cloudflare à ton nom, domaine transféré, admin en clair. Tu gères ton site, je disparais.",
   },
 ];
+
+/* ============================================
+   PROCESS (4 jours structurés)
+   ============================================ */
 
 export type ProcessStep = {
   number: string;
@@ -70,27 +78,33 @@ export type ProcessStep = {
 export const processSteps: ProcessStep[] = [
   {
     number: "01",
-    title: "Briefing",
+    title: "Jour 1-2 · Brief & design",
     description:
-      "Brief gratuit sous 48h. On cadre ton projet, tes objectifs, ta cible.",
+      "Tu remplis le brief. Je te propose une maquette sous 48h. Tu valides ou on ajuste.",
   },
   {
     number: "02",
-    title: "Maquette",
-    description: "Maquette visuelle avant tout engagement. Si tu aimes pas, tu pars.",
+    title: "Jour 3-5 · Construction",
+    description:
+      "Je code ton site. Rédaction, intégration, mobile, SEO local. Lien de preview partagé.",
   },
   {
     number: "03",
-    title: "Développement",
-    description: "7 jours ouvrés de la validation à la mise en ligne. Suivi temps réel.",
+    title: "Jour 6 · Ajustements",
+    description:
+      "Tu me fais tes retours finaux. J'ajuste jusqu'à validation complète.",
   },
   {
     number: "04",
-    title: "Livraison & Propriété",
+    title: "Jour 7 · Livraison totale",
     description:
-      "Transfert complet du code, domaine et admin. Le site t'appartient à vie.",
+      "Comptes GitHub et Cloudflare à ton nom. Transfert, formation 1h, accès remis. Je disparais.",
   },
 ];
+
+/* ============================================
+   VALEURS (/a-propos)
+   ============================================ */
 
 export type Value = {
   title: string;
@@ -105,21 +119,25 @@ export const values: Value[] = [
   {
     title: "Transparence",
     description:
-      "Prix clairs, processus limpide, communication directe. Zéro mauvaise surprise.",
+      "Un prix unique affiché. Pas de upsell, pas d'option cachée, pas de devis à rallonge.",
   },
   {
-    title: "Innovation",
+    title: "Indépendance",
     description:
-      "On utilise les meilleures technologies et l'IA pour aller plus vite sans sacrifier la qualité.",
+      "Tu deviens seul propriétaire de ton site. GitHub, Cloudflare, domaine — tout à ton nom.",
   },
   {
     title: "Accessibilité",
     description:
-      "Un site premium ne devrait pas coûter 5 000€. On rend la qualité accessible.",
+      "Un site premium à 329€, pas 3 000€. La qualité ne devrait pas être réservée aux grandes structures.",
   },
 ];
 
-export const valuesPullQuote = "Pas un template. Un site qui te ressemble.";
+export const valuesPullQuote = "329€. Un site pro. À toi. Pour toujours. Je disparais.";
+
+/* ============================================
+   STATS
+   ============================================ */
 
 export type Stat = {
   label: string;
@@ -127,184 +145,155 @@ export type Stat = {
 };
 
 export const stats: Stat[] = [
-  { label: "Sites livrés", value: "30+" },
+  { label: "Prix unique", value: "329€" },
+  { label: "Délai de livraison", value: "7 jours" },
   { label: "Satisfaction clients", value: "100%" },
-  { label: "Délai moyen", value: "7 jours" },
   { label: "Temps de réponse", value: "24h" },
 ];
 
 /* ============================================
-   PRICING
+   PRICING — FORMULE UNIQUE 329€ + OPTION +90€
    ============================================ */
 
-export type PricingPlan = {
-  key: "autonomie" | "serenite";
+export const pricingTagline =
+  "Tu payes une fois. Tu reçois un site pro, complet, optimisé, à ton nom. Tu le gères toi-même. Je ne te recontacte jamais.";
+
+export type MainOffer = {
   badge: string;
   name: string;
-  tagline: string;
   price: string;
   priceSuffix: string;
   contextLine: string;
   features: string[];
-  extraNote?: string;
+  closingNote: string;
   cta: string;
-  ctaMicro?: string;
+  ctaMicro: string;
 };
 
-export const pricing: { autonomie: PricingPlan; serenite: PricingPlan } = {
-  autonomie: {
-    key: "autonomie",
-    badge: "LE PLUS VENDU",
-    name: "Autonomie",
-    tagline: "Tu payes une fois. C'est à toi. Pour toujours.",
-    price: "490€",
-    priceSuffix: "une seule fois · tout compris",
-    contextLine: "Puis 0€. À vie.",
-    features: [
-      "Création site vitrine sur-mesure",
-      "Design premium + animations au scroll",
-      "Rédaction complète (FR, SEO local)",
-      "Intégration photos fournies ou sourcées",
-      "Version mobile optimisée",
-      "Interface admin simple",
-      "Setup technique complet (domaine, hébergement, admin)",
-      "Formation 1h (visio ou présentiel)",
-      "Manuel d'utilisation PDF",
-      "Support technique 30 jours",
-      "Hébergement gratuit à vie",
-    ],
-    extraNote: "Après 30 jours : grille tarifaire claire à partir de 35€.",
-    cta: "Démarrer mon projet",
-    ctaMicro: "Devis sous 24h. Maquette gratuite avant tout engagement.",
-  },
-  serenite: {
-    key: "serenite",
-    badge: "LE PLUS TRANQUILLE",
-    name: "Sérénité",
-    tagline: "Tu ne touches à rien. Jamais. Je m'occupe de tout.",
-    price: "250€ + 200€/an",
-    priceSuffix: "(ou 20€/mois)",
-    contextLine: "+10€/mois si tu veux que je gère aussi ton domaine",
-    features: [
-      "Tout Autonomie (sans la formation)",
-      "Modifications illimitées (textes, photos, horaires)",
-      "Ajout de pages à la demande",
-      "Refonte de sections",
-      "Widgets tiers (réservation, carte, formulaire)",
-      "SEO continu",
-      "Corrections bugs et mises à jour",
-      "Support sous 48h ouvrées",
-      "Conseils stratégiques",
-    ],
-    extraNote:
-      "Annuel (200€) = 2 mois offerts. Résiliable à tout moment avec 30 jours préavis. Ton site reste à toi.",
-    cta: "Démarrer mon projet",
-  },
+export const mainOffer: MainOffer = {
+  badge: "Formule unique",
+  name: "Site pro à 329€",
+  price: "329€",
+  priceSuffix: "une fois · à vie · fini",
+  contextLine: "Puis 0€. À vie.",
+  features: [
+    "Création de ton site vitrine sur-mesure",
+    "Design premium avec animations au scroll",
+    "Rédaction complète des contenus (FR, SEO local)",
+    "Intégration de tes photos ou sourcing d'images",
+    "Version mobile optimisée",
+    "Interface d'administration simple",
+    "Création de tes comptes GitHub et Cloudflare à ton nom",
+    "Transfert complet du site sur tes comptes",
+    "Connexion de ton nom de domaine",
+    "Formation 1h (visio ou présentiel)",
+    "Manuel d'utilisation PDF",
+    "Garantie 30 jours après livraison",
+    "Hébergement gratuit à vie (Cloudflare)",
+  ],
+  closingNote:
+    "C'est tout. Pas de maintenance, pas d'abonnement, pas de SAV qui traîne. Ton site, ton contrôle, ta liberté.",
+  cta: "Démarrer mon projet",
+  ctaMicro: "Maquette gratuite sous 48h. Devis ferme sous 24h.",
 };
 
-export type PricingRow = {
-  label: string;
+export type PricingOption = {
+  badge: string;
+  name: string;
+  subtitle: string;
   price: string;
-  note?: string;
+  priceSuffix: string;
+  features: string[];
+  smallText: string;
+  cta: string;
 };
 
-export const pricingFormulas: PricingRow[] = [
-  { label: "Autonomie", price: "490€", note: "One-shot" },
-  { label: "Sérénité mensuel", price: "250€ + 20€/mois", note: "Récurrent" },
-  { label: "Sérénité annuel", price: "250€ + 200€/an", note: "2 mois offerts" },
-  {
-    label: "Option domaine géré (Sérénité)",
-    price: "+10€/mois ou +100€/an",
-    note: "Additionnel",
-  },
-];
-
-export const interventions: PricingRow[] = [
-  { label: "Intervention simple", price: "35€" },
-  { label: "Intervention complexe", price: "80€" },
-  { label: "Refonte section", price: "100€" },
-  { label: "Ajout page", price: "100€" },
-  { label: "Formation 1h", price: "60€" },
-  { label: "Widget tiers", price: "60€" },
-  { label: "Récupération site cassé", price: "180€" },
-];
-
-export const packs: PricingRow[] = [
-  { label: "3 interventions simples", price: "90€", note: "Économie 15€" },
-  { label: "5 interventions simples", price: "140€", note: "Économie 35€" },
-];
-
-export const extras: PricingRow[] = [
-  { label: "Pack photos pro (shooting 2h)", price: "250€" },
-  { label: "Pack visuels IA (6 illustrations)", price: "120€" },
-  { label: "Article SEO 800 mots", price: "80€" },
-  { label: "Logo simple", price: "150€" },
-  { label: "Setup Google My Business", price: "80€" },
-  { label: "Connexion formulaire CRM", price: "60€" },
-];
+export const pricingOption: PricingOption = {
+  badge: "Option",
+  name: "Pack Modifications",
+  subtitle: "Pour ceux qui veulent une marge de sécurité la 1ère année.",
+  price: "+90€",
+  priceSuffix: "à ajouter à la commande",
+  features: [
+    "2 interventions majeures dans les 12 mois suivant la livraison",
+    "Ajout d'une page, refonte d'une section, intégration d'un widget tiers, modification structurelle",
+    "À utiliser quand tu veux dans l'année",
+  ],
+  smallText:
+    "Option à prendre uniquement au moment de la commande. Non remboursable. Expire 12 mois après la livraison. Les petites modifs (horaires, photos, prix) tu les fais toi-même depuis ton interface admin.",
+  cta: "Ajouter à ma commande",
+};
 
 /* ============================================
-   COMPARATIF ANTI-WIX
+   COMPARATIF (3 colonnes : Wix / Agence / Indysigner)
    ============================================ */
+
+export const comparisonTitle =
+  "Pourquoi pas Wix, Squarespace, ou une agence classique ?";
+
+export const comparisonSubtitle =
+  "Le site que tu as loué toute ta vie à 16€/mois, tu l'as payé 960€ sur 5 ans. Le mien, tu le payes 329€ une fois. Et il reste le tien.";
 
 export type ComparisonRow = {
   criteria: string;
   wix: string;
-  autonomie: string;
-  serenite: string;
+  agency: string;
+  indysigner: string;
 };
-
-export const comparisonTitle =
-  "Sur Wix, tu loues une cage dorée. Chez Indysigner, tu construis ta maison.";
 
 export const comparison: ComparisonRow[] = [
   {
     criteria: "Coût 1ère année",
     wix: "192€",
-    autonomie: "490€",
-    serenite: "450€",
+    agency: "1 500 – 3 000€",
+    indysigner: "329€",
   },
-  { criteria: "Coût année 2", wix: "192€", autonomie: "0€", serenite: "200€" },
   {
-    criteria: "Coût total 3 ans",
-    wix: "576€",
-    autonomie: "490€",
-    serenite: "850€",
+    criteria: "Coût année 2+",
+    wix: "192€/an",
+    agency: "30 – 60€/mois",
+    indysigner: "0€",
+  },
+  {
+    criteria: "Coût sur 5 ans",
+    wix: "960€",
+    agency: "3 000€+",
+    indysigner: "329€",
   },
   {
     criteria: "Design sur-mesure",
-    wix: "Templates",
-    autonomie: "Oui",
-    serenite: "Oui",
+    wix: "Non",
+    agency: "Oui",
+    indysigner: "Oui",
   },
   {
-    criteria: "Propriété du site",
+    criteria: "Propriété totale",
     wix: "Non",
-    autonomie: "Oui",
-    serenite: "Oui",
+    agency: "Variable",
+    indysigner: "Oui",
+  },
+  {
+    criteria: "Tu modifies toi-même",
+    wix: "Oui",
+    agency: "Non",
+    indysigner: "Oui",
   },
   {
     criteria: "Hébergement",
     wix: "Loyer à vie",
-    autonomie: "Gratuit à vie",
-    serenite: "Inclus",
+    agency: "Loyer à vie",
+    indysigner: "Gratuit à vie",
   },
   {
-    criteria: "Si tu arrêtes",
+    criteria: "Si tu arrêtes de payer",
     wix: "Site supprimé",
-    autonomie: "Site reste à toi",
-    serenite: "Site reste à toi",
-  },
-  {
-    criteria: "Qualité design",
-    wix: "Moyenne",
-    autonomie: "Premium",
-    serenite: "Premium",
+    agency: "Site coupé",
+    indysigner: "Rien ne change",
   },
 ];
 
 /* ============================================
-   FAQ PRICING
+   FAQ (10 questions)
    ============================================ */
 
 export type FaqItem = {
@@ -314,61 +303,60 @@ export type FaqItem = {
 
 export const pricingFaq: FaqItem[] = [
   {
-    question:
-      "Est-ce que je peux vraiment modifier mon site moi-même sans connaissances techniques ?",
+    question: "Est-ce que je peux vraiment tout modifier moi-même ?",
     answer:
-      "Oui, complètement. L'interface d'administration ressemble à un formulaire : tu cliques sur \"Horaires\", tu écris tes nouveaux horaires, tu cliques \"Publier\". 2 minutes plus tard, ton site est à jour. Je te forme pendant 1h pour que tu sois à l'aise. Personne n'a jamais eu besoin d'une deuxième formation.",
+      "Oui. L'interface d'administration ressemble à un formulaire : tu cliques sur \"Horaires\", tu tapes tes nouveaux horaires, tu cliques \"Publier\". 2 minutes plus tard, c'est à jour sur ton site. Je te forme 1h pour que tu sois à l'aise. Le manuel PDF répond à 99% des cas d'usage.",
   },
   {
     question:
-      "Qu'est-ce qui se passe si j'arrête de payer la maintenance (formule Sérénité) ?",
+      "Et si je casse mon site ou que je n'arrive plus à modifier quelque chose ?",
     answer:
-      "Ton site reste à toi. Tu récupères tes accès complets (domaine, hébergement, interface admin), tu continues à gérer ton site seul. Aucune coupure, aucune perte. La différence avec Wix : tu ne redémarres pas à zéro, tu continues avec TON site existant.",
+      "Pendant les 30 premiers jours : je répare gratuitement (garantie). Au-delà : soit tu as pris le Pack Modifications à +90€ et tu as 2 interventions dans l'année, soit tu fais appel à un autre prestataire. Je ne reviens plus après 30 jours, c'est volontaire : c'est ce qui me permet de proposer 329€ au lieu de 1 500€.",
   },
   {
-    question: "Pourquoi c'est moins cher que les autres agences ?",
+    question: "Pourquoi c'est moins cher que les autres ?",
     answer:
-      "Parce que j'utilise des outils d'IA avancés pour accélérer la création. Ce qui prenait 3 semaines prend 3 jours. Je répercute ce gain sur le prix. La qualité ne change pas : chaque site est pensé sur-mesure selon ton secteur, ta cible, ton positionnement.",
+      "Parce que j'utilise des outils d'IA avancés (Claude Code, Next.js, Decap) pour accélérer la création. Ce qui prenait 3 semaines prend 3 jours. Je répercute ce gain sur le prix. Et je n'ai pas de coûts récurrents (pas de SAV, pas de serveurs, pas d'équipe), donc je peux pricer bas.",
   },
   {
-    question: "Je peux commencer en Autonomie et passer en Sérénité plus tard ?",
+    question: "Qu'est-ce qui se passe si Cloudflare ou GitHub change ses prix ?",
     answer:
-      "Absolument. Tu payes 490€ pour Autonomie, et si dans 6 mois tu en as marre de modifier toi-même, tu bascules en Sérénité. Tu payes alors uniquement les 200€/an (pas de nouveaux frais de création).",
+      "C'est ta responsabilité après la livraison, puisque les comptes sont à ton nom. Mais pour te rassurer : à ce jour, GitHub et Cloudflare sont gratuits pour l'usage d'un site vitrine pro, et le resteront très probablement (ce sont leurs offres d'appel). Si un jour ça change, tu auras le code source et tu pourras migrer facilement chez un autre hébergeur gratuit.",
   },
   {
-    question: "Et si je veux partir chez une autre agence ou reprendre la main ?",
+    question: "Je peux revenir te voir dans 2 ans pour refaire mon site ?",
     answer:
-      "Tu pars avec tout. Le code de ton site, ton nom de domaine, ton interface d'administration. Aucune prise d'otage. C'est ma promesse dès le premier jour : propriété totale du client sur son site.",
-  },
-  {
-    question: "Combien de temps entre la commande et la mise en ligne ?",
-    answer:
-      "7 jours ouvrés entre la validation du brief et la livraison. Jour 1-2 : Design et structure. Jour 3-4 : Rédaction et intégration contenus. Jour 5 : Version mobile et optimisation. Jour 6 : Ajustements selon tes retours. Jour 7 : Mise en ligne et formation (pour Autonomie).",
-  },
-  {
-    question: "Est-ce que je peux voir ce que ça va donner avant de payer ?",
-    answer:
-      "Oui. Je propose une maquette gratuite sous 48h après réception de ton brief. Tu vois concrètement à quoi ton site ressemblera, et tu décides ensuite.",
-  },
-  {
-    question: "Vous faites des e-commerces ou des systèmes de réservation ?",
-    answer:
-      "Je fais des sites vitrines exclusivement. Si tu as besoin de réservation (restaurant, consultation) ou de paiement, j'intègre des outils tiers reconnus (Zenchef, Tableo, Stripe Link, Calendly) directement sur ton site. Pas de développement e-commerce custom.",
+      "Bien sûr. Tu me recommandes, tu reviens pour une nouvelle version, tu payes 329€ pour un site flambant neuf. Mais entre-temps, je n'interviens pas sur ton site existant.",
   },
   {
     question: "Ça marche pour quels types de métiers ?",
     answer:
-      "Restaurateurs, artisans, barbiers, kinésithérapeutes, ostéopathes, avocats, notaires, experts-comptables, coaches, consultants, freelances, associations. Si tu n'es pas sûr, envoie-moi un message : je te dis honnêtement si ton cas entre dans mon offre ou non.",
+      "Restaurateurs, artisans, barbiers, kinés, ostéos, avocats, notaires, experts-comptables, coaches, consultants, freelances, associations. Tout pro qui a besoin d'un site vitrine propre, rapide, qui convertit. Si tu n'es pas sûr, envoie-moi un message : je te dis honnêtement si ça colle ou pas.",
+  },
+  {
+    question: "Vous faites des e-commerces ou des systèmes de réservation ?",
+    answer:
+      "Je fais des sites vitrines. Pour les réservations, j'intègre des outils tiers (Zenchef, Tableo, Calendly). Pour les paiements en ligne, Stripe Link. Pas de développement custom e-commerce.",
   },
   {
     question: "Je paye comment ?",
     answer:
-      "Par carte bancaire via Stripe, en 1 fois ou 2 fois (50% commande, 50% livraison pour Autonomie). Pour Sérénité mensuelle, prélèvement automatique. Pour Sérénité annuelle, paiement unique annuel. Tu reçois une facture pour ta comptabilité.",
+      "Par carte bancaire via Stripe. 50% à la commande (164,50€), 50% à la livraison (164,50€). Si tu prends le Pack Modifications : +90€ à la commande. Facture reçue par mail pour ta comptabilité.",
+  },
+  {
+    question: "Vous travaillez où ?",
+    answer:
+      "Je suis basé à Biot (06). Je travaille avec des clients partout en France, 100% en distance. Pour la formation d'1h, on fait ça en visio (Google Meet). Pour les clients autour de Biot/Antibes/Sophia, je peux me déplacer.",
+  },
+  {
+    question: "Et si je ne suis pas satisfait de la maquette ?",
+    answer:
+      "Tu n'as encore payé que 50%. Si la maquette ne te convient pas vraiment après 2 allers-retours, on arrête là. Je garde l'acompte (coût de la conception), tu ne vas pas plus loin. Honnête des deux côtés.",
   },
 ];
 
 /* ============================================
-   RÉASSURANCE
+   RÉASSURANCE (3 blocs)
    ============================================ */
 
 export type ReassuranceBlock = {
@@ -380,18 +368,20 @@ export type ReassuranceBlock = {
 export const reassurance: ReassuranceBlock[] = [
   {
     icon: "flag",
-    title: "Freelance basé à Biot",
-    description: "Tu parles à Indy directement, personne d'autre.",
+    title: "Freelance à Biot",
+    description:
+      "Tu parles à Indy directement. Pas de commercial, pas d'intermédiaire.",
   },
   {
     icon: "bolt",
     title: "Livraison en 7 jours",
-    description: "Pas de mois d'attente, pas de charges inutiles.",
+    description: "Une fois payé, tu as ton site dans la semaine.",
   },
   {
     icon: "lock",
-    title: "Propriété garantie",
-    description: "Ton site t'appartient. Clause écrite dans le contrat.",
+    title: "Propriété totale garantie",
+    description:
+      "Ton site, ton code, ton domaine, tes comptes. À toi. Pour toujours.",
   },
 ];
 

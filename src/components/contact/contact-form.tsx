@@ -23,7 +23,7 @@ export function ContactForm() {
       name: data.get("name")?.toString() ?? "",
       email: data.get("email")?.toString() ?? "",
       type: data.get("type")?.toString() ?? "",
-      budget: data.get("budget")?.toString() ?? "",
+      delay: data.get("delay")?.toString() ?? "",
       message: data.get("message")?.toString() ?? "",
       consent: data.get("consent") === "on",
     };
@@ -97,21 +97,23 @@ export function ContactForm() {
             <option value="" disabled>
               Choisir une offre
             </option>
-            <option value="Autonomie (490€)">Autonomie · 490€ one-shot</option>
-            <option value="Sérénité (250€ + 200€/an)">
-              Sérénité · 250€ + 200€/an
+            <option value="Site vitrine 329€">
+              Site vitrine · 329€ one-shot
+            </option>
+            <option value="Site vitrine + Pack Modifications (419€)">
+              Site vitrine + Pack Modifications · 419€
             </option>
             <option value="Je ne sais pas encore">Je ne sais pas encore</option>
-            <option value="Autre">Autre demande</option>
+            <option value="Autre demande">Autre demande</option>
           </select>
         </Field>
-        <Field label="Budget total" htmlFor="budget">
-          <select id="budget" name="budget" defaultValue="" className={fieldClass}>
-            <option value="">À discuter</option>
-            <option value="< 500€">&lt; 500€</option>
-            <option value="500€ – 1 000€">500€ – 1 000€</option>
-            <option value="1 000€ – 2 500€">1 000€ – 2 500€</option>
-            <option value="> 2 500€">&gt; 2 500€</option>
+        <Field label="Délai souhaité" htmlFor="delay">
+          <select id="delay" name="delay" defaultValue="" className={fieldClass}>
+            <option value="">Pas d'urgence</option>
+            <option value="Cette semaine">Cette semaine</option>
+            <option value="Dans les 2 semaines">Dans les 2 semaines</option>
+            <option value="Dans le mois">Dans le mois</option>
+            <option value="Plus tard">Plus tard</option>
           </select>
         </Field>
       </div>

@@ -7,12 +7,7 @@ import {
   Lock,
   Phone,
   Zap,
-  Pencil,
-  Wrench,
-  Rocket,
   Sparkles,
-  LayoutGrid,
-  LineChart,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { GlassPill } from "@/components/ui/liquid-glass";
@@ -23,70 +18,25 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import {
-  pricing,
-  pricingFormulas,
-  interventions,
-  packs,
-  extras,
+  mainOffer,
+  pricingOption,
+  pricingTagline,
   comparison,
   comparisonTitle,
+  comparisonSubtitle,
   pricingFaq,
+  processSteps,
   reassurance,
 } from "@/lib/content";
 import { FinalCTA } from "@/components/home/cta";
 
 export const metadata: Metadata = {
-  title: "Offres",
+  title: "329€ — Un site à toi, pour toujours",
   description:
-    "Ce qu'on fait et combien ça coûte. Sites vitrines, motion, SEO, maintenance — deux formules claires, zéro surprise.",
+    "Une offre. Un prix. Tout compris. 329€ one-shot, livré en 7 jours, propriété totale garantie. Aucun abonnement, aucun SAV.",
 };
 
 const reassuranceIcons = { flag: Flag, bolt: Zap, lock: Lock };
-
-const serviceLines = [
-  {
-    number: "01",
-    title: "Direction artistique",
-    description:
-      "Palette, typographie, rythme, motifs. Une identité visuelle qui te distingue et tient dans le temps.",
-    icon: Pencil,
-  },
-  {
-    number: "02",
-    title: "Développement Next.js",
-    description:
-      "Sites statiques rapides, typés TypeScript, déployés sur Vercel. Zéro CMS propriétaire, zéro lock-in.",
-    icon: LayoutGrid,
-  },
-  {
-    number: "03",
-    title: "Motion & interactions",
-    description:
-      "Scroll narratif, micro-interactions, transitions cinématiques. Chaque détail transforme la visite en expérience.",
-    icon: Zap,
-  },
-  {
-    number: "04",
-    title: "SEO local & structure",
-    description:
-      "JSON-LD, balises Open Graph, sitemap, Core Web Vitals. Référencement local optimisé dès le jour de livraison.",
-    icon: Rocket,
-  },
-  {
-    number: "05",
-    title: "Maintenance & suivi",
-    description:
-      "Modifications illimitées, ajouts de pages, mises à jour techniques. Tu ne touches à rien, ton site vit.",
-    icon: Wrench,
-  },
-  {
-    number: "06",
-    title: "Analytics & conseil",
-    description:
-      "Installation suivi, reporting mensuel simple. Tu comprends d'où viennent tes visiteurs et ce qui convertit.",
-    icon: LineChart,
-  },
-];
 
 export default function OffresPage() {
   return (
@@ -102,113 +52,140 @@ export default function OffresPage() {
                 <span className="relative inline-flex size-2 rounded-full bg-emerald-500" />
               </span>
               <span className="font-mono text-[11px] uppercase tracking-[0.22em]">
-                Services + Tarifs · disponible
+                Une offre. Un prix. Tout compris.
               </span>
             </span>
           </GlassPill>
 
-          <h1 className="mt-8 max-w-5xl font-display text-5xl md:text-7xl lg:text-8xl leading-[0.95] tracking-tight text-ink">
-            Ce qu'on fait.
+          <h1 className="mt-8 font-display text-6xl md:text-8xl lg:text-[9rem] leading-[0.9] tracking-tight text-ink">
+            329€.
             <br />
-            <em className="italic font-normal text-ocean-blue">Combien ça coûte.</em>
+            <em className="italic font-normal text-ocean-blue">
+              Et c'est tout.
+            </em>
           </h1>
-          <p className="mt-8 max-w-2xl text-lg text-ink-soft">
-            Six savoir-faire, deux formules. Tu choisis l'approche — je livre en
-            7 jours, tu restes propriétaire à vie.
+          <p className="mt-10 max-w-2xl text-lg md:text-xl text-ink-soft">
+            {pricingTagline} Aucun abonnement, aucun frais caché, aucun retour.
           </p>
         </div>
       </section>
 
-      {/* ============ SERVICES — CLEAN 6-CARD GRID ============ */}
+      {/* ============ FORMULE UNIQUE ============ */}
       <section className="bg-paper py-32 md:py-40">
         <div className="mx-auto max-w-[1200px] px-6 md:px-10">
-          <div className="max-w-3xl">
-            <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted">
-              Services
-            </p>
-            <h2 className="mt-4 font-display text-4xl md:text-5xl lg:text-6xl leading-[1.05] tracking-tight text-ink">
-              Six savoir-faire.{" "}
-              <em className="italic font-normal text-ocean-blue">Un seul site.</em>
-            </h2>
-            <p className="mt-6 max-w-xl text-lg text-ink-soft">
-              Chaque projet mobilise l'ensemble. Pas de sous-traitance, pas de juniors — tu travailles directement avec Indy.
-            </p>
-          </div>
+          <div className="relative overflow-hidden rounded-3xl bg-ocean-deep text-paper">
+            <div aria-hidden className="mesh-ocean-deep absolute inset-0 opacity-55" />
+            <div className="relative grid gap-10 p-8 md:grid-cols-12 md:gap-16 md:p-14 lg:p-20">
+              {/* Left — price + pitch */}
+              <div className="md:col-span-5 flex flex-col">
+                <span className="inline-flex w-fit items-center rounded-full bg-sand-warm text-ocean-deep px-3 py-1 font-mono text-[10px] uppercase tracking-[0.22em]">
+                  {mainOffer.badge}
+                </span>
+                <p className="mt-8 font-display text-[clamp(4.5rem,12vw,8rem)] leading-[0.9] tracking-tight text-paper">
+                  {mainOffer.price}
+                </p>
+                <p className="mt-2 text-base text-paper/70">
+                  {mainOffer.priceSuffix}
+                </p>
+                <p className="mt-5 font-display italic text-xl md:text-2xl text-sand-warm">
+                  {mainOffer.contextLine}
+                </p>
 
-          <ul className="mt-16 grid gap-px bg-line md:grid-cols-2 lg:grid-cols-3 md:mt-20">
-            {serviceLines.map((service) => {
-              const Icon = service.icon;
-              return (
-                <li key={service.number} className="bg-paper p-8 md:p-10">
-                  <div className="flex items-center gap-3">
-                    <span className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-ocean-deep/15 bg-sky-mist text-ocean-deep">
-                      <Icon className="h-4 w-4" />
-                    </span>
-                    <span className="font-mono text-[11px] uppercase tracking-[0.22em] text-ocean-blue">
-                      {service.number}
-                    </span>
-                  </div>
-                  <h3 className="mt-6 font-display text-2xl md:text-[26px] leading-tight text-ink">
-                    {service.title}
-                  </h3>
-                  <p className="mt-4 text-sm md:text-base leading-relaxed text-ink-soft">
-                    {service.description}
+                <p className="mt-10 max-w-sm text-sm leading-relaxed text-paper/75">
+                  {mainOffer.closingNote}
+                </p>
+
+                <div className="mt-auto pt-10">
+                  <Button
+                    asChild
+                    size="lg"
+                    variant="secondary"
+                    className="w-full sm:w-fit"
+                  >
+                    <Link href="/contact">
+                      {mainOffer.cta}
+                      <ArrowRight className="h-4 w-4" />
+                    </Link>
+                  </Button>
+                  <p className="mt-3 text-xs text-paper/55">
+                    {mainOffer.ctaMicro}
                   </p>
-                </li>
-              );
-            })}
-          </ul>
-        </div>
-      </section>
+                </div>
+              </div>
 
-      {/* ============ PRICING — CLEAN 2-CARD GRID ============ */}
-      <section className="bg-sand-light py-32 md:py-40">
-        <div className="mx-auto max-w-[1200px] px-6 md:px-10">
-          <div className="max-w-3xl">
-            <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted">
-              Tarifs
-            </p>
-            <h2 className="mt-4 font-display text-4xl md:text-5xl lg:text-6xl leading-[1.05] tracking-tight text-ink">
-              Deux formules.{" "}
-              <em className="italic font-normal text-ocean-blue">Zéro surprise.</em>
-            </h2>
-            <p className="mt-6 max-w-xl text-lg text-ink-soft">
-              Tu payes une fois et c'est à toi. Ou tu me laisses m'occuper de tout.
-            </p>
-          </div>
-
-          <div className="mt-16 grid gap-6 md:mt-20 md:grid-cols-2 md:gap-8">
-            <PricingCard plan={pricing.autonomie} featured />
-            <PricingCard plan={pricing.serenite} />
+              {/* Right — features grid */}
+              <div className="md:col-span-7 md:border-l md:border-paper/10 md:pl-16">
+                <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-sand-warm">
+                  Inclus dans les 329€
+                </p>
+                <ul className="mt-6 grid gap-3 sm:grid-cols-2">
+                  {mainOffer.features.map((feature) => (
+                    <li
+                      key={feature}
+                      className="flex items-start gap-3 text-sm leading-relaxed text-paper/90"
+                    >
+                      <Check
+                        className="mt-0.5 h-4 w-4 shrink-0 text-sand-warm"
+                        strokeWidth={2.2}
+                      />
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* ============ GRILLE TARIFAIRE ============ */}
-      <section className="bg-paper py-32 md:py-40">
+      {/* ============ OPTION PACK MODIFICATIONS ============ */}
+      <section className="bg-sand-light py-24 md:py-32">
         <div className="mx-auto max-w-[1200px] px-6 md:px-10">
-          <div className="max-w-3xl">
-            <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted">
-              Grille tarifaire complète
-            </p>
-            <h2 className="mt-4 font-display text-4xl md:text-5xl lg:text-6xl leading-[1.05] tracking-tight text-ink">
-              Chaque ligne, un prix.{" "}
-              <em className="italic font-normal">Rien de caché.</em>
-            </h2>
-          </div>
+          <div className="rounded-3xl border border-line bg-paper p-8 md:p-14">
+            <div className="grid gap-10 md:grid-cols-12 md:gap-14 md:items-center">
+              <div className="md:col-span-5">
+                <span className="inline-flex w-fit items-center rounded-full border border-ocean-deep/15 bg-sky-mist text-ocean-deep px-3 py-1 font-mono text-[10px] uppercase tracking-[0.22em]">
+                  {pricingOption.badge}
+                </span>
+                <h2 className="mt-6 font-display text-4xl md:text-5xl leading-[1.05] tracking-tight text-ink">
+                  {pricingOption.name}
+                </h2>
+                <p className="mt-4 text-lg text-ink-soft">
+                  {pricingOption.subtitle}
+                </p>
+                <div className="mt-8 flex items-baseline gap-2">
+                  <span className="font-display text-5xl md:text-6xl text-ink">
+                    {pricingOption.price}
+                  </span>
+                  <span className="text-sm text-ink-soft">
+                    {pricingOption.priceSuffix}
+                  </span>
+                </div>
+              </div>
 
-          <div className="mt-14 grid gap-10 md:grid-cols-2 md:gap-14">
-            <PricingTable title="Formules principales" rows={pricingFormulas} />
-            <PricingTable
-              title="Interventions Autonomie (après 30j)"
-              rows={interventions}
-            />
-            <PricingTable
-              title="Packs Autonomie"
-              note="Valables 12 mois, non remboursables."
-              rows={packs}
-            />
-            <PricingTable title="Prestations complémentaires" rows={extras} />
+              <div className="md:col-span-7 md:border-l md:border-line md:pl-14">
+                <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted">
+                  Ce qui est inclus
+                </p>
+                <ul className="mt-6 space-y-4">
+                  {pricingOption.features.map((feature) => (
+                    <li
+                      key={feature}
+                      className="flex items-start gap-3 text-base leading-relaxed text-ink"
+                    >
+                      <Check
+                        className="mt-1 h-4 w-4 shrink-0 text-ocean-blue"
+                        strokeWidth={2.2}
+                      />
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+                <p className="mt-8 border-t border-line pt-6 text-xs leading-relaxed text-muted">
+                  {pricingOption.smallText}
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -222,15 +199,12 @@ export default function OffresPage() {
               Comparatif
             </p>
             <h2 className="mt-4 font-display text-4xl md:text-5xl lg:text-6xl leading-[1.05] tracking-tight">
-              {comparisonTitle.split("Chez")[0]}
-              <em className="italic font-normal text-sand-warm">
-                Chez{comparisonTitle.split("Chez")[1]}
-              </em>
+              {comparisonTitle}
             </h2>
           </div>
 
           <div className="mt-14 overflow-x-auto rounded-2xl border border-paper/10">
-            <table className="w-full min-w-[680px] text-left text-sm">
+            <table className="w-full min-w-[720px] text-left text-sm">
               <thead className="border-b border-paper/10">
                 <tr>
                   <th className="px-5 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-paper/50">
@@ -239,11 +213,11 @@ export default function OffresPage() {
                   <th className="px-5 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-paper/50">
                     Wix / Squarespace
                   </th>
-                  <th className="px-5 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-sand-warm">
-                    Autonomie
+                  <th className="px-5 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-paper/50">
+                    Agence classique
                   </th>
                   <th className="px-5 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-sand-warm">
-                    Sérénité
+                    Indysigner
                   </th>
                 </tr>
               </thead>
@@ -255,22 +229,55 @@ export default function OffresPage() {
                   >
                     <td className="px-5 py-4 text-paper/90">{row.criteria}</td>
                     <td className="px-5 py-4 text-paper/55">{row.wix}</td>
+                    <td className="px-5 py-4 text-paper/55">{row.agency}</td>
                     <td className="px-5 py-4 font-medium text-paper">
-                      {row.autonomie}
-                    </td>
-                    <td className="px-5 py-4 font-medium text-paper">
-                      {row.serenite}
+                      {row.indysigner}
                     </td>
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
+
+          <p className="mt-10 max-w-2xl font-display italic text-xl md:text-2xl text-sand-warm leading-snug">
+            {comparisonSubtitle}
+          </p>
+        </div>
+      </section>
+
+      {/* ============ PROCESS 4 JOURS ============ */}
+      <section className="bg-paper py-32 md:py-40">
+        <div className="mx-auto max-w-[1200px] px-6 md:px-10">
+          <div className="max-w-3xl">
+            <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted">
+              Process
+            </p>
+            <h2 className="mt-4 font-display text-4xl md:text-5xl lg:text-6xl leading-[1.05] tracking-tight text-ink">
+              7 jours entre ton paiement et la livraison de{" "}
+              <em className="italic font-normal text-ocean-blue">ton site.</em>
+            </h2>
+          </div>
+
+          <ol className="mt-16 grid gap-px bg-line md:mt-20 md:grid-cols-2 lg:grid-cols-4">
+            {processSteps.map((step) => (
+              <li key={step.number} className="bg-paper p-8 md:p-10">
+                <span className="font-mono text-[11px] uppercase tracking-[0.22em] text-ocean-blue">
+                  {step.number}
+                </span>
+                <h3 className="mt-6 font-display text-xl md:text-2xl leading-tight text-ink">
+                  {step.title}
+                </h3>
+                <p className="mt-4 text-sm leading-relaxed text-ink-soft">
+                  {step.description}
+                </p>
+              </li>
+            ))}
+          </ol>
         </div>
       </section>
 
       {/* ============ FAQ ============ */}
-      <section className="bg-paper py-32 md:py-40">
+      <section className="bg-sand-light py-32 md:py-40">
         <div className="mx-auto max-w-[920px] px-6 md:px-10">
           <div className="max-w-2xl">
             <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted">
@@ -295,8 +302,8 @@ export default function OffresPage() {
         </div>
       </section>
 
-      {/* ============ RÉASSURANCE — CLEAN ============ */}
-      <section className="bg-sand-light py-24 md:py-32">
+      {/* ============ RÉASSURANCE ============ */}
+      <section className="bg-paper py-24 md:py-32">
         <div className="mx-auto max-w-[1200px] px-6 md:px-10">
           <ul className="grid gap-px bg-line md:grid-cols-3">
             {reassurance.map((block) => {
@@ -309,7 +316,9 @@ export default function OffresPage() {
                   <p className="mt-5 font-display text-xl text-ink">
                     {block.title}
                   </p>
-                  <p className="mt-2 text-sm text-ink-soft">{block.description}</p>
+                  <p className="mt-2 text-sm text-ink-soft">
+                    {block.description}
+                  </p>
                 </li>
               );
             })}
@@ -318,7 +327,7 @@ export default function OffresPage() {
           <div className="mt-14 flex flex-wrap items-center justify-center gap-3">
             <Button asChild size="lg" variant="primary">
               <Link href="/contact">
-                Démarrer un projet
+                Remplir le brief
                 <ArrowRight className="h-4 w-4" />
               </Link>
             </Button>
@@ -334,181 +343,5 @@ export default function OffresPage() {
 
       <FinalCTA />
     </>
-  );
-}
-
-/* ============ Sub-components ============ */
-
-type Plan = typeof pricing.autonomie | typeof pricing.serenite;
-
-function PricingCard({ plan, featured = false }: { plan: Plan; featured?: boolean }) {
-  return (
-    <article
-      className={
-        featured
-          ? "relative flex flex-col rounded-2xl bg-ocean-deep p-8 md:p-10 text-paper overflow-hidden"
-          : "relative flex flex-col rounded-2xl border border-line bg-paper p-8 md:p-10 text-ink"
-      }
-    >
-      {featured && (
-        <div aria-hidden className="mesh-ocean-deep absolute inset-0 opacity-55" />
-      )}
-      <div className="relative flex flex-1 flex-col">
-        <div className="flex items-center gap-3">
-          <span
-            className={
-              "inline-flex items-center rounded-full px-3 py-1 font-mono text-[10px] uppercase tracking-[0.22em] " +
-              (featured
-                ? "bg-sand-warm text-ocean-deep"
-                : "border border-line bg-sky-mist text-ocean-deep")
-            }
-          >
-            {plan.badge}
-          </span>
-          {featured && (
-            <Sparkles
-              className="h-4 w-4 text-sand-warm"
-              aria-hidden
-              strokeWidth={1.5}
-            />
-          )}
-        </div>
-
-        <h3
-          className={
-            "mt-6 font-display text-4xl md:text-5xl leading-[1.02] tracking-tight " +
-            (featured ? "text-paper" : "text-ink")
-          }
-        >
-          {plan.name}
-        </h3>
-        <p
-          className={
-            "mt-3 max-w-sm text-base " +
-            (featured ? "text-paper/80" : "text-ink-soft")
-          }
-        >
-          {plan.tagline}
-        </p>
-
-        <div className="mt-8">
-          <span
-            className={
-              "font-display text-5xl md:text-6xl " +
-              (featured ? "text-paper" : "text-ink")
-            }
-          >
-            {plan.price}
-          </span>
-          <p
-            className={
-              "mt-1 text-sm " + (featured ? "text-paper/65" : "text-ink-soft")
-            }
-          >
-            {plan.priceSuffix}
-          </p>
-          <p
-            className={
-              "mt-2 text-sm font-medium " +
-              (featured ? "text-sand-warm" : "text-ocean-blue")
-            }
-          >
-            {plan.contextLine}
-          </p>
-        </div>
-
-        <ul
-          className={
-            "mt-8 space-y-3 border-t pt-6 " +
-            (featured ? "border-paper/10" : "border-line")
-          }
-        >
-          {plan.features.map((feature) => (
-            <li
-              key={feature}
-              className={
-                "flex items-start gap-3 text-sm " +
-                (featured ? "text-paper/90" : "text-ink-soft")
-              }
-            >
-              <Check
-                className={
-                  "mt-0.5 h-4 w-4 shrink-0 " +
-                  (featured ? "text-sand-warm" : "text-ocean-blue")
-                }
-              />
-              <span>{feature}</span>
-            </li>
-          ))}
-        </ul>
-
-        {plan.extraNote && (
-          <p
-            className={
-              "mt-6 text-xs leading-relaxed " +
-              (featured ? "text-paper/55" : "text-muted")
-            }
-          >
-            {plan.extraNote}
-          </p>
-        )}
-
-        <div className="mt-8">
-          <Button
-            asChild
-            size="lg"
-            variant={featured ? "secondary" : "primary"}
-            className="w-full"
-          >
-            <Link href="/contact">{plan.cta}</Link>
-          </Button>
-          {plan.ctaMicro && (
-            <p
-              className={
-                "mt-3 text-center text-xs " +
-                (featured ? "text-paper/55" : "text-muted")
-              }
-            >
-              {plan.ctaMicro}
-            </p>
-          )}
-        </div>
-      </div>
-    </article>
-  );
-}
-
-function PricingTable({
-  title,
-  rows,
-  note,
-}: {
-  title: string;
-  rows: { label: string; price: string; note?: string }[];
-  note?: string;
-}) {
-  return (
-    <div>
-      <h3 className="font-display text-xl md:text-2xl text-ink">{title}</h3>
-      <dl className="mt-5 divide-y divide-line border-y border-line">
-        {rows.map((row) => (
-          <div
-            key={row.label}
-            className="grid grid-cols-[1fr_auto] items-baseline gap-4 py-4"
-          >
-            <dt className="text-sm text-ink-soft md:text-base">
-              {row.label}
-              {row.note && (
-                <span className="ml-2 text-xs text-muted">· {row.note}</span>
-              )}
-            </dt>
-            <dd className="font-mono text-sm font-medium text-ink md:text-base">
-              {row.price}
-            </dd>
-          </div>
-        ))}
-      </dl>
-      {note && <p className="mt-3 text-xs italic text-muted">{note}</p>}
-    </div>
   );
 }

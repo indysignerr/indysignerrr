@@ -48,7 +48,7 @@ export default function Confidentialite() {
 
       <H2>2. Données collectées</H2>
 
-      <H3>2.1 — Via le formulaire de commande</H3>
+      <H3>2.1 — Via le formulaire de commande (Tally)</H3>
       <ul className="list-disc pl-6 space-y-1">
         <li>Nom et prénom du contact professionnel</li>
         <li>Adresse email professionnelle</li>
@@ -69,17 +69,15 @@ export default function Confidentialite() {
       <ul className="list-disc pl-6 space-y-1">
         <li>Informations de facturation (raison sociale, SIRET, adresse)</li>
         <li>Informations bancaires (traitées exclusivement par Stripe)</li>
-        <li>Correspondances</li>
+        <li>Correspondances liées au projet</li>
       </ul>
 
       <H2>3. Finalités du traitement</H2>
       <ul className="list-disc pl-6 space-y-1">
         <li>Répondre aux demandes de devis et maquettes</li>
-        <li>Exécuter les prestations commandées</li>
+        <li>Exécuter la prestation de création de site</li>
         <li>Facturation et comptabilité</li>
-        <li>Support client</li>
-        <li>Obligations légales</li>
-        <li>Statistiques anonymisées</li>
+        <li>Respect des obligations légales</li>
       </ul>
 
       <H2>4. Base légale du traitement</H2>
@@ -93,16 +91,18 @@ export default function Confidentialite() {
       <H2>5. Destinataires des données</H2>
       <P>
         Les données ne sont jamais vendues ou cédées à des tiers à des fins
-        commerciales. Elles peuvent être transmises aux sous-traitants suivants :
+        commerciales. Elles peuvent être transmises aux sous-traitants
+        techniques suivants :
       </P>
       <ul className="list-disc pl-6 space-y-1">
         <li>Stripe (paiements)</li>
         <li>Cloudflare (hébergement)</li>
-        <li>Resend (email transactionnel)</li>
+        <li>Tally (formulaires)</li>
         <li>Google Drive (stockage projet)</li>
         <li>Make, Slack, IONOS (automatisations & communication)</li>
         <li>Zoho Invoice (facturation)</li>
         <li>Revolut Business (banque professionnelle)</li>
+        <li>GitHub (versioning du code livré au Client)</li>
       </ul>
 
       <H2>6. Transferts hors UE</H2>
@@ -115,10 +115,13 @@ export default function Confidentialite() {
       <H2>7. Durée de conservation</H2>
       <ul className="list-disc pl-6 space-y-1">
         <li>Prospection : 3 ans à compter du dernier contact</li>
-        <li>Clients actifs : durée de la relation contractuelle</li>
+        <li>
+          Clients livrés : 3 ans après la livraison du site (fin de la relation
+          contractuelle)
+        </li>
         <li>Facturation et comptabilité : 10 ans (obligation légale)</li>
         <li>Navigation : 13 mois maximum</li>
-        <li>Correspondances : 3 ans après fin de la relation</li>
+        <li>Correspondances : 3 ans après la livraison</li>
       </ul>
 
       <H2>8. Droits des personnes concernées</H2>

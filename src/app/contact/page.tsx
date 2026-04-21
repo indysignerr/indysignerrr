@@ -35,13 +35,13 @@ export default function ContactPage() {
               <em className="italic font-normal">Maquette dans les 48h.</em>
             </h2>
             <p className="mt-6 max-w-xl text-lg text-ink-soft">
-              Choisis ton offre (Autonomie ou Sérénité), décris ton projet, je
-              te réponds sous 24h avec un devis précis. Gratuit, sans engagement.{" "}
+              Une offre, un prix : 329€. Décris ton projet, je te réponds sous
+              24h avec un devis ferme. Gratuit, sans engagement.{" "}
               <Link
                 href="/offres"
                 className="text-ocean-blue underline-offset-2 hover:underline"
               >
-                Voir les offres →
+                Voir l'offre →
               </Link>
             </p>
           </div>
