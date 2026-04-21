@@ -401,9 +401,8 @@ export const reassurance: ReassuranceBlock[] = [
 
 export const navigation = [
   { label: "Accueil", href: "/" },
-  { label: "Services", href: "/services" },
+  { label: "Offres", href: "/offres" },
   { label: "Portfolio", href: "/portfolio" },
-  { label: "Tarifs", href: "/tarifs" },
   { label: "À propos", href: "/a-propos" },
   { label: "Contact", href: "/contact" },
 ] as const;

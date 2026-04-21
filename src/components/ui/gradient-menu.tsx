@@ -21,11 +21,11 @@ const defaultItems: GradientMenuItem[] = [
     gradientTo: "#3a6f95",
   },
   {
-    title: "Services",
-    href: "/services",
-    icon: <LayoutGrid className="h-5 w-5" />,
+    title: "Offres",
+    href: "/offres",
+    icon: <Tag className="h-5 w-5" />,
     gradientFrom: "#3a6f95",
-    gradientTo: "#c5d5e0",
+    gradientTo: "#e8d9c0",
   },
   {
     title: "Projets",
@@ -35,9 +35,9 @@ const defaultItems: GradientMenuItem[] = [
     gradientTo: "#1e4d72",
   },
   {
-    title: "Tarifs",
-    href: "/tarifs",
-    icon: <Tag className="h-5 w-5" />,
+    title: "À propos",
+    href: "/a-propos",
+    icon: <LayoutGrid className="h-5 w-5" />,
     gradientFrom: "#e8d9c0",
     gradientTo: "#f2ead8",
   },
