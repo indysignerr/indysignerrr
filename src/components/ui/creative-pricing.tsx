@@ -85,7 +85,7 @@ export function CreativePricing({
               className={cn(
                 "absolute inset-0 bg-paper",
                 "border-2 border-ocean-deep",
-                "rounded-2xl shadow-[6px_6px_0px_0px] shadow-ocean-deep",
+                "rounded-3xl shadow-[6px_6px_0px_0px] shadow-ocean-deep",
                 "transition-all duration-300",
                 "group-hover:shadow-[10px_10px_0px_0px]",
                 "group-hover:-translate-x-1 group-hover:-translate-y-1"

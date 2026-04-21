@@ -52,11 +52,11 @@ export default function AProposPage() {
       </section>
 
       {/* ============ INTRO BIO + PORTRAIT ============ */}
-      <section className="bg-paper py-32 md:py-40">
+      <section className="bg-paper py-40 md:py-56">
         <div className="mx-auto max-w-[1200px] px-6 md:px-10">
           <div className="grid gap-12 md:grid-cols-12 md:gap-16">
             <div className="md:col-span-5">
-              <div className="overflow-hidden rounded-2xl border border-line bg-sand-light">
+              <div className="overflow-hidden rounded-3xl border border-line bg-sand-light">
                 <img
                   src="https://images.unsplash.com/photo-1528696892704-5e1122852276?q=80&w=900&auto=format&fit=crop"
                   alt="Portrait Indy François"
@@ -75,7 +75,7 @@ export default function AProposPage() {
               </p>
               <h2 className="mt-4 font-display text-4xl md:text-5xl lg:text-6xl leading-[1.05] tracking-tight text-ink">
                 Un studio d'une personne.{" "}
-                <em className="italic font-normal text-ocean-blue">Par choix.</em>
+                <em className="italic font-normal text-coral">Par choix.</em>
               </h2>
               <div className="mt-8 space-y-6 text-lg leading-relaxed text-ink-soft">
                 <p>
@@ -121,7 +121,7 @@ export default function AProposPage() {
       </section>
 
       {/* ============ VALEURS ============ */}
-      <section className="bg-sand-light py-32 md:py-40">
+      <section className="bg-sand-light py-40 md:py-56">
         <div className="mx-auto max-w-[1200px] px-6 md:px-10">
           <div className="max-w-3xl">
             <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted">

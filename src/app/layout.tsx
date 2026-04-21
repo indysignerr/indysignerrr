@@ -1,7 +1,8 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono, Fraunces } from "next/font/google";
+import { Geist, Geist_Mono, Fraunces, Instrument_Serif } from "next/font/google";
 import "./globals.css";
 import { LenisProvider } from "@/components/providers/lenis-provider";
+import { PageTransition } from "@/components/providers/page-transition";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { GlassFilter } from "@/components/ui/liquid-glass";
@@ -23,6 +24,14 @@ const fraunces = Fraunces({
   subsets: ["latin"],
   display: "swap",
   style: ["normal", "italic"],
+});
+
+const instrumentSerif = Instrument_Serif({
+  variable: "--font-instrument-serif",
+  subsets: ["latin"],
+  weight: ["400"],
+  style: ["normal", "italic"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -73,14 +82,14 @@ export default function RootLayout({
   return (
     <html
       lang="fr"
-      className={`${geistSans.variable} ${geistMono.variable} ${fraunces.variable} antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} ${fraunces.variable} ${instrumentSerif.variable} antialiased`}
     >
       <body className="min-h-dvh bg-paper text-ink">
         <LenisProvider>
           <GlassFilter />
           <SiteHeader />
           <main id="main" className="relative">
-            {children}
+            <PageTransition>{children}</PageTransition>
           </main>
           <SiteFooter />
         </LenisProvider>

@@ -6,7 +6,7 @@ import { Eyebrow } from "@/components/ui/container";
 
 export function Process() {
   return (
-    <section className="relative bg-ocean-deep text-paper py-32 md:py-40 overflow-hidden">
+    <section className="relative bg-ocean-deep text-paper py-40 md:py-56 overflow-hidden">
       <div aria-hidden className="mesh-ocean-deep absolute inset-0 opacity-70" />
       <div className="relative mx-auto max-w-[1440px] px-6 md:px-10">
         <div className="max-w-3xl">

@@ -47,7 +47,7 @@ export function PortfolioGallery({
       <div className="max-w-7xl mx-auto bg-paper/60 backdrop-blur-sm rounded-3xl border border-line overflow-hidden">
         <div className="relative z-10 text-center pt-16 pb-8 px-8">
           <h2 className="font-display text-4xl md:text-6xl lg:text-7xl tracking-tight text-ink mb-8 text-balance">
-            <em className="italic font-normal text-ocean-blue">{title.split(" ")[0]}</em>{" "}
+            <em className="italic font-normal text-coral">{title.split(" ")[0]}</em>{" "}
             {title.split(" ").slice(1).join(" ")}
           </h2>
 

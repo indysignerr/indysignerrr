@@ -4,18 +4,18 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "relative inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full text-sm font-medium transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ocean-blue focus-visible:ring-offset-2 focus-visible:ring-offset-paper disabled:pointer-events-none disabled:opacity-50 group [&_svg]:transition-transform [&_svg]:duration-300 hover:[&_svg]:translate-x-0.5 overflow-hidden",
+  "relative inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full text-sm font-medium transition-all duration-400 ease-[cubic-bezier(0.175,0.885,0.32,1.275)] focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 group [&_svg]:transition-transform [&_svg]:duration-400 hover:[&_svg]:translate-x-1 overflow-hidden active:scale-[0.97]",
   {
     variants: {
       variant: {
         primary:
-          "bg-ocean-deep text-paper hover:bg-ocean-blue shadow-[0_8px_24px_-8px_rgba(10,31,58,0.4)] hover:shadow-[0_16px_40px_-10px_rgba(10,31,58,0.55)] hover:-translate-y-0.5",
+          "bg-ocean-deep text-paper hover:bg-ocean-blue shadow-[0_8px_24px_-8px_rgba(10,31,58,0.4)] hover:shadow-[0_24px_56px_-12px_rgba(10,31,58,0.6)] hover:-translate-y-1",
         secondary:
-          "bg-sand-warm text-ocean-deep hover:bg-sand-light border border-line hover:-translate-y-0.5",
+          "bg-sand-warm text-ocean-deep hover:bg-sand-light border border-line hover:-translate-y-1 hover:shadow-[0_16px_40px_-12px_rgba(10,31,58,0.3)]",
         ghost:
-          "bg-transparent text-ocean-deep hover:bg-sky-mist",
+          "bg-transparent text-ocean-deep hover:bg-sky-mist hover:-translate-y-0.5",
         outline:
-          "border border-ocean-deep/20 bg-transparent text-ocean-deep hover:border-ocean-deep hover:bg-ocean-deep hover:text-paper",
+          "border border-ocean-deep/25 bg-transparent text-ocean-deep hover:border-ocean-deep hover:bg-ocean-deep hover:text-paper hover:-translate-y-1 hover:shadow-[0_20px_48px_-14px_rgba(10,31,58,0.45)]",
         link: "text-ocean-deep underline-offset-4 hover:underline px-0 h-auto rounded-none",
       },
       size: {

@@ -156,13 +156,13 @@ export default async function ProjectPage({
           <Eyebrow>Résultats</Eyebrow>
           <h2 className="mt-4 max-w-2xl font-display text-4xl md:text-5xl leading-[1.05] tracking-tight text-ink">
             Ce que le site a concrètement{" "}
-            <em className="italic font-normal text-ocean-blue">produit.</em>
+            <em className="italic font-normal text-coral">produit.</em>
           </h2>
           <ul className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
             {project.results.map((result) => (
               <li
                 key={result}
-                className="rounded-2xl border border-line bg-paper p-6"
+                className="rounded-3xl border border-line bg-paper p-6"
               >
                 <p className="font-display text-2xl text-ink">{result}</p>
               </li>
@@ -172,7 +172,7 @@ export default async function ProjectPage({
       </section>
 
       {/* ============ TÉMOIGNAGE ============ */}
-      <section className="relative overflow-hidden bg-ocean-deep text-paper py-32 md:py-40">
+      <section className="relative overflow-hidden bg-ocean-deep text-paper py-40 md:py-56">
         <div aria-hidden className="mesh-ocean-deep absolute inset-0 opacity-60" />
         <div className="relative mx-auto max-w-3xl px-6 md:px-10">
           <Quote className="h-8 w-8 text-sand-warm" aria-hidden />

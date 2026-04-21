@@ -25,7 +25,7 @@ export default function ContactPage() {
           <Eyebrow>Contact</Eyebrow>
           <h1 className="mt-4 max-w-4xl font-display text-5xl md:text-7xl lg:text-8xl leading-[0.95] tracking-tight text-ink">
             Parlons de{" "}
-            <em className="italic font-normal text-ocean-blue">
+            <em className="italic font-normal text-coral">
               ton projet.
             </em>
           </h1>
@@ -100,7 +100,7 @@ export default function ContactPage() {
             </div>
 
             <aside className="md:col-span-2">
-              <div className="rounded-2xl border border-line bg-paper/70 p-8 backdrop-blur-sm">
+              <div className="rounded-3xl border border-line bg-paper/70 p-8 backdrop-blur-sm">
                 <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted">
                   Localisation
                 </p>

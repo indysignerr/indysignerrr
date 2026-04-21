@@ -7,7 +7,7 @@ import { services } from "@/lib/content";
 
 export function Services() {
   return (
-    <section className="bg-paper py-32 md:py-40">
+    <section className="bg-paper py-40 md:py-56">
       <div className="mx-auto max-w-[1200px] px-6 md:px-10">
         <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between md:gap-12">
           <div className="max-w-2xl">
@@ -16,7 +16,7 @@ export function Services() {
             </p>
             <h2 className="mt-4 font-display text-4xl md:text-5xl lg:text-6xl leading-[1.05] tracking-tight text-ink">
               Trois façons de faire exister ton activité{" "}
-              <em className="italic font-normal text-ocean-blue">en ligne.</em>
+              <em className="italic font-normal text-coral">en ligne.</em>
             </h2>
           </div>
           <Link

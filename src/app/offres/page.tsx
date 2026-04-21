@@ -151,7 +151,7 @@ export default function OffresPage() {
           <h1 className="mt-8 font-display text-6xl md:text-8xl lg:text-[9rem] leading-[0.9] tracking-tight text-ink">
             329€.
             <br />
-            <em className="italic font-normal text-ocean-blue">
+            <em className="italic font-normal text-coral">
               Et c'est tout.
             </em>
           </h1>
@@ -177,7 +177,7 @@ export default function OffresPage() {
       </section>
 
       {/* ============ TIMELINE 7 JOURS ============ */}
-      <section className="bg-sand-light py-32 md:py-40">
+      <section className="bg-sand-light py-40 md:py-56">
         <div className="mx-auto max-w-[1200px] px-6 md:px-10">
           <div className="max-w-3xl">
             <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted">
@@ -185,7 +185,7 @@ export default function OffresPage() {
             </p>
             <h2 className="mt-4 font-display text-4xl md:text-5xl lg:text-6xl leading-[1.05] tracking-tight text-ink">
               7 jours entre ton paiement et{" "}
-              <em className="italic font-normal text-ocean-blue">
+              <em className="italic font-normal text-coral">
                 la livraison de ton site.
               </em>
             </h2>
@@ -235,7 +235,7 @@ export default function OffresPage() {
       </section>
 
       {/* ============ COMPARATIF ============ */}
-      <section className="relative bg-ocean-deep text-paper py-32 md:py-40 overflow-hidden">
+      <section className="relative bg-ocean-deep text-paper py-40 md:py-56 overflow-hidden">
         <div aria-hidden className="mesh-ocean-deep absolute inset-0 opacity-60" />
         <div className="relative mx-auto max-w-[1200px] px-6 md:px-10">
           <div className="max-w-3xl">
@@ -247,7 +247,7 @@ export default function OffresPage() {
             </h2>
           </div>
 
-          <div className="mt-14 overflow-x-auto rounded-2xl border border-paper/10">
+          <div className="mt-14 overflow-x-auto rounded-3xl border border-paper/10">
             <table className="w-full min-w-[720px] text-left text-sm">
               <thead className="border-b border-paper/10">
                 <tr>
@@ -290,7 +290,7 @@ export default function OffresPage() {
       </section>
 
       {/* ============ FAQ (6 qui tuent) ============ */}
-      <section className="bg-paper py-32 md:py-40">
+      <section className="bg-paper py-40 md:py-56">
         <div className="mx-auto max-w-[920px] px-6 md:px-10">
           <div className="max-w-2xl">
             <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted">

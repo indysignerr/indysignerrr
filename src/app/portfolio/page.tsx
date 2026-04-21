@@ -31,7 +31,7 @@ export default function PortfolioPage() {
           <Eyebrow>Portfolio</Eyebrow>
           <h1 className="mt-4 max-w-4xl font-display text-5xl md:text-7xl lg:text-8xl leading-[0.95] tracking-tight text-ink">
             Des sites qui{" "}
-            <em className="italic font-normal text-ocean-blue">travaillent.</em>
+            <em className="italic font-normal text-coral">travaillent.</em>
           </h1>
           <p className="mt-8 max-w-2xl text-lg text-ink-soft">
             Chaque projet a un objectif concret : générer des réservations,

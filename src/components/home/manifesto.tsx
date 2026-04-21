@@ -22,7 +22,7 @@ const promises = [
 
 export function Manifesto() {
   return (
-    <section className="relative overflow-hidden bg-ocean-deep text-paper py-32 md:py-40">
+    <section className="relative overflow-hidden bg-ocean-deep text-paper py-40 md:py-56">
       <div aria-hidden className="mesh-ocean-deep absolute inset-0 opacity-60" />
       <div className="relative mx-auto max-w-[1200px] px-6 md:px-10">
         <div className="grid gap-14 md:grid-cols-12 md:gap-20 md:items-center">
@@ -57,7 +57,7 @@ export function Manifesto() {
             </div>
           </div>
 
-          <ul className="md:col-span-6 grid gap-px bg-paper/10 rounded-2xl overflow-hidden">
+          <ul className="md:col-span-6 grid gap-px bg-paper/10 rounded-3xl overflow-hidden">
             {promises.map((promise, i) => (
               <motion.li
                 key={promise.label}

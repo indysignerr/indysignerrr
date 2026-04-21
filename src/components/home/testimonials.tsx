@@ -35,7 +35,7 @@ export function Testimonials() {
   const thirdColumn = repeated.slice(2, 6);
 
   return (
-    <section className="relative bg-sky-mist py-32 md:py-40 overflow-hidden">
+    <section className="relative bg-sky-mist py-40 md:py-56 overflow-hidden">
       <div className="mx-auto max-w-[1400px] px-6 md:px-10 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

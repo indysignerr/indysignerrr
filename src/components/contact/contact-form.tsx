@@ -48,7 +48,7 @@ export function ContactForm() {
 
   if (status === "success") {
     return (
-      <div className="rounded-2xl border border-ocean-blue/20 bg-sky-mist p-8">
+      <div className="rounded-3xl border border-ocean-blue/20 bg-sky-mist p-8">
         <p className="font-display text-2xl text-ink">Message reçu.</p>
         <p className="mt-3 text-ink-soft">
           Réponse sous 24h. Maquette gratuite dans les 48h. Zéro engagement.

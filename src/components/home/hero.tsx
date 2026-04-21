@@ -132,7 +132,7 @@ export function Hero() {
         </motion.div>
 
         <motion.h1
-          className="mt-6 text-center w-full font-display tracking-tight flex-col flex whitespace-pre leading-[0.98] text-[2.75rem] sm:text-6xl md:text-7xl lg:text-[7.5rem]"
+          className="mt-6 text-center w-full font-display tracking-tight flex-col flex whitespace-pre leading-[0.98] text-[clamp(2rem,7vw,7.5rem)]"
           animate={{ opacity: 1, y: 0 }}
           initial={{ opacity: 0, y: 18 }}
           transition={{ duration: 0.5, ease: "easeOut", delay: 0.25 }}
@@ -156,7 +156,7 @@ export function Hero() {
                   "respirent",
                   "rayonnent",
                 ]}
-                mainClassName="overflow-hidden pr-3 py-0 pb-2 md:pb-4 italic text-ocean-blue"
+                mainClassName="overflow-hidden pr-3 py-0 pb-2 md:pb-4 italic text-coral"
                 staggerDuration={0.03}
                 staggerFrom="last"
                 rotationInterval={2600}
@@ -198,7 +198,7 @@ export function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 1.4 }}
-        className="pointer-events-auto absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex w-[92%] max-w-3xl items-start justify-between gap-4 rounded-2xl border border-ocean-deep/10 bg-paper/70 px-6 py-4 backdrop-blur-xl"
+        className="pointer-events-auto absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex w-[92%] max-w-3xl items-start justify-between gap-4 rounded-3xl border border-ocean-deep/10 bg-paper/70 px-6 py-4 backdrop-blur-xl"
       >
         {stats.map((stat) => (
           <div key={stat.label} className="min-w-0">

@@ -108,7 +108,7 @@ export function GlassCard({
 }: React.HTMLAttributes<HTMLDivElement>) {
   return (
     <GlassEffect
-      className={cn("rounded-2xl p-6 md:p-8", className)}
+      className={cn("rounded-3xl p-6 md:p-8", className)}
       {...props}
     >
       {children}

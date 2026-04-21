@@ -32,7 +32,7 @@ export function PortfolioGridByYear({ year, items }: Props) {
             transition={{ duration: 0.55, delay: i * 0.08 }}
           >
             <Link href={`/portfolio/${project.slug}`} className="group block">
-              <div className="relative aspect-[16/9] md:aspect-[21/9] overflow-hidden rounded-2xl bg-ocean-deep">
+              <div className="relative aspect-[16/9] md:aspect-[21/9] overflow-hidden rounded-3xl bg-ocean-deep">
                 <div aria-hidden className="mesh-ocean-deep absolute inset-0" />
                 <div className="absolute inset-0 flex items-end p-8 md:p-10 lg:p-12">
                   <div>

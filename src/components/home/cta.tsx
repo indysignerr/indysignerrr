@@ -18,7 +18,7 @@ export function FinalCTA() {
       >
         <h2 className="font-display text-5xl md:text-7xl lg:text-8xl leading-[0.95] tracking-tight text-ink">
           Prêt à lancer{" "}
-          <em className="italic font-normal text-ocean-blue">votre projet&nbsp;?</em>
+          <em className="italic font-normal text-coral">votre projet&nbsp;?</em>
         </h2>
         <p className="mx-auto mt-8 max-w-xl text-lg text-ink-soft">
           Devis gratuit · Réponse sous 24h · Zéro engagement. La maquette
