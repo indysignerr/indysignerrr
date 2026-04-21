@@ -30,7 +30,6 @@ import {
   reassurance,
 } from "@/lib/content";
 import { FinalCTA } from "@/components/home/cta";
-import { SectionFade } from "@/components/ui/section-fade";
 import { QuickNav } from "@/components/offres/quick-nav";
 
 export const metadata: Metadata = {
@@ -173,7 +172,6 @@ export default function OffresPage() {
         />
       </section>
 
-      <SectionFade from="paper" to="sand-light" />
 
       {/* ============ TIMELINE 7 JOURS ============ */}
       <section id="process" className="bg-sand-light py-40 md:py-56">
@@ -233,7 +231,6 @@ export default function OffresPage() {
         </div>
       </section>
 
-      <SectionFade from="sand-light" to="ocean-deep" height="xl" />
 
       {/* ============ COMPARATIF ============ */}
       <section id="comparatif" className="relative bg-ocean-deep text-paper py-40 md:py-56 overflow-hidden">
@@ -290,7 +287,6 @@ export default function OffresPage() {
         </div>
       </section>
 
-      <SectionFade from="ocean-deep" to="paper" height="xl" />
 
       {/* ============ FAQ (6 qui tuent) ============ */}
       <section id="faq" className="bg-paper py-40 md:py-56">
@@ -318,7 +314,6 @@ export default function OffresPage() {
         </div>
       </section>
 
-      <SectionFade from="paper" to="sand-light" />
 
       {/* ============ RÉASSURANCE ============ */}
       <section className="bg-sand-light py-24 md:py-32">
@@ -359,7 +354,6 @@ export default function OffresPage() {
         </div>
       </section>
 
-      <SectionFade from="sand-light" to="paper" />
 
       <FinalCTA />
 
