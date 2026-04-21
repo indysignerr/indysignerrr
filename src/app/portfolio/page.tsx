@@ -3,6 +3,7 @@ import { Eyebrow } from "@/components/ui/container";
 import { FinalCTA } from "@/components/home/cta";
 import { projects, type Project } from "@/lib/projects";
 import { PortfolioGridByYear } from "@/components/portfolio/portfolio-by-year";
+import { ZoomShowcase } from "@/components/portfolio/zoom-showcase";
 import { RevealText } from "@/components/ui/reveal-text";
 import { SectionFade } from "@/components/ui/section-fade";
 
@@ -44,7 +45,11 @@ export default function PortfolioPage() {
         </div>
       </section>
 
-      <SectionFade from="paper" to="sand-light" />
+      <SectionFade from="paper" to="ocean-deep" height="lg" />
+
+      <ZoomShowcase />
+
+      <SectionFade from="ocean-deep" to="sand-light" height="lg" />
 
       <section className="bg-sand-light py-24 md:py-32">
         <div className="mx-auto max-w-[1200px] px-6 md:px-10 space-y-24 md:space-y-32">
