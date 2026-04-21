@@ -31,6 +31,7 @@ import {
 } from "@/lib/content";
 import { FinalCTA } from "@/components/home/cta";
 import { QuickNav } from "@/components/offres/quick-nav";
+import { SectionDivider } from "@/components/ui/section-divider";
 
 export const metadata: Metadata = {
   title: "L'Offre — 329€",
@@ -172,6 +173,7 @@ export default function OffresPage() {
         />
       </section>
 
+      <SectionDivider number="02" label="Process" sublabel="7 jours · 4 étapes" tone="paper" />
 
       {/* ============ TIMELINE 7 JOURS ============ */}
       <section id="process" className="bg-sand-light py-40 md:py-56">
@@ -231,6 +233,7 @@ export default function OffresPage() {
         </div>
       </section>
 
+      <SectionDivider number="03" label="Comparatif" sublabel="Wix · Agence · Indysigner" tone="sand-light" />
 
       {/* ============ COMPARATIF ============ */}
       <section id="comparatif" className="relative bg-ocean-deep text-paper py-40 md:py-56 overflow-hidden">
@@ -287,6 +290,7 @@ export default function OffresPage() {
         </div>
       </section>
 
+      <SectionDivider number="04" label="FAQ" sublabel="Six réponses qui tuent les objections" tone="paper" />
 
       {/* ============ FAQ (6 qui tuent) ============ */}
       <section id="faq" className="bg-paper py-40 md:py-56">
