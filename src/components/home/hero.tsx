@@ -6,7 +6,6 @@ import { ArrowRight } from "lucide-react";
 import { TextRotate } from "@/components/ui/text-rotate";
 import Floating, { FloatingElement } from "@/components/ui/parallax-floating";
 import { Button } from "@/components/ui/button";
-import { GlassPill } from "@/components/ui/liquid-glass";
 import { stats } from "@/lib/content";
 
 const heroImages = [
@@ -112,27 +111,8 @@ export function Hero() {
       </Floating>
 
       <div className="flex flex-col justify-center items-center w-[88%] sm:w-[500px] md:w-[700px] lg:w-[860px] z-30 pointer-events-none">
-        <motion.div
-          initial={{ opacity: 0, y: 8 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4, delay: 0.15 }}
-          className="pointer-events-auto"
-        >
-          <GlassPill>
-            <span className="flex items-center gap-3">
-              <span className="relative flex size-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
-                <span className="relative inline-flex size-2 rounded-full bg-emerald-500" />
-              </span>
-              <span className="font-mono text-[11px] uppercase tracking-[0.22em]">
-                Disponible · 329€ tout compris
-              </span>
-            </span>
-          </GlassPill>
-        </motion.div>
-
         <motion.h1
-          className="mt-6 text-center w-full font-display tracking-tight flex-col flex whitespace-pre leading-[0.98] text-[clamp(2rem,7vw,7.5rem)]"
+          className="text-center w-full font-display tracking-tight flex-col flex whitespace-pre leading-[0.98] text-[clamp(2rem,7vw,7.5rem)]"
           animate={{ opacity: 1, y: 0 }}
           initial={{ opacity: 0, y: 18 }}
           transition={{ duration: 0.5, ease: "easeOut", delay: 0.25 }}

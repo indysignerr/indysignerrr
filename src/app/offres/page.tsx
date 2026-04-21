@@ -11,7 +11,6 @@ import {
   CircleDot,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { GlassPill } from "@/components/ui/liquid-glass";
 import { RevealText } from "@/components/ui/reveal-text";
 import {
   Accordion,
@@ -31,6 +30,7 @@ import {
   reassurance,
 } from "@/lib/content";
 import { FinalCTA } from "@/components/home/cta";
+import { SectionFade } from "@/components/ui/section-fade";
 
 export const metadata: Metadata = {
   title: "L'Offre — 329€",
@@ -137,19 +137,7 @@ export default function OffresPage() {
       <section className="relative overflow-hidden">
         <div aria-hidden className="mesh-ocean absolute inset-0 -z-10" />
         <div className="mx-auto max-w-[1200px] px-6 md:px-10 pt-20 md:pt-28 pb-20 md:pb-28">
-          <GlassPill className="w-fit">
-            <span className="flex items-center gap-2">
-              <span className="relative flex size-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
-                <span className="relative inline-flex size-2 rounded-full bg-emerald-500" />
-              </span>
-              <span className="font-mono text-[11px] uppercase tracking-[0.22em]">
-                Une offre. Un prix. Tout compris.
-              </span>
-            </span>
-          </GlassPill>
-
-          <h1 className="mt-8 font-display text-6xl md:text-8xl lg:text-[9rem] leading-[0.9] tracking-tight text-ink">
+          <h1 className="font-display text-6xl md:text-8xl lg:text-[9rem] leading-[0.9] tracking-tight text-ink">
             <span className="block">
               <RevealText splitBy="characters" stagger={0.04} delay={0.1}>
                 329€.
@@ -182,8 +170,10 @@ export default function OffresPage() {
         />
       </section>
 
+      <SectionFade from="paper" to="sand-light" />
+
       {/* ============ TIMELINE 7 JOURS ============ */}
-      <section className="bg-sand-light py-40 md:py-56">
+      <section id="process" className="bg-sand-light py-40 md:py-56">
         <div className="mx-auto max-w-[1200px] px-6 md:px-10">
           <div className="max-w-3xl">
             <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted">
@@ -240,8 +230,10 @@ export default function OffresPage() {
         </div>
       </section>
 
+      <SectionFade from="sand-light" to="ocean-deep" height="lg" />
+
       {/* ============ COMPARATIF ============ */}
-      <section className="relative bg-ocean-deep text-paper py-40 md:py-56 overflow-hidden">
+      <section id="comparatif" className="relative bg-ocean-deep text-paper py-40 md:py-56 overflow-hidden">
         <div aria-hidden className="mesh-ocean-deep absolute inset-0 opacity-60" />
         <div className="relative mx-auto max-w-[1200px] px-6 md:px-10">
           <div className="max-w-3xl">
@@ -295,8 +287,10 @@ export default function OffresPage() {
         </div>
       </section>
 
+      <SectionFade from="ocean-deep" to="paper" height="lg" />
+
       {/* ============ FAQ (6 qui tuent) ============ */}
-      <section className="bg-paper py-40 md:py-56">
+      <section id="faq" className="bg-paper py-40 md:py-56">
         <div className="mx-auto max-w-[920px] px-6 md:px-10">
           <div className="max-w-2xl">
             <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted">
@@ -320,6 +314,8 @@ export default function OffresPage() {
           </div>
         </div>
       </section>
+
+      <SectionFade from="paper" to="sand-light" />
 
       {/* ============ RÉASSURANCE ============ */}
       <section className="bg-sand-light py-24 md:py-32">
@@ -359,6 +355,8 @@ export default function OffresPage() {
           </div>
         </div>
       </section>
+
+      <SectionFade from="sand-light" to="paper" />
 
       <FinalCTA />
 
