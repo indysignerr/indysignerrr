@@ -393,7 +393,6 @@ export const navigation = [
   { label: "Accueil", href: "/" },
   { label: "L'Offre", href: "/offres" },
   { label: "Portfolio", href: "/portfolio" },
-  { label: "À propos", href: "/a-propos" },
   { label: "Contact", href: "/contact" },
 ] as const;
 

@@ -6,6 +6,7 @@ import { brand } from "@/lib/content";
 import { Eyebrow } from "@/components/ui/container";
 import { ContactForm } from "@/components/contact/contact-form";
 import { LetsWorkTogether } from "@/components/ui/lets-work-together";
+import { RevealText } from "@/components/ui/reveal-text";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -24,9 +25,9 @@ export default function ContactPage() {
         <div className="mx-auto max-w-[1200px] px-6 md:px-10 pt-20 md:pt-28 pb-16 md:pb-20">
           <Eyebrow>Contact</Eyebrow>
           <h1 className="mt-4 max-w-4xl font-display text-5xl md:text-7xl lg:text-8xl leading-[0.95] tracking-tight text-ink">
-            Parlons de{" "}
+            <RevealText stagger={0.08} delay={0.1}>Parlons de</RevealText>{" "}
             <em className="italic font-normal text-coral">
-              ton projet.
+              <RevealText stagger={0.09} delay={0.35}>ton projet.</RevealText>
             </em>
           </h1>
           <p className="mt-8 max-w-2xl text-lg text-ink-soft">

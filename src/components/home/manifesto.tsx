@@ -1,9 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { VerticalCutReveal } from "@/components/ui/vertical-cut-reveal";
 
 const promises = [
   {
@@ -21,8 +23,14 @@ const promises = [
 ];
 
 export function Manifesto() {
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+
   return (
-    <section className="relative overflow-hidden bg-ocean-deep text-paper py-40 md:py-56">
+    <section
+      ref={ref}
+      className="relative overflow-hidden bg-ocean-deep text-paper py-40 md:py-56"
+    >
       <div aria-hidden className="mesh-ocean-deep absolute inset-0 opacity-60" />
       <div className="relative mx-auto max-w-[1200px] px-6 md:px-10">
         <div className="grid gap-14 md:grid-cols-12 md:gap-20 md:items-center">
@@ -30,15 +38,22 @@ export function Manifesto() {
             <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-sand-warm">
               L'offre en une image
             </p>
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.6 }}
-              className="mt-8 font-display text-[clamp(5rem,16vw,11rem)] leading-[0.85] tracking-tight text-paper"
-            >
-              329€
-            </motion.p>
+            <div className="mt-8 font-display text-[clamp(5rem,16vw,11rem)] leading-[0.85] tracking-tight text-paper">
+              {isInView && (
+                <VerticalCutReveal
+                  splitBy="characters"
+                  staggerDuration={0.06}
+                  staggerFrom="first"
+                  transition={{
+                    type: "spring",
+                    stiffness: 180,
+                    damping: 24,
+                  }}
+                >
+                  329€
+                </VerticalCutReveal>
+              )}
+            </div>
             <p className="mt-6 font-display italic text-2xl md:text-3xl text-paper/90 leading-snug">
               Un site pro. À toi. Pour toujours.
             </p>

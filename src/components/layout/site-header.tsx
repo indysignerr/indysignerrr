@@ -65,12 +65,12 @@ export function SiteHeader() {
             </span>
           </Link>
 
-          <nav aria-label="Principale" className="hidden md:flex items-center gap-1">
+          <nav aria-label="Principale" className="hidden md:flex items-center gap-8">
             {navigation.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className="rounded-full px-4 py-2 text-sm text-ink-soft transition-colors hover:bg-sky-mist hover:text-ocean-deep"
+                className="link-underline text-sm text-ink-soft transition-colors hover:text-ocean-deep"
               >
                 {item.label}
               </Link>

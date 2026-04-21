@@ -3,6 +3,7 @@ import { Eyebrow } from "@/components/ui/container";
 import { FinalCTA } from "@/components/home/cta";
 import { projects, type Project } from "@/lib/projects";
 import { PortfolioGridByYear } from "@/components/portfolio/portfolio-by-year";
+import { RevealText } from "@/components/ui/reveal-text";
 
 export const metadata: Metadata = {
   title: "Portfolio",
@@ -30,8 +31,10 @@ export default function PortfolioPage() {
         <div className="mx-auto max-w-[1200px] px-6 md:px-10 pt-20 md:pt-28 pb-16 md:pb-24">
           <Eyebrow>Portfolio</Eyebrow>
           <h1 className="mt-4 max-w-4xl font-display text-5xl md:text-7xl lg:text-8xl leading-[0.95] tracking-tight text-ink">
-            Des sites qui{" "}
-            <em className="italic font-normal text-coral">travaillent.</em>
+            <RevealText stagger={0.08} delay={0.1}>Des sites qui</RevealText>{" "}
+            <em className="italic font-normal text-coral">
+              <RevealText stagger={0.08} delay={0.35}>travaillent.</RevealText>
+            </em>
           </h1>
           <p className="mt-8 max-w-2xl text-lg text-ink-soft">
             Chaque projet a un objectif concret : générer des réservations,

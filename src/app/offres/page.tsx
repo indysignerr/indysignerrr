@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { GlassPill } from "@/components/ui/liquid-glass";
+import { RevealText } from "@/components/ui/reveal-text";
 import {
   Accordion,
   AccordionContent,
@@ -149,10 +150,15 @@ export default function OffresPage() {
           </GlassPill>
 
           <h1 className="mt-8 font-display text-6xl md:text-8xl lg:text-[9rem] leading-[0.9] tracking-tight text-ink">
-            329€.
-            <br />
-            <em className="italic font-normal text-coral">
-              Et c'est tout.
+            <span className="block">
+              <RevealText splitBy="characters" stagger={0.04} delay={0.1}>
+                329€.
+              </RevealText>
+            </span>
+            <em className="block italic font-normal text-coral">
+              <RevealText splitBy="words" stagger={0.09} delay={0.4}>
+                Et c'est tout.
+              </RevealText>
             </em>
           </h1>
           <p className="mt-10 max-w-2xl text-lg md:text-xl text-ink-soft">
