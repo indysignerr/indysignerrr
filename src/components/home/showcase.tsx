@@ -33,7 +33,7 @@ export function Showcase() {
         }
       >
         <img
-          src="/projects/wakeapp/01-hero.jpg"
+          src="/projects/wakeapp/wakeapp1.png"
           alt="WakeApp — Une seule application. Contrôlez tout."
           className="mx-auto h-full w-full object-cover object-top"
           draggable={false}
