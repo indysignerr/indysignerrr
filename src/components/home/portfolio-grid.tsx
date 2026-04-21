@@ -48,18 +48,28 @@ export function PortfolioGrid({ limit, showHeader = true }: PortfolioGridProps) 
             >
               <Link href={`/portfolio/${project.slug}`} className="group block">
                 <div className="relative aspect-[16/9] md:aspect-[21/9] overflow-hidden rounded-3xl bg-ocean-deep">
-                  <div aria-hidden className="mesh-ocean-deep absolute inset-0" />
+                  <div
+                    aria-hidden
+                    className="mesh-ocean-deep absolute inset-0 transition-transform duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.06]"
+                  />
+                  <div
+                    aria-hidden
+                    className="absolute inset-0 bg-ocean-deep/0 transition-colors duration-500 group-hover:bg-ocean-deep/10"
+                  />
                   <div className="absolute inset-0 flex items-end p-8 md:p-10">
-                    <div>
-                      <span className="inline-flex items-center rounded-full border border-paper/25 bg-paper/5 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.22em] text-paper/80 backdrop-blur">
+                    <div className="transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:-translate-y-1">
+                      <span className="inline-flex items-center rounded-full border border-paper/25 bg-paper/5 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.22em] text-paper/80 backdrop-blur transition-colors duration-500 group-hover:border-paper/55 group-hover:text-paper">
                         {project.category}
                       </span>
                       <p className="mt-5 font-display text-3xl md:text-4xl lg:text-5xl leading-tight text-paper">
                         {project.name}
                       </p>
+                      <span className="mt-4 inline-flex items-center gap-2 overflow-hidden font-mono text-[10px] uppercase tracking-[0.22em] text-paper/0 transition-all duration-500 group-hover:text-paper/75">
+                        Voir le projet <ArrowUpRight className="h-3 w-3" />
+                      </span>
                     </div>
                   </div>
-                  <ArrowUpRight className="absolute right-6 top-6 h-7 w-7 text-paper/80 transition-all duration-500 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-paper" />
+                  <ArrowUpRight className="absolute right-6 top-6 h-7 w-7 text-paper/80 transition-all duration-500 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:scale-110 group-hover:text-paper" />
                 </div>
                 <div className="mt-5 flex items-center justify-between gap-4">
                   <p className="text-sm text-ink-soft">

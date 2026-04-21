@@ -48,18 +48,6 @@ export function CreativePricing({
         <div className="relative">
           <h2 className="font-display italic text-4xl md:text-6xl font-normal text-ink rotate-[-1deg] leading-[1.02]">
             {title}
-            <span
-              className="absolute -right-10 top-0 text-sand-warm rotate-12"
-              aria-hidden
-            >
-              ✨
-            </span>
-            <span
-              className="absolute -left-6 -bottom-2 text-ocean-blue -rotate-12"
-              aria-hidden
-            >
-              ⭐️
-            </span>
           </h2>
           <div
             className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-44 h-3 bg-ocean-blue/20 rotate-[-1deg] rounded-full blur-sm"
@@ -190,17 +178,6 @@ export function CreativePricing({
         ))}
       </div>
 
-      <div
-        className="absolute -z-10 inset-0 overflow-hidden pointer-events-none"
-        aria-hidden
-      >
-        <div className="absolute top-40 left-20 text-5xl rotate-12 text-sand-warm/40">
-          ✎
-        </div>
-        <div className="absolute bottom-40 right-20 text-5xl -rotate-12 text-ocean-blue/30">
-          ✏️
-        </div>
-      </div>
     </div>
   );
 }

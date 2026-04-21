@@ -31,6 +31,7 @@ import {
 } from "@/lib/content";
 import { FinalCTA } from "@/components/home/cta";
 import { SectionFade } from "@/components/ui/section-fade";
+import { QuickNav } from "@/components/offres/quick-nav";
 
 export const metadata: Metadata = {
   title: "L'Offre — 329€",
@@ -160,8 +161,10 @@ export default function OffresPage() {
         </div>
       </section>
 
+      <QuickNav />
+
       {/* ============ CREATIVE PRICING (21st.dev) ============ */}
-      <section className="relative overflow-hidden bg-paper py-24 md:py-32">
+      <section id="offre" className="relative overflow-hidden bg-paper py-24 md:py-32">
         <CreativePricing
           tag="Tarifs transparents"
           title="Choisis ton approche."
