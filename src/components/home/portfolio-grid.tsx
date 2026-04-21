@@ -14,7 +14,7 @@ export function PortfolioGrid({ limit, showHeader = true }: PortfolioGridProps) 
   const items = limit ? projects.slice(0, limit) : projects;
 
   return (
-    <section className="bg-sand-light py-40 md:py-56">
+    <section id="portfolio" className="bg-sand-light py-40 md:py-56">
       <div className="mx-auto max-w-[1200px] px-6 md:px-10">
         {showHeader && (
           <div className="mb-16 flex flex-col gap-6 md:mb-20 md:flex-row md:items-end md:justify-between">

@@ -33,7 +33,7 @@ const heroImages = [
 
 export function Hero() {
   return (
-    <section className="relative w-full min-h-[92vh] overflow-hidden flex flex-col items-center justify-center isolate">
+    <section id="hero" className="relative w-full min-h-[92vh] overflow-hidden flex flex-col items-center justify-center isolate">
       <div aria-hidden className="mesh-ocean absolute inset-0 -z-20" />
       <div aria-hidden className="grain absolute inset-0 -z-10" />
 

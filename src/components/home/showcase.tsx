@@ -4,7 +4,7 @@ import { ArrowUpRight } from "lucide-react";
 
 export function Showcase() {
   return (
-    <section className="relative bg-paper overflow-hidden">
+    <section id="showcase" className="relative bg-paper overflow-hidden">
       <ContainerScroll
         titleComponent={
           <>

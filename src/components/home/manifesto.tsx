@@ -28,6 +28,7 @@ export function Manifesto() {
 
   return (
     <section
+      id="manifesto"
       ref={ref}
       className="relative overflow-hidden bg-ocean-deep text-paper py-40 md:py-56"
     >

@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 
 export function FinalCTA() {
   return (
-    <section className="relative overflow-hidden bg-paper py-24 md:py-32 lg:py-48">
+    <section id="cta" className="relative overflow-hidden bg-paper py-24 md:py-32 lg:py-48">
       <div aria-hidden className="mesh-ocean absolute inset-0 opacity-80" />
       <motion.div
         initial={{ opacity: 0, y: 30 }}
