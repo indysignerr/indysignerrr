@@ -45,16 +45,18 @@ export function SectionFade({
   const fromC = toHex[from];
   const toC = toHex[to];
 
-  // Multi-stop gradient avec courbe ease-in-out (7 stops, mix %).
-  // Les stops intermédiaires utilisent color-mix pour un blend perceptuel.
+  // Multi-stop gradient avec courbe ease-in-out (8 stops = 6 intermédiaires).
+  // Distribution S-curve : plateau from → accélération milieu → plateau to.
+  // color-mix pour un blend perceptuel (srgb).
   const gradient = `linear-gradient(
     to bottom,
     ${fromC} 0%,
-    color-mix(in srgb, ${fromC} 92%, ${toC} 8%) 15%,
-    color-mix(in srgb, ${fromC} 78%, ${toC} 22%) 30%,
-    color-mix(in srgb, ${fromC} 55%, ${toC} 45%) 50%,
-    color-mix(in srgb, ${fromC} 30%, ${toC} 70%) 70%,
-    color-mix(in srgb, ${fromC} 12%, ${toC} 88%) 85%,
+    color-mix(in srgb, ${fromC} 95%, ${toC} 5%) 12%,
+    color-mix(in srgb, ${fromC} 87%, ${toC} 13%) 25%,
+    color-mix(in srgb, ${fromC} 70%, ${toC} 30%) 40%,
+    color-mix(in srgb, ${fromC} 30%, ${toC} 70%) 60%,
+    color-mix(in srgb, ${fromC} 13%, ${toC} 87%) 75%,
+    color-mix(in srgb, ${fromC} 5%, ${toC} 95%) 88%,
     ${toC} 100%
   )`;
 
