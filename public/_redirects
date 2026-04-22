@@ -1,0 +1,7 @@
+# Cloudflare Pages _redirects file
+# Format: source destination [status_code]
+# Doc: https://developers.cloudflare.com/pages/configuration/redirects/
+
+# Legacy routes → nouvelle offre unifiée
+/services  /offres  301
+/tarifs    /offres  301
