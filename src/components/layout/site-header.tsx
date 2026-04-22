@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { navigation } from "@/lib/content";
 import { Button } from "@/components/ui/button";
+import { Logo } from "@/components/ui/logo";
 import { cn } from "@/lib/utils";
 
 export function SiteHeader() {
@@ -44,25 +45,10 @@ export function SiteHeader() {
         <div className="mx-auto flex max-w-[1440px] items-center justify-between px-6 py-4 md:px-10">
           <Link
             href="/"
-            className="group flex items-center gap-2"
+            className="group inline-flex items-center"
             aria-label="Accueil Indysigner"
           >
-            <span className="flex h-9 w-9 items-center justify-center rounded-full bg-ocean-deep text-paper">
-              <svg
-                viewBox="0 0 24 24"
-                className="h-4 w-4"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                aria-hidden
-              >
-                <path d="M3 17c3 0 3-2 6-2s3 2 6 2 3-2 6-2" />
-                <path d="M3 12c3 0 3-2 6-2s3 2 6 2 3-2 6-2" />
-              </svg>
-            </span>
-            <span className="font-display text-lg tracking-tight text-ink">
-              Indysigner
-            </span>
+            <Logo variant="wordmark" tone="ink" className="h-10 w-auto" showWave />
           </Link>
 
           <nav aria-label="Principale" className="hidden md:flex items-center gap-8">

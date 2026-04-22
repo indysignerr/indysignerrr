@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 140" fill="none">
+  <!-- Wave signature au-dessus du mot (du "I" jusqu'au "r") -->
+  <path
+    d="M 40 42 Q 70 22 100 42 T 160 42 Q 190 22 220 42 T 280 42 Q 310 22 340 42 T 400 42 Q 430 22 460 42 T 490 42"
+    stroke="#0a1f3a"
+    stroke-width="2.4"
+    stroke-linecap="round"
+    fill="none"
+    opacity="0.9"
+  />
+  <!-- Wordmark "Indysigner" italique serif -->
+  <text
+    x="260"
+    y="112"
+    font-family="Fraunces, 'Instrument Serif', Georgia, 'Times New Roman', serif"
+    font-style="italic"
+    font-weight="500"
+    font-size="92"
+    fill="#0a1f3a"
+    text-anchor="middle"
+    letter-spacing="-0.02em"
+  >Indysigner</text>
+  <!-- Dot coral au-dessus du i de "Indysigner" -->
+  <circle cx="76" cy="34" r="5" fill="#d9725e"/>
+</svg>

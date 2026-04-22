@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- Background subtil paper -->
+  <rect width="64" height="64" fill="#faf8f3"/>
+  <!-- "id" italique serif navy -->
+  <text
+    x="32"
+    y="46"
+    font-family="Fraunces, 'Instrument Serif', Georgia, 'Times New Roman', serif"
+    font-style="italic"
+    font-weight="500"
+    font-size="44"
+    fill="#0a1f3a"
+    text-anchor="middle"
+    letter-spacing="-0.02em"
+  >id</text>
+  <!-- Dot coral au-dessus du i (remplace le point serif natif) -->
+  <circle cx="24" cy="16" r="3.5" fill="#d9725e"/>
+</svg>
