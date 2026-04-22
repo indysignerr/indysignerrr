@@ -74,21 +74,22 @@ export function LenisProvider({ children }: { children: React.ReactNode }) {
 
     document.addEventListener("click", handleAnchorClick);
 
-    // 2. Au chargement (ou changement de route), si hash présent → smooth scroll
-    if (window.location.hash) {
-      // Petit délai pour laisser le DOM se rendre
-      const timer = setTimeout(() => {
+    // 2. Au chargement (ou changement de route) :
+    //    - si hash présent → smooth scroll vers la section
+    //    - sinon → scroll immédiat en haut (couvre clic projets portfolio,
+    //      retour Accueil depuis pages légales, navigation standard)
+    const timer = setTimeout(() => {
+      if (window.location.hash) {
         smoothScrollTo(window.location.hash);
-      }, 120);
-      return () => {
-        clearTimeout(timer);
-        cancelAnimationFrame(frame);
-        document.removeEventListener("click", handleAnchorClick);
-        lenis.destroy();
-      };
-    }
+      } else {
+        // Reset scroll en haut de la nouvelle route
+        lenis.scrollTo(0, { immediate: true });
+        window.scrollTo(0, 0);
+      }
+    }, 80);
 
     return () => {
+      clearTimeout(timer);
       cancelAnimationFrame(frame);
       document.removeEventListener("click", handleAnchorClick);
       lenis.destroy();

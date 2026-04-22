@@ -1,0 +1,145 @@
+# ============================================
+# Decap CMS — Configuration Indysigner
+# ============================================
+# Documentation : https://decapcms.org/docs/
+# Pour tester en local :
+#   1. npm run dev
+#   2. npx decap-server (dans un autre terminal)
+#   3. Ouvrir http://localhost:3000/admin/
+#   4. Cliquer "Login" (aucun compte requis en local_backend)
+
+backend:
+  name: git-gateway
+  branch: main
+
+# Pour tester en local, décommenter cette ligne :
+# local_backend: true
+
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+locale: fr
+
+site_url: https://indysigner.fr
+display_url: https://indysigner.fr
+logo_url: /next.svg
+
+# ============================================
+# Collections
+# ============================================
+collections:
+  # --- Projets portfolio ---
+  - name: "projects"
+    label: "Projets portfolio"
+    label_singular: "Projet"
+    folder: "content/projects"
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    fields:
+      - { name: "name", label: "Nom du projet", widget: "string" }
+      - {
+          name: "category",
+          label: "Catégorie",
+          widget: "select",
+          options: ["Site Vitrine", "Sur-Mesure", "Refonte"],
+        }
+      - { name: "year", label: "Année", widget: "number", value_type: "int", min: 2020, max: 2030 }
+      - { name: "duration", label: "Durée de réalisation", widget: "string", hint: "ex: 10 jours, 3 semaines" }
+      - { name: "url", label: "URL du site live", widget: "string", required: false }
+      - {
+          name: "tags",
+          label: "Tags techniques",
+          widget: "list",
+          default: ["Next.js", "Tailwind"],
+        }
+      - { name: "context", label: "Contexte", widget: "text" }
+      - { name: "problem", label: "Problème", widget: "text" }
+      - { name: "solution", label: "Solution", widget: "text" }
+      - {
+          name: "results",
+          label: "Résultats (KPIs)",
+          widget: "list",
+          hint: "Un par ligne, ex: 60% ↑ réservations",
+        }
+      - name: "testimonial"
+        label: "Témoignage client"
+        widget: "object"
+        fields:
+          - { name: "quote", label: "Citation", widget: "text" }
+          - { name: "author", label: "Auteur", widget: "string", required: false }
+      - name: "gallery"
+        label: "Galerie d'aperçus"
+        widget: "list"
+        required: false
+        fields:
+          - { name: "src", label: "Image", widget: "image" }
+          - { name: "alt", label: "Texte alternatif", widget: "string" }
+          - { name: "caption", label: "Légende", widget: "string", required: false }
+      - { name: "body", label: "Contenu libre (Markdown)", widget: "markdown", required: false }
+
+  # --- FAQ Tarifs ---
+  - name: "faq"
+    label: "FAQ Tarifs"
+    label_singular: "Question"
+    folder: "content/faq"
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    fields:
+      - { name: "order", label: "Ordre d'affichage", widget: "number", value_type: "int", min: 1 }
+      - { name: "question", label: "Question", widget: "string" }
+      - { name: "answer", label: "Réponse", widget: "text" }
+
+  # --- Paramètres globaux ---
+  - name: "settings"
+    label: "Paramètres du site"
+    files:
+      - label: "Marque"
+        name: "brand"
+        file: "content/settings/brand.json"
+        format: "json"
+        fields:
+          - { name: "name", label: "Nom commercial", widget: "string" }
+          - { name: "tagline", label: "Baseline", widget: "string" }
+          - { name: "manifesto", label: "Manifesto", widget: "text" }
+          - { name: "metaDescription", label: "Meta description SEO", widget: "text" }
+          - { name: "email", label: "Email", widget: "string" }
+          - { name: "phone", label: "Téléphone", widget: "string" }
+          - { name: "address", label: "Adresse", widget: "string" }
+          - { name: "siret", label: "SIRET", widget: "string" }
+          - name: "socials"
+            label: "Réseaux sociaux"
+            widget: "object"
+            fields:
+              - { name: "instagram", label: "Instagram URL", widget: "string" }
+              - { name: "linkedin", label: "LinkedIn URL", widget: "string" }
+      - label: "Tarifs & offre"
+        name: "pricing"
+        file: "content/settings/pricing.json"
+        format: "json"
+        fields:
+          - name: "mainOffer"
+            label: "Offre principale"
+            widget: "object"
+            fields:
+              - { name: "price", label: "Prix (€)", widget: "string" }
+              - { name: "priceSuffix", label: "Suffixe prix", widget: "string" }
+              - { name: "contextLine", label: "Ligne de contexte", widget: "string" }
+              - { name: "features", label: "Features incluses", widget: "list" }
+              - { name: "closingNote", label: "Note de conclusion", widget: "text" }
+              - { name: "cta", label: "Libellé CTA", widget: "string" }
+              - { name: "ctaMicro", label: "Micro-copy CTA", widget: "string" }
+          - name: "pricingOption"
+            label: "Option Pack Modifications"
+            widget: "object"
+            fields:
+              - { name: "name", label: "Nom", widget: "string" }
+              - { name: "subtitle", label: "Sous-titre", widget: "string" }
+              - { name: "price", label: "Prix add-on", widget: "string" }
+              - { name: "features", label: "Features", widget: "list" }
+              - { name: "smallText", label: "Petit texte", widget: "text" }
