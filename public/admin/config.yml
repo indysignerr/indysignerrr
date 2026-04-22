@@ -9,8 +9,13 @@
 #   4. Cliquer "Login" (aucun compte requis en local_backend)
 
 backend:
-  name: git-gateway
+  name: github
+  repo: indysignerr/indysignerrr
   branch: main
+  # L'OAuth proxy est hébergé sur le même domaine via Cloudflare Pages Functions
+  # (functions/auth.js et functions/callback.js)
+  base_url: https://indysigner.fr
+  auth_endpoint: auth
 
 # Pour tester en local, décommenter cette ligne :
 # local_backend: true
