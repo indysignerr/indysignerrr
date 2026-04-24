@@ -37,7 +37,7 @@ function LogoCard({ src, name, role, rotate = "0deg", size = "md" }: LogoCardPro
   return (
     <div
       style={{ transform: `rotate(${rotate})` }}
-      className={`${sizeClass} flex flex-col items-center justify-center gap-2 rounded-2xl border border-ocean-deep/10 bg-paper/95 backdrop-blur-sm shadow-[0_18px_40px_-12px_rgba(10,31,58,0.35)] transition-all duration-300 hover:scale-[1.05] hover:shadow-[0_24px_56px_-14px_rgba(10,31,58,0.45)] cursor-pointer`}
+      className={`${sizeClass} flex flex-col items-center justify-center gap-2 rounded-2xl border border-ocean-deep/10 bg-paper shadow-[0_18px_40px_-12px_rgba(10,31,58,0.25)] transition-transform duration-300 hover:scale-[1.05] will-change-transform`}
     >
       <img
         src={src}

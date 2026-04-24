@@ -48,7 +48,7 @@ export function SiteHeader() {
             className="group inline-flex items-center"
             aria-label="Accueil Indysigner"
           >
-            <Logo variant="wordmark" className="h-10 w-auto" />
+            <Logo variant="wordmark" className="h-14 md:h-16 w-auto" />
           </Link>
 
           <nav aria-label="Principale" className="hidden md:flex items-center gap-8">
