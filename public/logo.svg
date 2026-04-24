@@ -1,25 +1,29 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 140" fill="none">
-  <!-- Wave signature au-dessus du mot (du "I" jusqu'au "r") -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 160" fill="none">
+  <!-- Wave organique au-dessus du mot, concentrée sur "In-si" -->
   <path
-    d="M 40 42 Q 70 22 100 42 T 160 42 Q 190 22 220 42 T 280 42 Q 310 22 340 42 T 400 42 Q 430 22 460 42 T 490 42"
+    d="M 100 50 Q 135 22 170 50 Q 195 28 220 48 Q 250 30 285 50"
     stroke="#0a1f3a"
-    stroke-width="2.4"
+    stroke-width="3"
     stroke-linecap="round"
+    stroke-linejoin="round"
     fill="none"
-    opacity="0.9"
   />
-  <!-- Wordmark "Indysigner" italique serif -->
+
+  <!-- Dot coral au-dessus du i -->
+  <circle cx="212" cy="46" r="5" fill="#d9725e"/>
+
+  <!-- Wordmark italique avec g en coral -->
   <text
-    x="260"
-    y="112"
+    x="280"
+    y="130"
     font-family="Fraunces, 'Instrument Serif', Georgia, 'Times New Roman', serif"
     font-style="italic"
     font-weight="500"
-    font-size="92"
-    fill="#0a1f3a"
+    font-size="110"
     text-anchor="middle"
-    letter-spacing="-0.02em"
-  >Indysigner</text>
-  <!-- Dot coral au-dessus du i de "Indysigner" -->
-  <circle cx="76" cy="34" r="5" fill="#d9725e"/>
+    letter-spacing="-0.025em"
+    font-variation-settings="'SOFT' 100, 'WONK' 1, 'opsz' 144"
+  >
+    <tspan fill="#0a1f3a">Indysi</tspan><tspan fill="#d9725e">g</tspan><tspan fill="#0a1f3a">ner</tspan>
+  </text>
 </svg>

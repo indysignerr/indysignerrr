@@ -12,8 +12,8 @@ interface LogoProps {
 /**
  * Logo Indysigner — rendu inline SVG, hérite la font Fraunces du document.
  * Variantes :
- *   - "wordmark" (full "Indysigner" + wave + dot coral) — header, footer, OG
- *   - "mark" ("id" monogram + dot coral) — favicon React, avatars, badges
+ *   - "wordmark" — full "Indysigner" italique, le "g" en coral + wave + dot
+ *   - "mark" — monogram "id" italique + dot coral + swash sur le "d"
  */
 export function Logo({
   variant = "wordmark",
@@ -36,20 +36,31 @@ export function Logo({
         className={cn("block", className)}
         style={size ? { height: size, width: size } : undefined}
       >
+        {/* Dot coral */}
+        <circle cx="22" cy="16" r="3.5" fill={coralColor} />
+        {/* "id" italique serif */}
         <text
           x="32"
-          y="46"
+          y="48"
           fontFamily="var(--font-fraunces), Fraunces, 'Instrument Serif', Georgia, serif"
           fontStyle="italic"
           fontWeight={500}
-          fontSize={44}
+          fontSize={48}
           fill={inkColor}
           textAnchor="middle"
-          letterSpacing="-0.02em"
+          letterSpacing="-0.03em"
+          style={{ fontVariationSettings: "'SOFT' 100, 'WONK' 1, 'opsz' 144" }}
         >
           id
         </text>
-        <circle cx="24" cy="16" r="3.5" fill={coralColor} />
+        {/* Swash sur le d */}
+        <path
+          d="M 42 19 Q 50 12 58 15"
+          stroke={inkColor}
+          strokeWidth="1.8"
+          strokeLinecap="round"
+          fill="none"
+        />
       </svg>
     );
   }
@@ -57,7 +68,7 @@ export function Logo({
   // wordmark
   return (
     <svg
-      viewBox="0 0 520 140"
+      viewBox="0 0 560 160"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       aria-label="Indysigner"
@@ -67,28 +78,32 @@ export function Logo({
     >
       {showWave && (
         <path
-          d="M 40 42 Q 70 22 100 42 T 160 42 Q 190 22 220 42 T 280 42 Q 310 22 340 42 T 400 42 Q 430 22 460 42 T 490 42"
+          d="M 100 50 Q 135 22 170 50 Q 195 28 220 48 Q 250 30 285 50"
           stroke={inkColor}
-          strokeWidth="2.4"
+          strokeWidth="3"
           strokeLinecap="round"
+          strokeLinejoin="round"
           fill="none"
-          opacity="0.9"
         />
       )}
+      {/* Dot coral */}
+      <circle cx="212" cy="46" r="5" fill={coralColor} />
+      {/* Wordmark : Indysi + g coral + ner */}
       <text
-        x="260"
-        y="112"
+        x="280"
+        y="130"
         fontFamily="var(--font-fraunces), Fraunces, 'Instrument Serif', Georgia, serif"
         fontStyle="italic"
         fontWeight={500}
-        fontSize={92}
-        fill={inkColor}
+        fontSize={110}
         textAnchor="middle"
-        letterSpacing="-0.02em"
+        letterSpacing="-0.025em"
+        style={{ fontVariationSettings: "'SOFT' 100, 'WONK' 1, 'opsz' 144" }}
       >
-        Indysigner
+        <tspan fill={inkColor}>Indysi</tspan>
+        <tspan fill={coralColor}>g</tspan>
+        <tspan fill={inkColor}>ner</tspan>
       </text>
-      <circle cx="76" cy="34" r="5" fill={coralColor} />
     </svg>
   );
 }
