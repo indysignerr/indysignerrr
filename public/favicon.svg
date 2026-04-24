@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Indysigner">
+  <!-- Fond navy arrondi (brand ocean-deep) -->
+  <rect width="64" height="64" rx="14" fill="#0a1f3a"/>
+
+  <!-- Monogramme "id" italique serif, proche du bord (80% du viewport) -->
+  <text
+    x="32"
+    y="50"
+    font-family="Fraunces, 'Instrument Serif', Georgia, 'Times New Roman', serif"
+    font-style="italic"
+    font-weight="500"
+    font-size="52"
+    fill="#faf8f3"
+    text-anchor="middle"
+    letter-spacing="-0.04em">id</text>
+
+  <!-- Point coral (accent brand) — au-dessus du "i" -->
+  <circle cx="22.5" cy="17" r="4" fill="#d9725e"/>
+</svg>
