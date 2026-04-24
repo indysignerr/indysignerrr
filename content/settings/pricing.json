@@ -1,0 +1,36 @@
+{
+  "mainOffer": {
+    "price": "329€",
+    "priceSuffix": "une fois · à vie · fini",
+    "contextLine": "Puis 0€. À vie.",
+    "features": [
+      "Création de ton site vitrine sur-mesure",
+      "Design premium avec animations au scroll",
+      "Rédaction complète des contenus (FR, SEO local)",
+      "Intégration de tes photos ou sourcing d'images",
+      "Version mobile optimisée",
+      "Interface d'administration simple",
+      "Création de tes comptes GitHub et Cloudflare à ton nom",
+      "Transfert complet du site sur tes comptes",
+      "Connexion de ton nom de domaine",
+      "Formation 1h (visio ou présentiel)",
+      "Manuel d'utilisation PDF",
+      "Garantie 30 jours après livraison",
+      "Hébergement gratuit à vie (Cloudflare)"
+    ],
+    "closingNote": "C'est tout. Pas de maintenance, pas d'abonnement, pas de SAV qui traîne. Ton site, ton contrôle, ta liberté.",
+    "cta": "Démarrer mon projet",
+    "ctaMicro": "Maquette gratuite sous 48h. Devis ferme sous 24h."
+  },
+  "pricingOption": {
+    "name": "Pack Modifications",
+    "subtitle": "Pour ceux qui veulent une marge de sécurité la 1ère année.",
+    "price": "+90€",
+    "features": [
+      "2 interventions majeures dans les 12 mois suivant la livraison",
+      "Ajout d'une page, refonte d'une section, intégration d'un widget tiers, modification structurelle",
+      "À utiliser quand tu veux dans l'année"
+    ],
+    "smallText": "Option à prendre uniquement au moment de la commande. Non remboursable. Expire 12 mois après la livraison. Les petites modifs (horaires, photos, prix) tu les fais toi-même depuis ton interface admin."
+  }
+}

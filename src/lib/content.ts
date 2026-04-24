@@ -1,3 +1,7 @@
+import brandData from "./generated/brand.json";
+import pricingData from "./generated/pricing.json";
+import faqData from "./generated/faq.json";
+
 export type Brand = {
   name: string;
   tagline: string;
@@ -15,23 +19,12 @@ export type Brand = {
   };
 };
 
+// Source : content/settings/brand.json (éditable via Decap CMS)
+// Les champs ape/tvaMention sont statiques (infos légales non éditées)
 export const brand: Brand = {
-  name: "Indysigner",
-  tagline: "329€. Un site pro. À toi. Pour toujours.",
-  manifesto:
-    "Tu payes une fois. Tu reçois un site pro, complet, optimisé, à ton nom. Tu le gères toi-même. Je ne te recontacte jamais.",
-  metaDescription:
-    "Agence web indépendante française. 329€, un site vitrine premium livré en 7 jours, à ton nom pour toujours. Aucun abonnement.",
-  email: "contact@indysigner.fr",
-  phone: "07 69 76 20 76",
-  address: "222 chemin de la Brague, 06410 Biot, France",
-  siret: "[À COMPLÉTER]",
+  ...(brandData as Omit<Brand, "ape" | "tvaMention">),
   ape: "6201Z — Programmation informatique",
   tvaMention: "Non applicable, article 293 B du CGI",
-  socials: {
-    instagram: "https://www.instagram.com/_indysigner/",
-    linkedin: "https://www.linkedin.com/in/indy-fran%C3%A7ois-37a451284/",
-  },
 };
 
 /* ============================================
@@ -170,31 +163,15 @@ export type MainOffer = {
   ctaMicro: string;
 };
 
+// Source : content/settings/pricing.json (éditable via Decap CMS)
+const _pricingDataTyped = pricingData as {
+  mainOffer: Omit<MainOffer, "badge" | "name">;
+  pricingOption: Omit<PricingOption, "badge" | "priceSuffix" | "cta">;
+};
 export const mainOffer: MainOffer = {
   badge: "Formule unique",
   name: "Site pro à 329€",
-  price: "329€",
-  priceSuffix: "une fois · à vie · fini",
-  contextLine: "Puis 0€. À vie.",
-  features: [
-    "Création de ton site vitrine sur-mesure",
-    "Design premium avec animations au scroll",
-    "Rédaction complète des contenus (FR, SEO local)",
-    "Intégration de tes photos ou sourcing d'images",
-    "Version mobile optimisée",
-    "Interface d'administration simple",
-    "Création de tes comptes GitHub et Cloudflare à ton nom",
-    "Transfert complet du site sur tes comptes",
-    "Connexion de ton nom de domaine",
-    "Formation 1h (visio ou présentiel)",
-    "Manuel d'utilisation PDF",
-    "Garantie 30 jours après livraison",
-    "Hébergement gratuit à vie (Cloudflare)",
-  ],
-  closingNote:
-    "C'est tout. Pas de maintenance, pas d'abonnement, pas de SAV qui traîne. Ton site, ton contrôle, ta liberté.",
-  cta: "Démarrer mon projet",
-  ctaMicro: "Maquette gratuite sous 48h. Devis ferme sous 24h.",
+  ..._pricingDataTyped.mainOffer,
 };
 
 export type PricingOption = {
@@ -210,18 +187,9 @@ export type PricingOption = {
 
 export const pricingOption: PricingOption = {
   badge: "Option",
-  name: "Pack Modifications",
-  subtitle: "Pour ceux qui veulent une marge de sécurité la 1ère année.",
-  price: "+90€",
   priceSuffix: "à ajouter à la commande",
-  features: [
-    "2 interventions majeures dans les 12 mois suivant la livraison",
-    "Ajout d'une page, refonte d'une section, intégration d'un widget tiers, modification structurelle",
-    "À utiliser quand tu veux dans l'année",
-  ],
-  smallText:
-    "Option à prendre uniquement au moment de la commande. Non remboursable. Expire 12 mois après la livraison. Les petites modifs (horaires, photos, prix) tu les fais toi-même depuis ton interface admin.",
   cta: "Ajouter à ma commande",
+  ..._pricingDataTyped.pricingOption,
 };
 
 /* ============================================
@@ -301,59 +269,10 @@ export type FaqItem = {
   answer: string;
 };
 
-export const pricingFaq: FaqItem[] = [
-  {
-    question: "Est-ce que je peux vraiment tout modifier moi-même ?",
-    answer:
-      "Oui. L'interface d'administration ressemble à un formulaire : tu cliques sur \"Horaires\", tu tapes tes nouveaux horaires, tu cliques \"Publier\". 2 minutes plus tard, c'est à jour sur ton site. Je te forme 1h pour que tu sois à l'aise. Le manuel PDF répond à 99% des cas d'usage.",
-  },
-  {
-    question:
-      "Et si je casse mon site ou que je n'arrive plus à modifier quelque chose ?",
-    answer:
-      "Pendant les 30 premiers jours : je répare gratuitement (garantie). Au-delà : soit tu as pris le Pack Modifications à +90€ et tu as 2 interventions dans l'année, soit tu fais appel à un autre prestataire. Je ne reviens plus après 30 jours, c'est volontaire : c'est ce qui me permet de proposer 329€ au lieu de 1 500€.",
-  },
-  {
-    question: "Pourquoi c'est moins cher que les autres ?",
-    answer:
-      "Parce que j'utilise des outils d'IA avancés (Claude Code, Next.js, Decap) pour accélérer la création. Ce qui prenait 3 semaines prend 3 jours. Je répercute ce gain sur le prix. Et je n'ai pas de coûts récurrents (pas de SAV, pas de serveurs, pas d'équipe), donc je peux pricer bas.",
-  },
-  {
-    question: "Qu'est-ce qui se passe si Cloudflare ou GitHub change ses prix ?",
-    answer:
-      "C'est ta responsabilité après la livraison, puisque les comptes sont à ton nom. Mais pour te rassurer : à ce jour, GitHub et Cloudflare sont gratuits pour l'usage d'un site vitrine pro, et le resteront très probablement (ce sont leurs offres d'appel). Si un jour ça change, tu auras le code source et tu pourras migrer facilement chez un autre hébergeur gratuit.",
-  },
-  {
-    question: "Je peux revenir te voir dans 2 ans pour refaire mon site ?",
-    answer:
-      "Bien sûr. Tu me recommandes, tu reviens pour une nouvelle version, tu payes 329€ pour un site flambant neuf. Mais entre-temps, je n'interviens pas sur ton site existant.",
-  },
-  {
-    question: "Ça marche pour quels types de métiers ?",
-    answer:
-      "Restaurateurs, artisans, barbiers, kinés, ostéos, avocats, notaires, experts-comptables, coaches, consultants, freelances, associations. Tout pro qui a besoin d'un site vitrine propre, rapide, qui convertit. Si tu n'es pas sûr, envoie-moi un message : je te dis honnêtement si ça colle ou pas.",
-  },
-  {
-    question: "Vous faites des e-commerces ou des systèmes de réservation ?",
-    answer:
-      "Je fais des sites vitrines. Pour les réservations, j'intègre des outils tiers (Zenchef, Tableo, Calendly). Pour les paiements en ligne, Stripe Link. Pas de développement custom e-commerce.",
-  },
-  {
-    question: "Je paye comment ?",
-    answer:
-      "Par carte bancaire via Stripe. 50% à la commande (164,50€), 50% à la livraison (164,50€). Si tu prends le Pack Modifications : +90€ à la commande. Facture reçue par mail pour ta comptabilité.",
-  },
-  {
-    question: "Vous travaillez où ?",
-    answer:
-      "Je suis basé à Biot (06). Je travaille avec des clients partout en France, 100% en distance. Pour la formation d'1h, on fait ça en visio (Google Meet). Pour les clients autour de Biot/Antibes/Sophia, je peux me déplacer.",
-  },
-  {
-    question: "Et si je ne suis pas satisfait de la maquette ?",
-    answer:
-      "Tu n'as encore payé que 50%. Si la maquette ne te convient pas vraiment après 2 allers-retours, on arrête là. Je garde l'acompte (coût de la conception), tu ne vas pas plus loin. Honnête des deux côtés.",
-  },
-];
+// Source : content/faq/*.md (éditable via Decap CMS)
+export const pricingFaq: FaqItem[] = (faqData as FaqItem[]).map(
+  ({ question, answer }) => ({ question, answer })
+);
 
 /* ============================================
    RÉASSURANCE (3 blocs)

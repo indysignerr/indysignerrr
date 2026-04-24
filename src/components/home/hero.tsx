@@ -8,28 +8,49 @@ import Floating, { FloatingElement } from "@/components/ui/parallax-floating";
 import { Button } from "@/components/ui/button";
 import { stats } from "@/lib/content";
 
-const heroImages = [
-  {
-    url: "https://images.unsplash.com/photo-1562016600-ece13e8ba570?q=80&w=1200&auto=format&fit=crop",
-    alt: "Eau cristalline",
-  },
-  {
-    url: "https://images.unsplash.com/photo-1721968317938-cf8c60fccd1a?q=80&w=1200&auto=format&fit=crop",
-    alt: "Fleurs blanches floues",
-  },
-  {
-    url: "https://images.unsplash.com/photo-1640680608781-2e4199dd1579?q=80&w=1200&auto=format&fit=crop",
-    alt: "Feuille de palmier néon",
-  },
-  {
-    url: "https://images.unsplash.com/photo-1624344965199-ed40391d20f2?q=80&w=1200&auto=format&fit=crop",
-    alt: "Homme en chemise noire ciel bleu",
-  },
-  {
-    url: "https://images.unsplash.com/photo-1727341554370-80e0fe9ad082?q=80&w=1200&auto=format&fit=crop",
-    alt: "Portrait éditorial noir et blanc",
-  },
+const heroLogos = [
+  { src: "/logos/claude.svg", name: "Claude", role: "AI copilot" },
+  { src: "/logos/nextjs.svg", name: "Next.js", role: "Framework" },
+  { src: "/logos/cloudflare.svg", name: "Cloudflare", role: "Hosting · CDN" },
+  { src: "/logos/github.svg", name: "GitHub", role: "Versioning" },
+  { src: "/logos/decap.svg", name: "Decap CMS", role: "Content" },
 ];
+
+type LogoCardProps = (typeof heroLogos)[number] & {
+  rotate?: string;
+  size?: "sm" | "md" | "lg";
+};
+
+function LogoCard({ src, name, role, rotate = "0deg", size = "md" }: LogoCardProps) {
+  const sizeClass = {
+    sm: "w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28",
+    md: "w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 lg:w-36 lg:h-36",
+    lg: "w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 lg:w-40 lg:h-40",
+  }[size];
+
+  const iconSize = {
+    sm: "h-7 w-7 md:h-8 md:w-8",
+    md: "h-8 w-8 md:h-10 md:w-10 lg:h-11 lg:w-11",
+    lg: "h-10 w-10 md:h-12 md:w-12 lg:h-14 lg:w-14",
+  }[size];
+
+  return (
+    <div
+      style={{ transform: `rotate(${rotate})` }}
+      className={`${sizeClass} flex flex-col items-center justify-center gap-2 rounded-2xl border border-ocean-deep/10 bg-paper/95 backdrop-blur-sm shadow-[0_18px_40px_-12px_rgba(10,31,58,0.35)] transition-all duration-300 hover:scale-[1.05] hover:shadow-[0_24px_56px_-14px_rgba(10,31,58,0.45)] cursor-pointer`}
+    >
+      <img
+        src={src}
+        alt={`${name} — ${role}`}
+        className={`${iconSize} object-contain`}
+        loading="lazy"
+      />
+      <span className="font-mono text-[8px] md:text-[9px] uppercase tracking-[0.18em] text-ocean-deep/80">
+        {name}
+      </span>
+    </div>
+  );
+}
 
 export function Hero() {
   return (
@@ -42,71 +63,65 @@ export function Hero() {
           depth={0.5}
           className="top-[15%] left-[2%] md:top-[22%] md:left-[5%]"
         >
-          <motion.img
-            src={heroImages[0].url}
-            alt={heroImages[0].alt}
-            loading="eager"
-            className="w-16 h-12 sm:w-24 sm:h-16 md:w-28 md:h-20 lg:w-32 lg:h-24 object-cover hover:scale-105 duration-200 cursor-pointer transition-transform -rotate-[3deg] shadow-2xl rounded-xl"
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 }}
-          />
+          >
+            <LogoCard {...heroLogos[0]} rotate="-6deg" size="sm" />
+          </motion.div>
         </FloatingElement>
 
         <FloatingElement
           depth={1}
-          className="top-[2%] left-[8%] md:top-[6%] md:left-[11%]"
+          className="top-[4%] left-[8%] md:top-[8%] md:left-[12%]"
         >
-          <motion.img
-            src={heroImages[1].url}
-            alt={heroImages[1].alt}
-            className="w-36 h-24 sm:w-44 sm:h-32 md:w-52 md:h-40 lg:w-56 lg:h-44 object-cover hover:scale-105 duration-200 cursor-pointer transition-transform -rotate-12 shadow-2xl rounded-xl"
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.7 }}
-          />
+          >
+            <LogoCard {...heroLogos[1]} rotate="-10deg" size="md" />
+          </motion.div>
         </FloatingElement>
 
         <FloatingElement
           depth={4}
-          className="top-[78%] left-[4%] md:top-[74%] md:left-[8%]"
+          className="top-[76%] left-[4%] md:top-[72%] md:left-[10%]"
         >
-          <motion.img
-            src={heroImages[2].url}
-            alt={heroImages[2].alt}
-            className="w-36 h-36 sm:w-44 sm:h-44 md:w-56 md:h-56 lg:w-60 lg:h-60 object-cover -rotate-[4deg] hover:scale-105 duration-200 cursor-pointer transition-transform shadow-2xl rounded-xl"
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.9 }}
-          />
+          >
+            <LogoCard {...heroLogos[2]} rotate="-4deg" size="lg" />
+          </motion.div>
         </FloatingElement>
 
         <FloatingElement
           depth={2}
-          className="top-[2%] left-[85%] md:top-[6%] md:left-[80%]"
+          className="top-[4%] left-[82%] md:top-[8%] md:left-[80%]"
         >
-          <motion.img
-            src={heroImages[3].url}
-            alt={heroImages[3].alt}
-            className="w-36 h-32 sm:w-44 sm:h-40 md:w-52 md:h-48 lg:w-60 lg:h-52 object-cover hover:scale-105 duration-200 cursor-pointer transition-transform shadow-2xl rotate-[6deg] rounded-xl"
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.1 }}
-          />
+          >
+            <LogoCard {...heroLogos[3]} rotate="8deg" size="md" />
+          </motion.div>
         </FloatingElement>
 
         <FloatingElement
           depth={1}
-          className="top-[70%] left-[78%] md:top-[62%] md:left-[80%]"
+          className="top-[70%] left-[78%] md:top-[64%] md:left-[82%]"
         >
-          <motion.img
-            src={heroImages[4].url}
-            alt={heroImages[4].alt}
-            className="w-40 h-40 sm:w-56 sm:h-56 md:w-64 md:h-64 lg:w-72 lg:h-72 object-cover hover:scale-105 duration-200 cursor-pointer transition-transform shadow-2xl rotate-[14deg] rounded-xl"
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.3 }}
-          />
+          >
+            <LogoCard {...heroLogos[4]} rotate="12deg" size="lg" />
+          </motion.div>
         </FloatingElement>
       </Floating>
 

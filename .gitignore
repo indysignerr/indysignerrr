@@ -43,3 +43,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Contenu généré par scripts/sync-content.mjs (source : content/)
+/src/lib/generated/
