@@ -15,11 +15,15 @@ export function LenisProvider({ children }: { children: React.ReactNode }) {
     ).matches;
     if (prefersReducedMotion) return;
 
+    // Mode LERP — responsive Apple-like. Ton `duration: 1.1` précédent
+    // imposait 1,1s de rattrapage à CHAQUE scroll (d'où la sensation "lent à mort").
+    // Lerp 0.1 = la position cible est rattrapée à 10% par frame → immédiat mais lissé.
     const lenis = new Lenis({
-      duration: 1.1,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      lerp: 0.1,
       smoothWheel: true,
-      touchMultiplier: 1.5,
+      wheelMultiplier: 1,
+      touchMultiplier: 2,
+      syncTouch: false, // touch natif = plus fluide sur mobile
     });
     lenisRef.current = lenis;
 
@@ -35,13 +39,11 @@ export function LenisProvider({ children }: { children: React.ReactNode }) {
       if (!el) return false;
       lenis.scrollTo(el as HTMLElement, {
         offset: -80,
-        duration: 1.1,
-        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        duration: 0.9,
       });
       return true;
     };
 
-    // Intercepte les clics sur les liens ancre intra-page
     const handleAnchorClick = (event: MouseEvent) => {
       const target = (event.target as HTMLElement | null)?.closest(
         'a[href*="#"]'
@@ -79,17 +81,13 @@ export function LenisProvider({ children }: { children: React.ReactNode }) {
     };
   }, []);
 
-  // 2. À chaque changement de route : scroll reset instantané (UNE seule op, pas deux)
+  // 2. À chaque changement de route : scroll reset instantané
   useEffect(() => {
     const lenis = lenisRef.current;
     if (window.location.hash) {
       const el = document.querySelector(window.location.hash);
       if (el && lenis) {
-        lenis.scrollTo(el as HTMLElement, {
-          offset: -80,
-          immediate: false,
-          duration: 1.1,
-        });
+        lenis.scrollTo(el as HTMLElement, { offset: -80, duration: 0.9 });
       }
     } else if (lenis) {
       lenis.scrollTo(0, { immediate: true, force: true });

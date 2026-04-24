@@ -1,17 +1,30 @@
 import { RefObject, useEffect, useRef } from "react";
 
+/**
+ * Hook optimisé : cache le getBoundingClientRect au lieu de le recalculer
+ * à chaque mousemove (ce qui forçait un reflow à chaque pixel de mouvement).
+ * Rect recalculé seulement sur resize/scroll.
+ */
 export const useMousePositionRef = (
   containerRef?: RefObject<HTMLElement | SVGElement | null>
 ) => {
   const positionRef = useRef({ x: 0, y: 0 });
+  const rectRef = useRef<DOMRect | null>(null);
 
   useEffect(() => {
+    const updateRect = () => {
+      if (containerRef?.current) {
+        rectRef.current = containerRef.current.getBoundingClientRect();
+      }
+    };
+    updateRect();
+
     const updatePosition = (x: number, y: number) => {
-      if (containerRef && containerRef.current) {
-        const rect = containerRef.current.getBoundingClientRect();
-        const relativeX = x - rect.left;
-        const relativeY = y - rect.top;
-        positionRef.current = { x: relativeX, y: relativeY };
+      if (containerRef && rectRef.current) {
+        positionRef.current = {
+          x: x - rectRef.current.left,
+          y: y - rectRef.current.top,
+        };
       } else {
         positionRef.current = { x, y };
       }
@@ -23,15 +36,19 @@ export const useMousePositionRef = (
 
     const handleTouchMove = (ev: TouchEvent) => {
       const touch = ev.touches[0];
-      updatePosition(touch.clientX, touch.clientY);
+      if (touch) updatePosition(touch.clientX, touch.clientY);
     };
 
-    window.addEventListener("mousemove", handleMouseMove);
-    window.addEventListener("touchmove", handleTouchMove);
+    window.addEventListener("mousemove", handleMouseMove, { passive: true });
+    window.addEventListener("touchmove", handleTouchMove, { passive: true });
+    window.addEventListener("resize", updateRect, { passive: true });
+    window.addEventListener("scroll", updateRect, { passive: true });
 
     return () => {
       window.removeEventListener("mousemove", handleMouseMove);
       window.removeEventListener("touchmove", handleTouchMove);
+      window.removeEventListener("resize", updateRect);
+      window.removeEventListener("scroll", updateRect);
     };
   }, [containerRef]);
 

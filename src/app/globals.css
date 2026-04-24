@@ -72,9 +72,19 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
-  text-rendering: optimizeLegibility;
+  /* text-rendering: optimizeLegibility forçait un cout de rendu sur tout le texte.
+     optimizeSpeed (valeur par defaut) rend le scroll plus fluide. */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Isole les backgrounds atmosphériques du scroll — évite les repaints
+   sur tout le document quand le hero defile. */
+.mesh-ocean,
+.mesh-ocean-deep,
+.grain {
+  contain: paint;
+  transform: translateZ(0);
 }
 
 ::selection {
