@@ -2,41 +2,67 @@ import { cn } from "@/lib/utils";
 
 interface LogoProps {
   variant?: "wordmark" | "mark";
+  tone?: "ink" | "paper";
   className?: string;
-  /** Taille en pixels (hauteur) */
+  /** Taille en pixels (hauteur) — applique auto-scaling */
   size?: number;
 }
 
 /**
- * Logo Indysigner — rendu raster depuis public/.
+ * Logo Indysigner — rendu en texte HTML (Fraunces italic).
  *
- * Fichiers attendus :
- *   - public/logo.jpg        — wordmark "Indysigner" (aspect ~16:5)
- *   - public/logo-mark.jpg   — monogram "id" (carré ~1:1)
+ * Raison : un <img> JPG avec son fond beige intégré se voyait comme une
+ * vignette coincée dans la navbar. Le texte HTML se fond avec n'importe
+ * quel background (transparent, paper, ocean-deep), reste net à toute
+ * taille, et utilise directement la font --font-fraunces du layout.
  *
- * Pour remplacer les logos : sauvegarde les PNG aux chemins ci-dessus,
- * commit + push, Cloudflare Pages rebuild auto.
+ * Variantes :
+ *   - "wordmark" — "Indysigner" complet, le "g" en coral
+ *   - "mark" — monogram "id" italique + dot coral
  */
-export function Logo({ variant = "wordmark", className, size }: LogoProps) {
+export function Logo({
+  variant = "wordmark",
+  tone = "ink",
+  className,
+  size,
+}: LogoProps) {
+  const inkClass = tone === "ink" ? "text-ocean-deep" : "text-paper";
+
   if (variant === "mark") {
     return (
-      <img
-        src="/logo-mark.jpg"
-        alt="Indysigner"
-        className={cn("block object-contain", className)}
-        style={size ? { height: size, width: size } : undefined}
-        draggable={false}
-      />
+      <span
+        aria-label="Indysigner"
+        role="img"
+        className={cn(
+          "inline-flex items-center font-display italic font-medium leading-none tracking-tight select-none",
+          inkClass,
+          className
+        )}
+        style={size ? { fontSize: size } : undefined}
+      >
+        <span>id</span>
+        <span className="text-coral" aria-hidden>
+          .
+        </span>
+      </span>
     );
   }
 
+  // wordmark : Indysi + g (coral) + ner
   return (
-    <img
-      src="/logo.jpg"
-      alt="Indysigner"
-      className={cn("block object-contain", className)}
-      style={size ? { height: size } : undefined}
-      draggable={false}
-    />
+    <span
+      aria-label="Indysigner"
+      role="img"
+      className={cn(
+        "inline-flex items-baseline font-display italic font-medium leading-none tracking-tight select-none",
+        inkClass,
+        className
+      )}
+      style={size ? { fontSize: size } : undefined}
+    >
+      <span>Indysi</span>
+      <span className="text-coral">g</span>
+      <span>ner</span>
+    </span>
   );
 }
