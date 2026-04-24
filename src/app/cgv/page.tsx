@@ -30,7 +30,7 @@ export default function CGV() {
       <ul className="list-disc pl-6 space-y-1">
         <li>
           <strong>Indysigner</strong>, entreprise individuelle enregistrée sous le régime de la
-          micro-entreprise, représentée par Indy FRANCOIS, SIRET [SIRET À COMPLÉTER], dont le siège
+          micro-entreprise, représentée par Indy FRANCOIS, SIRET 10304455800015, dont le siège
           social est situé 222 chemin de la Brague, 06410 Biot, France (ci-après « Indysigner » ou
           « le Prestataire ») ;
         </li>
@@ -378,7 +378,7 @@ export default function CGV() {
       </P>
 
       <p className="mt-12 border-t border-line pt-6 text-sm text-muted">
-        [DATE DE PUBLICATION] — Indysigner — Indy FRANCOIS — SIRET [À COMPLÉTER]
+        [DATE DE PUBLICATION] — Indysigner — Indy FRANCOIS — SIRET 10304455800015
       </p>
     </LegalShell>
   );

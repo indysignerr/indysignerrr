@@ -12,7 +12,7 @@ Ce document contient tout le contenu éditorial à intégrer dans le site.
 - **Adresse** : 222 chemin de la Brague, 06410 Biot, France
 - **Téléphone** : 07 69 76 20 76
 - **Email** : contact@indysigner.fr
-- **SIRET** : [À COMPLÉTER]
+- **SIRET** : 10304455800015
 - **Code APE / NAF** : 6201Z — Programmation informatique
 - **TVA** : Non applicable (article 293 B du CGI)
 - **Cible** : B2B uniquement (professionnels)

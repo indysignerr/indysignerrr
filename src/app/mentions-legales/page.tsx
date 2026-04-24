@@ -36,7 +36,7 @@ export default function MentionsLegales() {
         <li><strong>Adresse du siège social</strong> : 222 chemin de la Brague, 06410 Biot, France</li>
         <li><strong>Téléphone</strong> : 07 69 76 20 76</li>
         <li><strong>Email</strong> : contact@indysigner.fr</li>
-        <li><strong>SIRET</strong> : [SIRET À COMPLÉTER]</li>
+        <li><strong>SIRET</strong> : 10304455800015</li>
         <li><strong>Code APE / NAF</strong> : 6201Z — Programmation informatique</li>
         <li><strong>TVA intracommunautaire</strong> : Non applicable, article 293 B du Code Général des Impôts.</li>
       </ul>

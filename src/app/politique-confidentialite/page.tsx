@@ -43,7 +43,7 @@ export default function Confidentialite() {
         <li><strong>Adresse</strong> : 222 chemin de la Brague, 06410 Biot, France</li>
         <li><strong>Email</strong> : contact@indysigner.fr</li>
         <li><strong>Téléphone</strong> : 07 69 76 20 76</li>
-        <li><strong>SIRET</strong> : [SIRET À COMPLÉTER]</li>
+        <li><strong>SIRET</strong> : 10304455800015</li>
       </ul>
 
       <H2>2. Données collectées</H2>

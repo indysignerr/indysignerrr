@@ -17,7 +17,7 @@ Conformément aux dispositions de l'article 6 III de la Loi n° 2004-575 du 21 j
 - **Adresse du siège social** : 222 chemin de la Brague, 06410 Biot, France
 - **Téléphone** : 07 69 76 20 76
 - **Email** : contact@indysigner.fr
-- **SIRET** : [SIRET À COMPLÉTER]
+- **SIRET** : 10304455800015
 - **Code APE / NAF** : 6201Z — Programmation informatique
 - **TVA intracommunautaire** : Non applicable, article 293 B du Code Général des Impôts.
 
@@ -63,7 +63,7 @@ En application du Règlement Général sur la Protection des Données (RGPD — 
 - **Adresse** : 222 chemin de la Brague, 06410 Biot, France
 - **Email** : contact@indysigner.fr
 - **Téléphone** : 07 69 76 20 76
-- **SIRET** : [SIRET À COMPLÉTER]
+- **SIRET** : 10304455800015
 
 ### 2. Données collectées
 
@@ -177,7 +177,7 @@ Indysigner se réserve le droit de modifier la présente politique. La version a
 
 ### Article 1 — Objet et champ d'application
 Les présentes CGV régissent les relations contractuelles entre :
-- **Indysigner**, entreprise individuelle enregistrée sous le régime de la micro-entreprise, représentée par Indy FRANCOIS, SIRET [SIRET À COMPLÉTER], siège social 222 chemin de la Brague, 06410 Biot, France (ci-après "Indysigner" ou "le Prestataire") ;
+- **Indysigner**, entreprise individuelle enregistrée sous le régime de la micro-entreprise, représentée par Indy FRANCOIS, SIRET 10304455800015, siège social 222 chemin de la Brague, 06410 Biot, France (ci-après "Indysigner" ou "le Prestataire") ;
 - et toute personne morale ou personne physique agissant à titre professionnel souscrivant aux services d'Indysigner (ci-après "le Client").
 
 Indysigner s'adresse exclusivement à une clientèle professionnelle. Toute commande implique que le Client agit dans le cadre de son activité professionnelle. Les dispositions du Code de la consommation relatives aux consommateurs ne sont pas applicables.
@@ -338,14 +338,14 @@ Indysigner ne pourra être tenu responsable d'un retard ou inexécution en cas d
 ### Article 17 — Modification des CGV
 Indysigner se réserve le droit de modifier les CGV. Les CGV applicables sont celles en vigueur à la date de la commande. Les modifications ultérieures ne s'appliquent pas aux contrats en cours d'exécution.
 
-*[DATE DE PUBLICATION] — Indysigner — Indy FRANCOIS — SIRET [À COMPLÉTER]*
+*[DATE DE PUBLICATION] — Indysigner — Indy FRANCOIS — SIRET 10304455800015*
 
 ---
 
 ## Footer légal (obligatoire sur tout le site)
 
 ```
-Indysigner © 2026 — Indy FRANCOIS — SIRET [À COMPLÉTER]
+Indysigner © 2026 — Indy FRANCOIS — SIRET 10304455800015
 Mentions légales · CGV · Politique de confidentialité · Gérer les cookies
 ```
 
