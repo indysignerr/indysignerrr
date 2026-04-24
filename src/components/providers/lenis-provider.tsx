@@ -1,46 +1,34 @@
 "use client";
 
-import Lenis from "lenis";
-import { useEffect, useRef } from "react";
+/**
+ * Anciennement LenisProvider — Lenis a été retiré.
+ *
+ * Pourquoi : même en mode lerp, Lenis introduit une micro-interpolation
+ * perceptible comme du lag. Le scroll natif du navigateur (Chrome/Safari
+ * modernes, trackpad macOS, roue Windows) est déjà parfaitement fluide
+ * et à 0ms d'input lag. Ajouter une lib par-dessus ne peut que ralentir.
+ *
+ * Ce composant conserve uniquement :
+ *   1. L'interception des liens ancre (#section) pour un scroll smooth
+ *      via l'API native `scrollTo({ behavior: "smooth" })`
+ *   2. Le reset scroll en haut de page à chaque changement de route
+ *
+ * Aucune RAF loop, aucune interpolation, aucun coût permanent.
+ */
+
+import { useEffect } from "react";
 import { usePathname } from "next/navigation";
 
 export function LenisProvider({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
-  const lenisRef = useRef<Lenis | null>(null);
 
-  // 1. Setup Lenis UNE SEULE FOIS (pas recréé à chaque route)
   useEffect(() => {
-    const prefersReducedMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
-    ).matches;
-    if (prefersReducedMotion) return;
-
-    // Mode LERP — responsive Apple-like. Ton `duration: 1.1` précédent
-    // imposait 1,1s de rattrapage à CHAQUE scroll (d'où la sensation "lent à mort").
-    // Lerp 0.1 = la position cible est rattrapée à 10% par frame → immédiat mais lissé.
-    const lenis = new Lenis({
-      lerp: 0.1,
-      smoothWheel: true,
-      wheelMultiplier: 1,
-      touchMultiplier: 2,
-      syncTouch: false, // touch natif = plus fluide sur mobile
-    });
-    lenisRef.current = lenis;
-
-    let frame = 0;
-    const raf = (time: number) => {
-      lenis.raf(time);
-      frame = requestAnimationFrame(raf);
-    };
-    frame = requestAnimationFrame(raf);
-
     const smoothScrollTo = (selector: string) => {
       const el = document.querySelector(selector);
       if (!el) return false;
-      lenis.scrollTo(el as HTMLElement, {
-        offset: -80,
-        duration: 0.9,
-      });
+      const rect = el.getBoundingClientRect();
+      const top = window.scrollY + rect.top - 80;
+      window.scrollTo({ top, behavior: "smooth" });
       return true;
     };
 
@@ -72,25 +60,18 @@ export function LenisProvider({ children }: { children: React.ReactNode }) {
     };
 
     document.addEventListener("click", handleAnchorClick);
-
-    return () => {
-      cancelAnimationFrame(frame);
-      document.removeEventListener("click", handleAnchorClick);
-      lenis.destroy();
-      lenisRef.current = null;
-    };
+    return () => document.removeEventListener("click", handleAnchorClick);
   }, []);
 
-  // 2. À chaque changement de route : scroll reset instantané
+  // Reset scroll instantané à chaque changement de route
   useEffect(() => {
-    const lenis = lenisRef.current;
     if (window.location.hash) {
       const el = document.querySelector(window.location.hash);
-      if (el && lenis) {
-        lenis.scrollTo(el as HTMLElement, { offset: -80, duration: 0.9 });
+      if (el) {
+        const rect = el.getBoundingClientRect();
+        const top = window.scrollY + rect.top - 80;
+        window.scrollTo({ top, behavior: "smooth" });
       }
-    } else if (lenis) {
-      lenis.scrollTo(0, { immediate: true, force: true });
     } else {
       window.scrollTo(0, 0);
     }
