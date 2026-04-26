@@ -2,7 +2,7 @@
 name: WakeApp
 category: Site Vitrine
 year: 2026
-duration: 15 jours
+duration: 13 jours
 url: https://the-wakeapp.com
 tags:
   - Next.js
