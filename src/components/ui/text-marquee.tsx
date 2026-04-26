@@ -1,15 +1,7 @@
 "use client";
 
 import { useRef, useEffect, forwardRef } from "react";
-import {
-  motion,
-  useScroll,
-  useSpring,
-  useTransform,
-  useVelocity,
-  useAnimationFrame,
-  useMotionValue,
-} from "framer-motion";
+import { motion, useAnimationFrame, useMotionValue, useTransform } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 function wrap(min: number, max: number, v: number) {
@@ -21,35 +13,34 @@ interface TextMarqueeProps {
   children: string;
   baseVelocity?: number;
   className?: string;
+  /** @deprecated Conservé pour compatibilité, n'a plus d'effet (perf). */
   scrollDependent?: boolean;
   delay?: number;
 }
 
+/**
+ * TextMarquee simplifié — vitesse constante, pas de scroll-velocity tracking.
+ *
+ * Avant : useScroll + useVelocity + useSpring + useAnimationFrame faisaient
+ * du travail à chaque tick de scroll (calcul de vitesse, spring, transformations).
+ * Sur une page avec plusieurs marquees, ça contribuait à l'impression de
+ * "scroll pas fluide".
+ *
+ * Maintenant : juste un useAnimationFrame minimal qui avance la position
+ * à vitesse constante. GPU-only via translate-X. Pas de couplage au scroll.
+ */
 export const TextMarquee = forwardRef<HTMLDivElement, TextMarqueeProps>(
   (
     {
       children,
       baseVelocity = -3,
       className,
-      scrollDependent = true,
       delay = 0,
     },
     ref
   ) => {
     const baseX = useMotionValue(0);
-    const { scrollY } = useScroll();
-    const scrollVelocity = useVelocity(scrollY);
-    const smoothVelocity = useSpring(scrollVelocity, {
-      damping: 50,
-      stiffness: 400,
-    });
-    const velocityFactor = useTransform(smoothVelocity, [0, 1000], [0, 2], {
-      clamp: false,
-    });
-
     const x = useTransform(baseX, (v) => `${wrap(-20, -45, v)}%`);
-
-    const directionFactor = useRef<number>(1);
     const hasStarted = useRef(false);
 
     useEffect(() => {
@@ -61,18 +52,7 @@ export const TextMarquee = forwardRef<HTMLDivElement, TextMarqueeProps>(
 
     useAnimationFrame((_, deltaMs) => {
       if (!hasStarted.current) return;
-
-      let moveBy = directionFactor.current * baseVelocity * (deltaMs / 1000);
-
-      if (scrollDependent) {
-        if (velocityFactor.get() < 0) {
-          directionFactor.current = -1;
-        } else if (velocityFactor.get() > 0) {
-          directionFactor.current = 1;
-        }
-        moveBy += directionFactor.current * moveBy * velocityFactor.get();
-      }
-
+      const moveBy = baseVelocity * (deltaMs / 1000);
       baseX.set(baseX.get() + moveBy);
     });
 
@@ -82,7 +62,7 @@ export const TextMarquee = forwardRef<HTMLDivElement, TextMarqueeProps>(
         className="overflow-hidden whitespace-nowrap flex flex-nowrap"
       >
         <motion.div
-          className="flex whitespace-nowrap gap-10 flex-nowrap"
+          className="flex whitespace-nowrap gap-10 flex-nowrap will-change-transform"
           style={{ x }}
         >
           {[0, 1, 2, 3].map((i) => (

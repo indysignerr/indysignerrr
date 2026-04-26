@@ -5,7 +5,6 @@ import { LenisProvider } from "@/components/providers/lenis-provider";
 import { PageTransition } from "@/components/providers/page-transition";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
-import { GlassFilter } from "@/components/ui/liquid-glass";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -94,7 +93,6 @@ export default function RootLayout({
     >
       <body className="min-h-dvh bg-paper text-ink">
         <LenisProvider>
-          <GlassFilter />
           <SiteHeader />
           <main id="main" className="relative">
             <PageTransition>{children}</PageTransition>
