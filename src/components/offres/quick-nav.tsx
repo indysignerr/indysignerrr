@@ -21,10 +21,22 @@ export function QuickNav() {
       .filter(Boolean) as HTMLElement[];
 
     // Affiche la nav dès qu'on scrolle en-dessous du hero
+    let ticking = false;
+    let lastVisible = window.scrollY > 400;
+    setVisible(lastVisible);
+
     const onScroll = () => {
-      setVisible(window.scrollY > 400);
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        const next = window.scrollY > 400;
+        if (next !== lastVisible) {
+          lastVisible = next;
+          setVisible(next);
+        }
+        ticking = false;
+      });
     };
-    onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
 
     const observer = new IntersectionObserver(

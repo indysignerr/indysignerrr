@@ -4,7 +4,6 @@ import Link from "next/link";
 import { LayoutGroup, motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { TextRotate } from "@/components/ui/text-rotate";
-import Floating, { FloatingElement } from "@/components/ui/parallax-floating";
 import { Button } from "@/components/ui/button";
 import { stats } from "@/lib/content";
 
@@ -16,12 +15,17 @@ const heroLogos = [
   { src: "/logos/decap.svg", name: "Decap CMS", role: "Content" },
 ];
 
-type LogoCardProps = (typeof heroLogos)[number] & {
-  rotate?: string;
-  size?: "sm" | "md" | "lg";
-};
+interface FloatingLogoProps {
+  src: string;
+  name: string;
+  role: string;
+  position: string;
+  rotate: string;
+  size: "sm" | "md" | "lg";
+  delay: number;
+}
 
-function LogoCard({ src, name, role, rotate = "0deg", size = "md" }: LogoCardProps) {
+function FloatingLogo({ src, name, role, position, rotate, size, delay }: FloatingLogoProps) {
   const sizeClass = {
     sm: "w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28",
     md: "w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 lg:w-36 lg:h-36",
@@ -35,95 +39,76 @@ function LogoCard({ src, name, role, rotate = "0deg", size = "md" }: LogoCardPro
   }[size];
 
   return (
-    <div
+    <motion.div
+      initial={{ opacity: 0, scale: 0.85 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ delay, duration: 0.5, ease: "easeOut" }}
+      className={`absolute ${position}`}
       style={{ transform: `rotate(${rotate})` }}
-      className={`${sizeClass} flex flex-col items-center justify-center gap-2 rounded-2xl border border-ocean-deep/10 bg-paper shadow-[0_18px_40px_-12px_rgba(10,31,58,0.25)] transition-transform duration-300 hover:scale-[1.05] will-change-transform`}
     >
-      <img
-        src={src}
-        alt={`${name} — ${role}`}
-        className={`${iconSize} object-contain`}
-        loading="lazy"
-      />
-      <span className="font-mono text-[8px] md:text-[9px] uppercase tracking-[0.18em] text-ocean-deep/80">
-        {name}
-      </span>
-    </div>
+      <div
+        className={`${sizeClass} flex flex-col items-center justify-center gap-2 rounded-2xl border border-ocean-deep/10 bg-paper shadow-[0_18px_40px_-12px_rgba(10,31,58,0.25)] transition-transform duration-300 hover:scale-[1.05]`}
+      >
+        <img
+          src={src}
+          alt={`${name} — ${role}`}
+          className={`${iconSize} object-contain`}
+          loading="eager"
+          decoding="async"
+        />
+        <span className="font-mono text-[8px] md:text-[9px] uppercase tracking-[0.18em] text-ocean-deep/80">
+          {name}
+        </span>
+      </div>
+    </motion.div>
   );
 }
 
 export function Hero() {
   return (
-    <section id="hero" className="relative w-full min-h-[92vh] overflow-hidden flex flex-col items-center justify-center isolate">
+    <section
+      id="hero"
+      className="relative w-full min-h-[92vh] overflow-hidden flex flex-col items-center justify-center isolate"
+    >
       <div aria-hidden className="mesh-ocean absolute inset-0 -z-20" />
       <div aria-hidden className="grain absolute inset-0 -z-10" />
 
-      <Floating sensitivity={-0.5} className="h-full">
-        <FloatingElement
-          depth={0.5}
-          className="top-[15%] left-[2%] md:top-[22%] md:left-[5%]"
-        >
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.5 }}
-          >
-            <LogoCard {...heroLogos[0]} rotate="-6deg" size="sm" />
-          </motion.div>
-        </FloatingElement>
-
-        <FloatingElement
-          depth={1}
-          className="top-[4%] left-[8%] md:top-[8%] md:left-[12%]"
-        >
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.7 }}
-          >
-            <LogoCard {...heroLogos[1]} rotate="-10deg" size="md" />
-          </motion.div>
-        </FloatingElement>
-
-        <FloatingElement
-          depth={4}
-          className="top-[76%] left-[4%] md:top-[72%] md:left-[10%]"
-        >
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.9 }}
-          >
-            <LogoCard {...heroLogos[2]} rotate="-4deg" size="lg" />
-          </motion.div>
-        </FloatingElement>
-
-        <FloatingElement
-          depth={2}
-          className="top-[4%] left-[82%] md:top-[8%] md:left-[80%]"
-        >
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1.1 }}
-          >
-            <LogoCard {...heroLogos[3]} rotate="8deg" size="md" />
-          </motion.div>
-        </FloatingElement>
-
-        <FloatingElement
-          depth={1}
-          className="top-[70%] left-[78%] md:top-[64%] md:left-[82%]"
-        >
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1.3 }}
-          >
-            <LogoCard {...heroLogos[4]} rotate="12deg" size="lg" />
-          </motion.div>
-        </FloatingElement>
-      </Floating>
+      {/* 5 logos statiques (plus de RAF perpétuel via ParallaxFloating) */}
+      <FloatingLogo
+        {...heroLogos[0]}
+        position="top-[15%] left-[2%] md:top-[22%] md:left-[5%]"
+        rotate="-6deg"
+        size="sm"
+        delay={0.5}
+      />
+      <FloatingLogo
+        {...heroLogos[1]}
+        position="top-[4%] left-[8%] md:top-[8%] md:left-[12%]"
+        rotate="-10deg"
+        size="md"
+        delay={0.7}
+      />
+      <FloatingLogo
+        {...heroLogos[2]}
+        position="top-[76%] left-[4%] md:top-[72%] md:left-[10%]"
+        rotate="-4deg"
+        size="lg"
+        delay={0.9}
+      />
+      <FloatingLogo
+        {...heroLogos[3]}
+        position="top-[4%] left-[82%] md:top-[8%] md:left-[80%]"
+        rotate="8deg"
+        size="md"
+        delay={1.1}
+      />
+      <FloatingLogo
+        {...heroLogos[4]}
+        position="top-[70%] left-[78%] md:top-[64%] md:left-[82%]"
+        rotate="12deg"
+        size="lg"
+        delay={1.3}
+      />
 
       <div className="flex flex-col justify-center items-center w-[88%] sm:w-[500px] md:w-[700px] lg:w-[860px] z-30 pointer-events-none">
         <motion.h1
@@ -193,7 +178,7 @@ export function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 1.4 }}
-        className="pointer-events-auto absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex w-[92%] max-w-3xl items-start justify-between gap-4 rounded-3xl border border-ocean-deep/10 bg-paper/70 px-6 py-4 backdrop-blur-xl"
+        className="pointer-events-auto absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex w-[92%] max-w-3xl items-start justify-between gap-4 rounded-3xl border border-ocean-deep/10 bg-paper/95 px-6 py-4"
       >
         {stats.map((stat) => (
           <div key={stat.label} className="min-w-0">
