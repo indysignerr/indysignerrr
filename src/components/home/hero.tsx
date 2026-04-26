@@ -73,39 +73,42 @@ export function Hero() {
       <div aria-hidden className="mesh-ocean absolute inset-0 -z-20" />
       <div aria-hidden className="grain absolute inset-0 -z-10" />
 
-      {/* 5 logos statiques (plus de RAF perpétuel via ParallaxFloating) */}
+      {/* 5 logos en constellation — pentagone autour du titre central :
+          Claude haut-gauche · Next.js haut-droite · GitHub mid-droite ·
+          Cloudflare bas-gauche · Decap bas-droite. Rotations alternées
+          vers l'extérieur pour effet "bloom". */}
       <FloatingLogo
         {...heroLogos[0]}
-        position="top-[15%] left-[2%] md:top-[22%] md:left-[5%]"
-        rotate="-6deg"
+        position="top-[8%] left-[3%] md:top-[12%] md:left-[6%]"
+        rotate="-8deg"
         size="sm"
         delay={0.5}
       />
       <FloatingLogo
         {...heroLogos[1]}
-        position="top-[4%] left-[8%] md:top-[8%] md:left-[12%]"
-        rotate="-10deg"
+        position="top-[5%] left-[78%] md:top-[9%] md:left-[78%]"
+        rotate="8deg"
         size="md"
         delay={0.7}
       />
       <FloatingLogo
-        {...heroLogos[2]}
-        position="top-[76%] left-[4%] md:top-[72%] md:left-[10%]"
-        rotate="-4deg"
-        size="lg"
+        {...heroLogos[3]}
+        position="top-[42%] left-[83%] md:top-[42%] md:left-[85%]"
+        rotate="12deg"
+        size="md"
         delay={0.9}
       />
       <FloatingLogo
-        {...heroLogos[3]}
-        position="top-[4%] left-[82%] md:top-[8%] md:left-[80%]"
-        rotate="8deg"
-        size="md"
+        {...heroLogos[2]}
+        position="top-[68%] left-[2%] md:top-[64%] md:left-[5%]"
+        rotate="-6deg"
+        size="lg"
         delay={1.1}
       />
       <FloatingLogo
         {...heroLogos[4]}
-        position="top-[70%] left-[78%] md:top-[64%] md:left-[82%]"
-        rotate="12deg"
+        position="top-[68%] left-[76%] md:top-[64%] md:left-[78%]"
+        rotate="6deg"
         size="lg"
         delay={1.3}
       />
