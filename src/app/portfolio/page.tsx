@@ -34,7 +34,7 @@ export default function PortfolioPage() {
           <h1 className="mt-4 max-w-4xl font-display text-5xl md:text-7xl lg:text-8xl leading-[0.95] tracking-tight text-ink">
             <RevealText stagger={0.08} delay={0.1}>Des sites qui</RevealText>{" "}
             <em className="italic font-normal text-coral">
-              <RevealText stagger={0.08} delay={0.35}>travaillent.</RevealText>
+              <RevealText stagger={0.08} delay={0.35}>durent.</RevealText>
             </em>
           </h1>
           <p className="mt-8 max-w-2xl text-lg text-ink-soft">

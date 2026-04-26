@@ -16,7 +16,7 @@ export default function Home() {
       <SectionDivider number="02" label="Manifesto" sublabel="L'offre en une image" tone="paper" />
       <Manifesto />
       <MarqueeBand tone="sand-warm" velocity={-2.2}>
-        329€ · Un site · À toi · Pour toujours ·&nbsp;
+        329€ · Un site · À vous · Pour toujours ·&nbsp;
       </MarqueeBand>
       <PortfolioGrid limit={3} />
       <SectionDivider number="04" label="Témoignages" sublabel="Six clients" tone="sky-mist" />

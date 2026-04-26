@@ -36,10 +36,7 @@ export function PortfolioGridByYear({ year, items }: Props) {
                 <div aria-hidden className="mesh-ocean-deep absolute inset-0" />
                 <div className="absolute inset-0 flex items-end p-8 md:p-10 lg:p-12">
                   <div>
-                    <span className="inline-flex items-center rounded-full border border-paper/25 bg-paper/5 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.22em] text-paper/80 backdrop-blur">
-                      {project.category}
-                    </span>
-                    <p className="mt-5 font-display text-3xl md:text-5xl lg:text-6xl leading-[1.02] text-paper">
+                    <p className="font-display text-3xl md:text-5xl lg:text-6xl leading-[1.02] text-paper">
                       {project.name}
                     </p>
                   </div>

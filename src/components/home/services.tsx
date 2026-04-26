@@ -15,7 +15,7 @@ export function Services() {
               Services
             </p>
             <h2 className="mt-4 font-display text-4xl md:text-5xl lg:text-6xl leading-[1.05] tracking-tight text-ink">
-              Trois façons de faire exister ton activité{" "}
+              Trois façons de faire exister votre activité{" "}
               <em className="italic font-normal text-coral">en ligne.</em>
             </h2>
           </div>

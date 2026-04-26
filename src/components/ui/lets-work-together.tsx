@@ -18,9 +18,9 @@ interface LetsWorkTogetherProps {
 export function LetsWorkTogether({
   badgeText = "Disponible pour de nouveaux projets",
   mainLine1 = "Parlons de",
-  mainLine2 = "ton projet",
+  mainLine2 = "votre projet",
   description =
-    "Une idée de site ? Une refonte qui traîne ? Dis-moi tout — je réponds sous 24h avec une vraie proposition, pas une brochure.",
+    "Une idée de site ? Un projet qui traîne ? Dites-m'en plus — je réponds sous 24h avec une vraie proposition, pas une brochure.",
   email = "contact@indysigner.fr",
   bookingHref = "tel:0769762076",
   successLabel = "Parfait",

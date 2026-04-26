@@ -54,7 +54,7 @@ export const services: Service[] = [
     number: "03",
     title: "Propriété totale à vie",
     description:
-      "Comptes GitHub et Cloudflare à ton nom, domaine transféré, admin en clair. Tu gères ton site, je disparais.",
+      "Comptes GitHub et Cloudflare à votre nom, domaine transféré, admin en clair. Vous gérez votre site, je disparais.",
   },
 ];
 
@@ -73,25 +73,25 @@ export const processSteps: ProcessStep[] = [
     number: "01",
     title: "Jour 1-2 · Brief & design",
     description:
-      "Tu remplis le brief. Je te propose une maquette sous 48h. Tu valides ou on ajuste.",
+      "Vous remplissez le brief. Je vous propose une maquette sous 48h. Vous validez ou on ajuste.",
   },
   {
     number: "02",
     title: "Jour 3-5 · Construction",
     description:
-      "Je code ton site. Rédaction, intégration, mobile, SEO local. Lien de preview partagé.",
+      "Je code votre site. Rédaction, intégration, mobile, SEO local. Lien de preview partagé.",
   },
   {
     number: "03",
     title: "Jour 6 · Ajustements",
     description:
-      "Tu me fais tes retours finaux. J'ajuste jusqu'à validation complète.",
+      "Vous me faites vos retours finaux. J'ajuste jusqu'à validation complète.",
   },
   {
     number: "04",
     title: "Jour 7 · Livraison totale",
     description:
-      "Comptes GitHub et Cloudflare à ton nom. Transfert, formation 1h, accès remis. Je disparais.",
+      "Comptes GitHub et Cloudflare à votre nom. Transfert, formation 1h, accès remis. Je disparais.",
   },
 ];
 
@@ -117,7 +117,7 @@ export const values: Value[] = [
   {
     title: "Indépendance",
     description:
-      "Tu deviens seul propriétaire de ton site. GitHub, Cloudflare, domaine — tout à ton nom.",
+      "Vous devenez seul propriétaire de votre site. GitHub, Cloudflare, domaine — tout à votre nom.",
   },
   {
     title: "Accessibilité",
@@ -126,7 +126,7 @@ export const values: Value[] = [
   },
 ];
 
-export const valuesPullQuote = "329€. Un site pro. À toi. Pour toujours. Je disparais.";
+export const valuesPullQuote = "329€. Un site pro. À vous. Pour toujours. Je disparais.";
 
 /* ============================================
    STATS
@@ -149,7 +149,7 @@ export const stats: Stat[] = [
    ============================================ */
 
 export const pricingTagline =
-  "Tu payes une fois. Tu reçois un site pro, complet, optimisé, à ton nom. Tu le gères toi-même. Je ne te recontacte jamais.";
+  "Vous payez une fois. Vous recevez un site pro, complet, optimisé, à votre nom. Vous le gérez vous-même. Je ne vous recontacte jamais.";
 
 export type MainOffer = {
   badge: string;
@@ -200,7 +200,7 @@ export const comparisonTitle =
   "Pourquoi pas Wix, Squarespace, ou une agence classique ?";
 
 export const comparisonSubtitle =
-  "Le site que tu as loué toute ta vie à 16€/mois, tu l'as payé 960€ sur 5 ans. Le mien, tu le payes 329€ une fois. Et il reste le tien.";
+  "Le site que vous avez loué toute votre vie à 16€/mois, vous l'avez payé 960€ sur 5 ans. Le mien, vous le payez 329€ une fois. Et il reste le vôtre.";
 
 export type ComparisonRow = {
   criteria: string;
@@ -241,7 +241,7 @@ export const comparison: ComparisonRow[] = [
     indysigner: "Oui",
   },
   {
-    criteria: "Tu modifies toi-même",
+    criteria: "Vous modifiez vous-même",
     wix: "Oui",
     agency: "Non",
     indysigner: "Oui",
@@ -253,7 +253,7 @@ export const comparison: ComparisonRow[] = [
     indysigner: "Gratuit à vie",
   },
   {
-    criteria: "Si tu arrêtes de payer",
+    criteria: "Si vous arrêtez de payer",
     wix: "Site supprimé",
     agency: "Site coupé",
     indysigner: "Rien ne change",
@@ -289,18 +289,18 @@ export const reassurance: ReassuranceBlock[] = [
     icon: "flag",
     title: "Freelance à Biot",
     description:
-      "Tu parles à Indy directement. Pas de commercial, pas d'intermédiaire.",
+      "Vous parlez à Indy directement. Pas de commercial, pas d'intermédiaire.",
   },
   {
     icon: "bolt",
     title: "Livraison en 7 jours",
-    description: "Une fois payé, tu as ton site dans la semaine.",
+    description: "Une fois payé, vous avez votre site dans la semaine.",
   },
   {
     icon: "lock",
     title: "Propriété totale garantie",
     description:
-      "Ton site, ton code, ton domaine, tes comptes. À toi. Pour toujours.",
+      "Votre site, votre code, votre domaine, vos comptes. À vous. Pour toujours.",
   },
 ];
 

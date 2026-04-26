@@ -27,12 +27,12 @@ export default function ContactPage() {
           <h1 className="mt-4 max-w-4xl font-display text-5xl md:text-7xl lg:text-8xl leading-[0.95] tracking-tight text-ink">
             <RevealText stagger={0.08} delay={0.1}>Parlons de</RevealText>{" "}
             <em className="italic font-normal text-coral">
-              <RevealText stagger={0.09} delay={0.35}>ton projet.</RevealText>
+              <RevealText stagger={0.09} delay={0.35}>votre projet.</RevealText>
             </em>
           </h1>
           <p className="mt-8 max-w-2xl text-lg text-ink-soft">
-            Une offre, un prix : 329€. Décris ton projet, je te réponds sous
-            24h avec un devis ferme. Ou appelle-moi — je réponds vraiment.
+            Une offre, un prix : 329€. Décrivez votre projet, je vous réponds
+            sous 24h avec un devis ferme. Ou appelez-moi — je réponds vraiment.
           </p>
 
           <div className="mt-12 flex flex-col gap-4 md:flex-row md:items-center md:gap-10 md:flex-wrap">
@@ -85,7 +85,7 @@ export default function ContactPage() {
               <em className="italic font-normal">Maquette dans les 48h.</em>
             </h2>
             <p className="mt-6 text-lg text-ink-soft">
-              Plus tu es précis, plus la réponse sera qualitative.{" "}
+              Plus vous êtes précis, plus la réponse sera qualitative.{" "}
               <Link
                 href="/offres"
                 className="text-ocean-blue underline-offset-2 hover:underline"
@@ -139,7 +139,7 @@ export default function ContactPage() {
               </div>
 
               <p className="mt-6 text-xs leading-relaxed text-muted">
-                En envoyant ce formulaire, tu acceptes nos{" "}
+                En envoyant ce formulaire, vous acceptez nos{" "}
                 <Link href="/cgv" className="underline-offset-2 hover:underline">
                   CGV
                 </Link>{" "}
@@ -161,7 +161,7 @@ export default function ContactPage() {
       <LetsWorkTogether
         mainLine1="Ou on discute"
         mainLine2="au téléphone ?"
-        description="Si t'as pas envie d'écrire, appelle-moi. C'est souvent plus rapide."
+        description="Si vous n'avez pas envie d'écrire, appelez-moi. C'est souvent plus rapide."
         email={brand.email}
         bookingHref={`tel:${brand.phone.replace(/\s/g, "")}`}
         successCopy="Discutons"

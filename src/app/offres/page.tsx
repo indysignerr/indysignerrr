@@ -44,7 +44,7 @@ const reassuranceIcons = { flag: Flag, bolt: Zap, lock: Lock };
 const tiers: PricingTier[] = [
   {
     name: "Site vitrine",
-    description: "L'offre complète. Livrée, transférée, à toi.",
+    description: "L'offre complète. Livrée, transférée, à vous.",
     price: 329,
     priceSuffix: "une fois",
     color: "ocean",
@@ -101,7 +101,7 @@ const tiers: PricingTier[] = [
         items: [
           "2 interventions majeures dans les 12 mois",
           "Ajout page, refonte section, widget, structure",
-          "À utiliser quand tu veux dans l'année",
+          "À utiliser quand vous voulez dans l'année",
         ],
       },
     ],
@@ -167,8 +167,8 @@ export default function OffresPage() {
       <section id="offre" className="relative overflow-hidden bg-paper py-24 md:py-32">
         <CreativePricing
           tag="Tarifs transparents"
-          title="Choisis ton approche."
-          description="Tu payes une fois. Tu reçois un site pro. Tu le gères. Je disparais."
+          title="Choisissez votre approche."
+          description="Vous payez une fois. Vous recevez un site pro. Vous le gérez. Je disparais."
           tiers={tiers}
         />
       </section>
@@ -183,9 +183,9 @@ export default function OffresPage() {
               Process
             </p>
             <h2 className="mt-4 font-display text-4xl md:text-5xl lg:text-6xl leading-[1.05] tracking-tight text-ink">
-              7 jours entre ton paiement et{" "}
+              7 jours entre votre paiement et{" "}
               <em className="italic font-normal text-coral">
-                la livraison de ton site.
+                la livraison de votre site.
               </em>
             </h2>
           </div>
@@ -227,7 +227,7 @@ export default function OffresPage() {
           </div>
 
           <p className="mt-14 max-w-xl font-display italic text-xl text-ink-soft">
-            Du brief initial à la remise des accès sur tes propres comptes
+            Du brief initial à la remise des accès sur vos propres comptes
             GitHub et Cloudflare.
           </p>
         </div>
@@ -301,7 +301,7 @@ export default function OffresPage() {
             </p>
             <h2 className="mt-4 font-display text-4xl md:text-5xl lg:text-6xl leading-[1.05] tracking-tight text-ink">
               Six réponses avant de{" "}
-              <em className="italic font-normal">nous parler.</em>
+              <em className="italic font-normal">nous contacter.</em>
             </h2>
           </div>
 

@@ -167,7 +167,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 14 }}
           transition={{ duration: 0.4, ease: "easeOut", delay: 0.45 }}
         >
-          Design unique. Livraison en 7 jours. Tu restes propriétaire de ton
+          Design unique. Livraison en 7 jours. Vous restez propriétaire de votre
           site — pour toujours.
         </motion.p>
 

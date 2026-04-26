@@ -15,7 +15,7 @@ export default function NotFound() {
           <em className="italic font-normal text-coral">n'existe pas.</em>
         </h1>
         <p className="mt-10 max-w-xl text-lg md:text-xl text-ink-soft">
-          Mais ton site peut exister en 7 jours pour 329€. Propriété totale
+          Mais votre site peut exister en 7 jours pour 329€. Propriété totale
           garantie, aucun abonnement, aucune dépendance.
         </p>
 

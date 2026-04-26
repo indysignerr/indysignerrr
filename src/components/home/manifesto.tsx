@@ -13,12 +13,12 @@ const promises = [
     detail: "Du brief à la mise en ligne. Pas de mois d'attente.",
   },
   {
-    label: "À toi pour toujours",
-    detail: "Code, domaine, hébergement — comptes à ton nom.",
+    label: "À vous pour toujours",
+    detail: "Code, domaine, hébergement — comptes à votre nom.",
   },
   {
     label: "Aucun abonnement",
-    detail: "Tu payes une fois. 329€. Puis plus rien. À vie.",
+    detail: "Vous payez une fois. 329€. Puis plus rien. À vie.",
   },
 ];
 
@@ -56,11 +56,11 @@ export function Manifesto() {
               )}
             </div>
             <p className="mt-6 font-display italic text-2xl md:text-3xl text-paper/90 leading-snug">
-              Un site pro. À toi. Pour toujours.
+              Un site pro. À vous. Pour toujours.
             </p>
             <p className="mt-4 max-w-md text-base text-paper/70">
-              Tu payes une fois. Je livre. Je disparais. Tu gardes tout — code,
-              domaine, comptes, admin.
+              Vous payez une fois. Je livre. Je disparais. Vous gardez tout —
+              code, domaine, comptes, admin.
             </p>
 
             <div className="mt-10 flex flex-wrap gap-3">

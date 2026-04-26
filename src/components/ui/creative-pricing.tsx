@@ -36,7 +36,7 @@ const iconTint: Record<PricingTier["color"], string> = {
 export function CreativePricing({
   tag = "Tarifs transparents",
   title = "Deux formules. Zéro surprise.",
-  description = "Propriété totale sur ton site. Choisis ce qui te va.",
+  description = "Propriété totale sur votre site. Choisissez ce qui vous convient.",
   tiers,
 }: CreativePricingProps) {
   return (

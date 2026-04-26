@@ -123,7 +123,7 @@ export function ContactForm() {
           name="message"
           required
           rows={6}
-          placeholder="Décris ton projet, tes objectifs, ton délai..."
+          placeholder="Décrivez votre projet, vos objectifs, votre délai..."
           className={cn(fieldClass, "min-h-[140px] resize-y")}
         />
       </Field>

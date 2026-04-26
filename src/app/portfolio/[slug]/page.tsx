@@ -22,7 +22,7 @@ export async function generateMetadata({
   if (!project) return {};
   return {
     title: project.name,
-    description: `${project.name} — ${project.category} (${project.year}). ${project.context}`,
+    description: `${project.name} — ${project.year}. ${project.context}`,
   };
 }
 
@@ -63,9 +63,6 @@ export default async function ProjectPage({
           </Link>
 
           <div className="mt-12 flex flex-wrap items-center gap-3">
-            <span className="inline-flex items-center rounded-full border border-line bg-paper/70 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.22em] text-ink-soft backdrop-blur">
-              {project.category}
-            </span>
             <span className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted">
               {project.year} · {project.duration}
             </span>
@@ -81,7 +78,7 @@ export default async function ProjectPage({
 
           <div className="mt-10 flex flex-wrap items-center gap-3">
             <Button asChild variant="outline">
-              <Link href="/contact">Un projet similaire ? Parle-m'en</Link>
+              <Link href="/contact">Un projet similaire ? Parlez-m'en</Link>
             </Button>
           </div>
         </div>

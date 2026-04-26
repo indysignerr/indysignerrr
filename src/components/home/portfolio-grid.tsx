@@ -58,10 +58,7 @@ export function PortfolioGrid({ limit, showHeader = true }: PortfolioGridProps) 
                   />
                   <div className="absolute inset-0 flex items-end p-8 md:p-10">
                     <div className="transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:-translate-y-1">
-                      <span className="inline-flex items-center rounded-full border border-paper/25 bg-paper/5 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.22em] text-paper/80 backdrop-blur transition-colors duration-500 group-hover:border-paper/55 group-hover:text-paper">
-                        {project.category}
-                      </span>
-                      <p className="mt-5 font-display text-3xl md:text-4xl lg:text-5xl leading-tight text-paper">
+                      <p className="font-display text-3xl md:text-4xl lg:text-5xl leading-tight text-paper">
                         {project.name}
                       </p>
                       <span className="mt-4 inline-flex items-center gap-2 overflow-hidden font-mono text-[10px] uppercase tracking-[0.22em] text-paper/0 transition-all duration-500 group-hover:text-paper/75">

@@ -31,6 +31,6 @@ gallery:
     alt: "Pas que la coupe — Univers sneakers"
     caption: "Univers · Dépôt-vente sneakers sélectionnées"
   - src: "/projects/gaosons/gaoson4.png"
-    alt: "Un salon pensé pour toi — Intérieur du salon"
+    alt: "Un salon pensé pour vous — Intérieur du salon"
     caption: "L'espace · Fauteuils premium, ambiance maîtrisée"
 ---
