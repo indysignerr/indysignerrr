@@ -118,18 +118,15 @@ const timelineDays = [
   { day: "07", label: "Livraison", accent: "Jour 7" },
 ];
 
-// 6 FAQs qui tuent les objections principales
-const faqToKill = [
-  "Est-ce que je peux vraiment tout modifier moi-même ?",
-  "Et si je casse mon site ou que je n'arrive plus à modifier quelque chose ?",
-  "Pourquoi c'est moins cher que les autres ?",
-  "Qu'est-ce qui se passe si Cloudflare ou GitHub change ses prix ?",
-  "Vous faites des e-commerces ou des systèmes de réservation ?",
-  "Je paye comment ?",
-];
-const essentialFaq = pricingFaq.filter((item) =>
-  faqToKill.includes(item.question)
-);
+// 6 FAQs qui tuent les objections principales — filtrage par `order` stable
+// pour que les modifications de texte via Decap ne cassent rien.
+//   1 = modifier soi-même        2 = casser le site
+//   3 = pourquoi moins cher      4 = Cloudflare/GitHub change ses prix
+//   7 = e-commerce / réservation 8 = paiement
+const faqOrders = [1, 2, 3, 4, 7, 8];
+const essentialFaq = pricingFaq
+  .filter((item) => faqOrders.includes(item.order))
+  .sort((a, b) => faqOrders.indexOf(a.order) - faqOrders.indexOf(b.order));
 
 export default function OffresPage() {
   return (

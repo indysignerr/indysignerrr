@@ -265,13 +265,16 @@ export const comparison: ComparisonRow[] = [
    ============================================ */
 
 export type FaqItem = {
+  order: number;
   question: string;
   answer: string;
 };
 
 // Source : content/faq/*.md (éditable via Decap CMS)
+// Le champ `order` est conservé pour pouvoir filtrer/sélectionner les
+// questions par leur position stable (les textes peuvent changer).
 export const pricingFaq: FaqItem[] = (faqData as FaqItem[]).map(
-  ({ question, answer }) => ({ question, answer })
+  ({ order, question, answer }) => ({ order, question, answer })
 );
 
 /* ============================================
