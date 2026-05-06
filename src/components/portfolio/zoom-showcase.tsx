@@ -1,13 +1,10 @@
 import { ZoomParallax } from "@/components/ui/zoom-parallax";
 
 const parallaxImages = [
-  { src: "/projects/gaosons/gaoson1.png", alt: "Gaoson's Barber Shop — hero" },
-  {
-    src: "/projects/gaosons/gaoson2.png",
-    alt: "Gaoson's — prestations",
-  },
-  { src: "/projects/gaosons/gaoson3.png", alt: "Gaoson's — sneakers" },
-  { src: "/projects/gaosons/gaoson4.png", alt: "Gaoson's — intérieur salon" },
+  { src: "/projects/gaosons/gaoson1.png", alt: "Gaoson's Barber Shop — hero éditorial" },
+  { src: "/projects/gaosons/gaoson2.png", alt: "Gaoson's — manifeste de marque" },
+  { src: "/projects/gaosons/gaoson3.png", alt: "Gaoson's — tarifs Booksy" },
+  { src: "/projects/gaosons/gaoson4.png", alt: "Gaoson's — visite et adresse" },
   { src: "/projects/wakeapp/wakeapp2.png", alt: "WakeApp — modules" },
   { src: "/projects/wakeapp/wakeapp3.png", alt: "WakeApp — CEO Mode" },
   {
