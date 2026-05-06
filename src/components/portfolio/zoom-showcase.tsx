@@ -1,16 +1,15 @@
 import { ZoomParallax } from "@/components/ui/zoom-parallax";
 
+// Mix éditorial : 3 Gaoson + 2 L'Ovive + 2 WakeApp.
+// Alternance dark / clair / coloré pour rythmer le scroll.
 const parallaxImages = [
   { src: "/projects/gaosons/gaoson1.png", alt: "Gaoson's Barber Shop — hero éditorial" },
-  { src: "/projects/gaosons/gaoson2.png", alt: "Gaoson's — manifeste de marque" },
+  { src: "/projects/lovive/lovive1.jpg", alt: "L'Ovive — hero pont de nuit" },
   { src: "/projects/gaosons/gaoson3.png", alt: "Gaoson's — tarifs Booksy" },
-  { src: "/projects/gaosons/gaoson4.png", alt: "Gaoson's — visite et adresse" },
   { src: "/projects/wakeapp/wakeapp2.png", alt: "WakeApp — modules" },
-  { src: "/projects/wakeapp/wakeapp3.png", alt: "WakeApp — CEO Mode" },
-  {
-    src: "/projects/wakeapp/wakeapp4.png",
-    alt: "WakeApp — prendre le contrôle",
-  },
+  { src: "/projects/lovive/lovive3.jpg", alt: "L'Ovive — ambiance et plats signature" },
+  { src: "/projects/gaosons/gaoson2.png", alt: "Gaoson's — manifeste de marque" },
+  { src: "/projects/wakeapp/wakeapp4.png", alt: "WakeApp — prendre le contrôle" },
 ];
 
 export function ZoomShowcase() {
